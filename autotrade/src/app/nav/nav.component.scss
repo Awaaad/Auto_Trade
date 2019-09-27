@@ -1,0 +1,78 @@
+.logo{
+    background-color: black;
+    // background-image: linear-gradient(to bottom, #000000, #141414, #202020, #2d2d2d, #3b3a3a)
+}
+.container-fluid{
+    // background-color:#3b3a3a;
+    background-color:gray;
+    color: white;
+    border-top: 3px solid white;
+}
+
+.navbar{
+    margin-bottom:0;
+}
+.container-fluid a{
+    color: white;
+    font-size:14px;
+    font-weight: 400;
+    font-family: roboto,Sans-Serif,Arial;
+    text-transform: uppercase
+}
+
+.navbar-header .navbar-brand{
+    text-decoration: none;
+    font-size:17px;
+    font-weight: 300px;
+}
+.navbar-header .navbar-brand:hover{
+    text-decoration: none;
+    font-weight: 300px;
+    // font-size:17px;
+    border-bottom: none;
+
+}
+
+.container-fluid a:hover{
+    color:white;
+    // font-size:16px;
+    border-bottom: 3px solid white;
+
+}
+.container-fluid a:visited{
+    color:white;
+    border-bottom: 3px solid white;
+    font-size:16px;
+}
+.navbar-nav .active a{
+    background-color:black;
+}
+
+.navbar-right a:hover{
+    text-decoration: none;
+}
+
+.logo img{
+    width: 100px;
+    height: 100px;
+    margin-left: 25px;
+}
+
+.navbar-nav .li .a {
+    color:white;
+}
+
+
+.navbar-nav .li .a {
+    display: inline-block;
+    border-top: 6px solid rgba(0,0,0,0);
+    height: 51px;
+    line-height: 51px;
+    position: relative;
+    top: -15px;
+}
+nav.collapse ul .li:hover {
+    border-top: 6px solid #7ad3f7;
+}
+
+

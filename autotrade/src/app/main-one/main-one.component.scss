@@ -1,0 +1,40 @@
+.container_main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.nav-tabs{
+    margin-top: 40px;
+}
+.nav-tabs>li{
+    font-size: 20px;
+}
+.nav-tabs>li>a{
+    color: gray;
+    border-radius: 0;
+}
+.nav-tabs>li.active>a{
+    border-radius: 0;
+    color:black;
+    width: 100%;
+}
+
+.nav-tabs{
+    display:flex;
+    justify-content: center;
+}
+
+.nav>li>a{
+    padding: 10px 100px;
+}
+
+img.small-car{
+    width:100%;
+    max-height: 166px;
+}
+.col-md-3{
+    margin-top:20px;
+    text-align:center;
+}
+.col-md-3:hover{
+    border: 1px solid #ddd;
+}
