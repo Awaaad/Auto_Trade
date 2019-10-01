@@ -1,30 +1,55 @@
 <nav class="navbar navbar-default">
-    <div class="logo">
-        <img src="assets\CarDeal_Logo.png">
-    </div>
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+  <div class="logo">
+    <img src="assets\CarDeal_Logo.png">
+
+    <span class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fas fa-user"></i>
+          <span class="caret"></span>
         </button>
-        <a class="navbar-brand" routerLink="/">CarDeal</a>
-      </div>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+          <li class="welcome">WELCOME</li>
+          <li><a routerLink="/login">LOGIN</a></li>
+          <li> <a routerLink="/login">REGISTER</a></li>
+        </ul>
+      </span>
+    <!-- <span class="nav-right logos"><a href="#"><i class="fas fa-shopping-cart"></i></a></span>
+    <span class="nav-right logos"><a routerLink="/login"><i class="fas fa-user"></i></a></span> -->
+    
+    <!-- <span class="dropdown">
+        <a class="dropbtn" ><i class="fas fa-user"></i></a>
+        <div class="dropdown-content">
+          <a>Welcome</a>
+          <a routerLink="/login">Login</a>
+          <a routerLink="/login">Register</a>
+        </div>
+    </span> -->
+  </div>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
-  
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a routerLink="/">Home </a></li>
-          <li><a routerLink="/inventory">Inventory</a></li>
-          <li><a routerLink="/about">About us</a></li>
-          <li><a routerLink="/contact">Contact us</a></li>
-          <li><a routerLink="/footer">Footer</a></li>
 
-          <!-- <li class="dropdown">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/">Home </a></li>
+        <li><a routerLink="/inventory">Inventory</a></li>
+        <li><a routerLink="/about">About us</a></li>
+        <li><a routerLink="/contact">Contact us</a></li>
+        <li><a routerLink="/footer">Footer</a></li>
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/sales">Sales</a></li>
+
+        <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Action</a></li>
@@ -36,21 +61,26 @@
               <li><a href="#">One more separated link</a></li>
             </ul>
           </li> -->
-        </ul>
+      </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+      <!-- <ul class="nav navbar-nav navbar-right">
 
           <li class="dropdown">
             
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login / Register</a></li>
+                <li><a routerLink="/login"><span class="glyphicon glyphicon-user"></span> Login / Register</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </div>
+                  </div>
             </ul>
           </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  
+        </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,5 +1,6 @@
 .container_main{
-    max-width: 1200px;
+    // max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 .nav-tabs{
@@ -23,13 +24,13 @@
     justify-content: center;
 }
 
-.nav>li>a{
-    padding: 10px 100px;
-}
+// .nav>li>a{
+//     padding: 10px 100px;
+// }
 
 img.small-car{
     width:100%;
-    max-height: 166px;
+    // max-height: 166px;
 }
 .col-md-3{
     margin-top:20px;
@@ -37,4 +38,26 @@ img.small-car{
 }
 .col-md-3:hover{
     border: 1px solid #ddd;
+}
+
+p{
+    font-weight:600;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.tab-content{
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+a{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.row{
+    margin-left:0;
+    margin-right:0;
 }
