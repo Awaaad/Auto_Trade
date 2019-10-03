@@ -99,20 +99,16 @@ body {
   .tab-content {
     overflow: hidden; }
     .tab-content img {
-      // width: 100%;
-      max-width: 187px;
+      width: 100%;
       -webkit-animation-name: opacity;
               animation-name: opacity;
       -webkit-animation-duration: .3s;
               animation-duration: .3s; }
   
   .card {
-    background: white;
     padding: 3em;
     line-height: 1.5em;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-   }
+    border-radius: 4px; }
   
   @media screen and (min-width: 997px) {
     .wrapper {
@@ -140,16 +136,18 @@ body {
   
   .product-title, .price, .sizes, .colors {
     text-transform: UPPERCASE;
-    font-weight: bold; }
+    font-weight: bold;
+    font-size: 20px;
+   }
   
   .checked, .price span {
-    color: #ff9f1a; }
+    color: #f7c143; }
   
   .product-title, .rating, .product-description, .price, .vote, .sizes {
     margin-bottom: 15px; }
   
   .product-title {
-    margin-top: 10px; }
+    margin-top: 0; }
   
   .size {
     margin-right: 10px; }
@@ -171,15 +169,29 @@ body {
     padding: 10px 10px;
     border: none;
     font-weight: 300;
-    color: black;
-    font-size: 12px;
-
+    color: #fff;
+    font-size: 16px;
     font-family: "Roboto", sans-serif;
     -webkit-transition: background .3s ease;
             transition: background .3s ease; }
     .add-to-cart:hover, .like:hover {
       background: #343a40;
-      color: #fff; }
+      color: white; }
+
+      .continue-shopping, .like {
+        background: #343a40;
+        padding: 10px 10px;
+        border: none;
+        font-weight: 300;
+        color: #fff;
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+        margin-right:20px;
+        -webkit-transition: background .3s ease;
+                transition: background .3s ease; }
+        .continue-shopping:hover, .like:hover {
+          background: #f7c143;
+          color: white; }
   
   .not-available {
     text-align: center;
@@ -225,13 +237,12 @@ body {
 
   .container{
       width: 100%;
-      margin-bottom: 10px;
   }
-  
 
 
   .mileage-wrap,.engine-wrap,.transmission-wrap{
-      border: 1px solid #ddd;
+      border: 1px solid #343a40;
+      background-color:#f7c143;
   }
 
   .mileage-wrap,.engine-wrap,.transmission-wrap{
@@ -255,8 +266,9 @@ body {
     text-decoration: none!important;
 }
 
-
-
+a:hover, a:link, a:visited{
+    text-decoration: none;
+}
 
 .mileage-wrap p, .engine-wrap p, .transmission-wrap p{
     text-align: center;
@@ -266,51 +278,3 @@ body {
 
 
 
-h5{
-  font-size: 15px;
-  font-weight:600;
-  display:inline;
-}
-.sub p {
-  font-size: 15px;
-  display:inline;
-}
-
-.sub h4{
-  font-weight: 600;
-  color: #f7c143;
-}
-
-.sub{
-  margin-top:15px;
-}
-
-.more-details{
-  background-color:#f7c143;
-  padding:10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  text-align: center;
-  color:white;
-}
-.more-details:hover{
-  background-color:#343a40;
-  padding:10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  text-align: center;
-  color:white;
-}
-
-.more-details a{
-  color:white;
-  text-decoration: none;
-}
-.more-details + i + a:hover{
-  color: white;
-}
-
-.col-md-6{
-  padding-left:0;
-  padding-right:0;
-}

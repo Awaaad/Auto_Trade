@@ -47,7 +47,7 @@
 }
 .container-fluid a:visited{
     color:white;
-    border-bottom: 3px solid white;
+
     font-size:16px;
 }
 .navbar-nav .active a{
@@ -169,6 +169,13 @@ nav.collapse ul .li:hover {
 
 .dropdown-menu>li>a{
     padding: 10px 20px;
+    background-color:#343a40;
+    color:white;
+}
+.dropdown-menu>li>a:hover{
+
+    background-color:rgb(53, 51, 51);
+
 }
 
 .dropdown-menu{
@@ -179,7 +186,15 @@ nav.collapse ul .li:hover {
 
 .welcome{
     padding: 10px 20px;
-    color: white;
-    background-color: gray; 
+    color: #343a40;
+    background-color: #f7c143; 
     border-radius: 4px 4px 0px 0px;   
+}
+
+.navbar-default{
+    border: none;
+}
+
+.active img{
+    max-width: 185px;
 }

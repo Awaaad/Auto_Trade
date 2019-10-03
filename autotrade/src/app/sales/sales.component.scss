@@ -1,7 +1,6 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 .col-item
 {
-    border: 1px solid #E1E1E1;
     border-radius: 5px;
     background: #FFF;
 }
@@ -11,21 +10,34 @@
     width: 100%;
 }
 
+.photo{
+    background-color: #f7c143;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.photo:hover{
+    background-color: #343a40;
+}
+
+
 .col-item .info
 {
     padding: 10px;
     border-radius: 0 0 5px 5px;
     margin-top: 1px;
+    background-color: #343a40;
+    color:white;
 }
 
-.col-item:hover .info {
-    background-color: rgb(248, 248, 248);
-}
+// .col-item:hover .info {
+//     background-color: gray;
+// }
 .col-item .price
 {
     /*width: 50%;*/
     float: left;
     margin-top: 5px;
+    width:100%;
 }
 
 .col-item .price h5
@@ -70,7 +82,7 @@
     line-height: 20px;
     margin-bottom: 0;
     margin-top: 10px;
-    text-align: center;
+    // text-align: center;
 }
 
 .col-item .separator p i
@@ -111,6 +123,11 @@
     background-color: #343a40;
     border-color: #343a40;
 }
+.btn-primary:hover{
+    background-color: gray;
+    border-color: gray;
+    transition: background-color .3s,color .2s;
+}
 
 .row{
     margin-bottom: 15px;
@@ -142,6 +159,11 @@
 }
 
 
+.price-text-color{
+    color:#f7c143
+}
 
 
-
+.btn-details a{
+    color:white;
+}

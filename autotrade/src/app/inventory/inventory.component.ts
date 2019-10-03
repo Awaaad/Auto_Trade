@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor() { }
+  filterApplied = {}
 
+  constructor() { }
   ngOnInit() {
+  }
+
+  selectedPriceRange(arrFromChildFilter): void {
+    this.filterApplied = {
+      priceRange: arrFromChildFilter
+    }
   }
 
 }

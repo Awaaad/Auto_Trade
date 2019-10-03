@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './dialog/dialog.component';
 import {CarouselModule} from "ngx-carousel-lib";
+import { CarDetailsComponent } from './car-details/car-details.component';
+import { FilterComponent } from './inventory/filter/filter.component';
+import { DetailsComponent } from './inventory/details/details.component';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import {CarouselModule} from "ngx-carousel-lib";
     MainTwoComponent,
     SalesComponent,
     DialogComponent,
+    CarDetailsComponent,
+    FilterComponent,
+    DetailsComponent,
 
   ],
   imports: [

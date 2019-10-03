@@ -137,9 +137,10 @@ img { max-width: 100%; }
 
 .form-bottom {
 	padding: 25px 25px 30px 25px;
-	background: #ddd;
+	background: #f7c143;
 	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
-	text-align: left;
+    text-align: left;
+    border: 2px solid #f7c143;
 }
 
 .form-bottom form textarea {
@@ -174,13 +175,13 @@ img { max-width: 100%; }
 	border-right: 1px solid #ddd;
 }
 
-.sr-only{
-    position: relative;
-    overflow: unset;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-}
+// .sr-only{
+//     position: relative;
+//     overflow: unset;
+//     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+//     font-size: 14px;
+//     font-weight: 400;
+// }
 /***** Footer *****/
 
 footer {
@@ -218,12 +219,12 @@ footer a:hover, footer a:focus { border-bottom: 1px dotted #19b9e7; }
 .btn{
     height: 50px;
     font-size: 18px;
-    background-color: gray;
+    background-color: #343a40;
     color:white;
 }
 .btn:hover,.btn:active,.btn-focus{
     transition: background-color .3s,color .2s;
-    background-color: #343a40;
+    background-color: gray;
     color:white;
     outline:0;
 }
@@ -275,7 +276,7 @@ textarea.form-control {
     padding: 0 20px;
     vertical-align: middle;
     background: #fff;
-    border: 3px solid #ddd;
+    // border: 2px solid #ddd;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
@@ -354,6 +355,28 @@ button.btn:active:focus, button.btn.active:focus { outline: 0;  background: #343
 
 
 
+.form-group{
+    position:relative;
+}
+
+.form-group i{
+    position:absolute;
+    left:0;
+    top:11px;
+    // padding:20px 15px;
+    padding: 1px 15px;
+    color:#343a40;
+    transition:.3s;
+    font-size: x-large;
+}
+
+.form-group input{
+    padding-left: 40px;
+}
+
+.form-group textarea{
+    padding-left: 40px;
+}
 
 iframe#gmap_canvas{
     width: 100%;

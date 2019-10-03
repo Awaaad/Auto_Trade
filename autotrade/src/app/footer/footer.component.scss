@@ -1,7 +1,6 @@
 .footer{
     background: #343a40;
     color:white;
-    border: 1px solid white;
     
     .links{
       ul {list-style-type: none;}
@@ -108,4 +107,9 @@ input[type=email]{
 .row{
   margin-left: 0;
   margin-right:0;
+}
+
+.container p{
+  color: white;
+  text-align: justify;
 }
