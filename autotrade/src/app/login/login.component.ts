@@ -11,5 +11,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  model: any = {};
+
+  onSubmit() {
+    if(document.getElementById("login")){
+      alert('You successfully logged in!)\n\n' + JSON.stringify(this.model))
+    }
+    else
+    {
+      alert('You successfully logged in!)\n\n' + JSON.stringify(this.model))
+    }
+  }
 
 }

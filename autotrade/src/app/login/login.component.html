@@ -19,19 +19,24 @@
           </div>
         </div>
         <div class="form-bottom">
-          <form #loginForm="ngForm" action="" method="post" class="login-form">
-            <div class="form-group">
-              <label class="sr-only" for="form-username">Username</label>
-              <input type="text" required  name="form-username" placeholder="Username..." class="form-username form-control is invalid"
-                id="form-username"><i class="fa fa-user-o" aria-hidden="true"></i>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="form-password">Password</label>
-              <input type="password" name="form-password" placeholder="Password..." class="form-password form-control"
-                id="form-password"><i class="fa fa-key"></i>
-            </div>
-            <button type="submit" class="btn">Sign in!</button>
-          </form>
+            <form name="form1" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <input type="text" class="from-name form-control" name="username" [(ngModel)]="model.username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" placeholder="Username..." required /><i class="fas fa-user"></i>
+                    <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                        <div *ngIf="username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="loginPass" [(ngModel)]="model.loginPass" #loginPass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && loginPass.invalid }" required placeholder="Password..." minlength="6" /><i class="fas fa-key"></i>
+                    <div *ngIf="f.submitted && loginPass.invalid" class="invalid-feedback">
+                        <div *ngIf="loginPass.errors.required">Password is required</div>
+                        <div *ngIf="loginPass.errors.minlength">Password must be at least 6 characters</div>
+                        
+                    </div>
+                </div>
+              <button type="submit" class="btn" id="login">Sign in!</button>
+              <p class="msg_success"></p>
+            </form>
         </div>
       </div>
 
@@ -51,28 +56,7 @@
       </div>
 
 
-      <!--  -->
-      <!-- <div class="social-login">
-        <h3>...or login with:</h3>
-        <div class="social-login-buttons"></div>
-      <div class="row">
-            <div class="col-sm-4 col-xs-4">
-                    <a class="btn btn-link-1 btn-link-1-facebook" href="#">
-                            <i class="fab fa-facebook-f"></i> Facebook
-                          </a>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-                    <a class="btn btn-link-1 btn-link-1-twitter" href="#">
-                            <i class="fab fa-twitter"></i> Twitter
-                          </a>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-                    <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-                            <i class="fab fa-google-plus-g"></i> Google Plus
-                          </a>
-            </div>
-          </div> -->
-      <!--  -->
+
     </div>
     <div id="menu1" class="tab-pane fade">
       <div class="form-box">
@@ -86,32 +70,7 @@
           </div>
         </div>
         <div class="form-bottom">
-          <form role="form" action="" method="post" class="registration-form">
-            <div class="form-group">
-              <label class="sr-only" for="form-first-name">First name</label>
-              <input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control"
-                id="form-first-name"><i class="fa fa-user-o" aria-hidden="true"></i>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="form-last-name">Last name</label>
-              <input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control"
-                id="form-last-name"><i class="fa fa-user-o" aria-hidden="true"></i>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="form-email">Email</label>
-              <input type="text" name="form-email" placeholder="Email..." class="form-email form-control"
-                id="form-email"><i class="fa fa-envelope-o" aria-hidden="true"></i>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="form-password">Password</label>
-              <input type="password" name="form-password" placeholder="Password..." class="form-password form-control"><i class="fa fa-key"></i>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="form-password">Confirm Password</label>
-              <input type="password" name="form-password" placeholder="Confirm Password..." class="form-password form-control"><i class="fa fa-key" aria-hidden="true"></i>
-            </div>
-            <button type="submit" class="btn">Sign me up!</button>
-          </form>
+            <app-register></app-register>
         </div>
       </div>
     </div>

@@ -9,7 +9,16 @@ export class ContactUsComponent implements OnInit {
 
   constructor() { }
 
+  user={
+    name: ''
+  }
+
   ngOnInit() {
+  }
+  model: any = {};
+
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
   }
 
 }

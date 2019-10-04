@@ -2,21 +2,115 @@
   <div class="logo">
     <img src="assets\CarDeal_Logo.png">
 
+
+
+
     <span class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <i class="fas fa-user"></i>
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-          <li class="welcome">WELCOME</li>
-          
-          <li><a routerLink="/login">LOGIN</a></li>
-          <li> <a routerLink="/login">REGISTER</a></li>
-        </ul>
-      </span>
+      <button (click)="showDialog = !showDialog" class="btn btn-default dropdown-toggle" type="button"
+        id="dropdownMenu1"><i class="fas fa-cart-arrow-down"></i> </button>
+
+      <app-dialog [(visible)]="showDialog">
+        <div class="container">
+          <table id="cart" class="table table-hover table-condensed">
+            <thead>
+              <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-th="Product">
+                  <div class="row">
+                    <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..."
+                        class="img-responsive" /></div>
+                    <div class="col-sm-10">
+                      <h4 class="nomargin">Product 1</h4>
+           
+                    </div>
+                  </div>
+                </td>
+                <td data-th="Price">$1.99</td>
+                <td data-th="Quantity">
+                  <input type="number" class="form-control text-center" value="1">
+                </td>
+                <td data-th="Subtotal" class="text-center">1.99</td>
+                <td class="actions" data-th="">
+                  <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                  <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="visible-xs">
+                <td class="text-center"><strong>Total 1.99</strong></td>
+              </tr>
+              <tr>
+                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <button (click)="showDialog = !showDialog" class="btn">Close</button>
+      </app-dialog>
+    </span>
+
+
+
+
+    <!-- <div class="thumbnail">
+      <h4 class="text-center"><span class="label label-info">Apple</span></h4>
+      <img src="http://placehold.it/650x450&text=iPhone 6" class="img-responsive">
+      <div class="caption">
+        <div class="row">
+          <div class="col-md-6 col-xs-6">
+            <h3>iPhone 6</h3>
+          </div>
+          <div class="col-md-6 col-xs-6 price">
+            <h3>
+              <label>$749.99</label></h3>
+          </div>
+        </div>
+        <p>32GB, 64Bit, 1080HD, 4.7 inches, iOS 8</p>
+        <div class="row">
+          <div class="col-md-6">
+            <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span>
+              Like</a>
+          </div>
+          <div class="col-md-6">
+            <a href="#" class="btn btn-success btn-product"><span
+                class="glyphicon glyphicon-shopping-cart"></span>
+              Buy</a></div>
+        </div>
+
+        <p> </p>
+      </div>
+    </div> -->
+
+
+    <span class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="true">
+        <i class="fas fa-user"></i>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+        <li class="welcome">WELCOME</li>
+
+        <li><a routerLink="/login">LOGIN</a></li>
+        <li> <a routerLink="/login">REGISTER</a></li>
+      </ul>
+    </span>
+
     <!-- <span class="nav-right logos"><a href="#"><i class="fas fa-shopping-cart"></i></a></span>
     <span class="nav-right logos"><a routerLink="/login"><i class="fas fa-user"></i></a></span> -->
-    
+
     <!-- <span class="dropdown">
         <a class="dropbtn" ><i class="fas fa-user"></i></a>
         <div class="dropdown-content">
@@ -43,10 +137,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a routerLink="/">Home </a></li>
-        <li><a routerLink="/inventory">Inventory</a></li>
+        <li><a routerLink="/inventory">Shop Cars</a></li>
         <li><a routerLink="/contact">Contact us</a></li>
-        <li><a routerLink="/sales">Sales</a></li>
-        <li><a routerLink="/car-details">Car Details</a></li>
+        <!-- <li><a routerLink="/sales">Sales</a></li> -->
+        <!-- <li><a routerLink="/car-details">Car Details</a></li> -->
 
         <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

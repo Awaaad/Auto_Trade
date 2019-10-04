@@ -19,4 +19,8 @@ export class InventoryComponent implements OnInit {
     }
   }
 
+    // selectedColourChange(selectedColour: string = 'blue') : void {
+  //   this.filterApplied.color = selectedColour;
+  // }
+
 }
