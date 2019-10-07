@@ -7,19 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-  filterApplied = {}
+  filterApplied = {};
 
   constructor() { }
   ngOnInit() {
   }
 
-  selectedPriceRange(arrFromChildFilter): void {
+  selectedPriceRange(arr): void {
+    console.log('selected', arr[0]);
+    console.log('selected', arr[1]);
     this.filterApplied = {
-      priceRange: arrFromChildFilter
-    }
+      priceRange: arr[0],
+      brand: arr[1]
+    };
   }
 
-    // selectedColourChange(selectedColour: string = 'blue') : void {
+  //   selectedColourChange(selectedColour: string) : void {
   //   this.filterApplied.color = selectedColour;
   // }
 

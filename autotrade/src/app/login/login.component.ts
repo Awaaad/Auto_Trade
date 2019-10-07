@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  isDisplayed: boolean = false;
+  isHidden: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -14,13 +17,15 @@ export class LoginComponent implements OnInit {
   model: any = {};
 
   onSubmit() {
-    if(document.getElementById("login")){
-      alert('You successfully logged in!)\n\n' + JSON.stringify(this.model))
-    }
-    else
-    {
-      alert('You successfully logged in!)\n\n' + JSON.stringify(this.model))
-    }
+    this.isDisplayed = true;
+    this.isHidden = false;
+    //document.getElementById("logged").innerHTML= "Successfully logged in!";
+
+    // console.log(this.isDisplayed)
   }
 
+  isLogin: boolean = true;
+  onClick(){
+    this.isLogin = !this.isLogin;
+  }
 }

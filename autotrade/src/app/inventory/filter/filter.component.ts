@@ -17,13 +17,30 @@ export class FilterComponent implements OnInit {
     { name: 'Rs500 000 - Rs700 000', value: 'Rs500 000 - Rs700 000', range: { min: 500001, max: 700000 }, checked: false }
   ];
 
+  public brandOptions = [
+    { name: 'Suzuki', value: 'Suzuki', checked: true },
+    { name: 'Mitsubishi', value: 'Mitsubishi', checked: false },
+    { name: 'Kia', value: 'Kia', checked: false },
+    { name: 'Nissan', value: 'Nissan', checked: false }
+  ];
+
   ngOnInit() {
     this.onFilter();
   }
 
   onFilter() {
     const arrOptions = this.priceOptions.filter((priceOption) => priceOption.checked);
-    this.filterEmitter.emit(arrOptions);
+    const arrOptionsBrand = this.brandOptions.filter((brandOption) => brandOption.checked);
+
+    let arrOfObj = [arrOptions, arrOptionsBrand];
+    this.filterEmitter.emit(arrOfObj);
+    console.log(arrOfObj);
+    // this.filterEmitter.emit(arrOptionsBrand);
   }
+  
+  // onFilterBrand() {
+  //   const arrOptions = this.brandOptions.filter((brandOption) => brandOption.checked);
+  //   this.filterEmitter.emit(arrOptions);
+  // }
 
 }

@@ -19,7 +19,7 @@
 }
 .container-fluid a{
     color: white;
-    font-size:14px;
+    font-size:18px;
     font-weight: 400;
     font-family: roboto,Sans-Serif,Arial;
     text-transform: uppercase
@@ -171,6 +171,7 @@ nav.collapse ul .li:hover {
     padding: 10px 20px;
     background-color:#343a40;
     color:white;
+    font-size:18px;
 }
 .dropdown-menu>li>a:hover{
 
@@ -189,6 +190,7 @@ nav.collapse ul .li:hover {
     color: #343a40;
     background-color: #f7c143; 
     border-radius: 4px 4px 0px 0px;   
+    font-size: 18px;
 }
 
 .navbar-default{
@@ -248,3 +250,8 @@ tr{
 }
 
 tr:hover td {background:#343a40;}
+
+// .navbar-default .navbar-collapse, .navbar-default .navbar-form{
+//     width:1170px;
+//     margin:0 auto;
+// }

@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import { FilterService } from '../filter/filter.service';
 
 @Component({
-  selector: 'app-details',
+selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss', '../inventory.component.scss']
 })
@@ -10,8 +10,9 @@ export class DetailsComponent implements OnInit, OnChanges {
 
   @Input() currentFilter: any;
 
+  arr: any[] = [];
   cardetails: any[];
-  constructor(private filterService: FilterService) {
+  constructor() {
     this.initialiseCarDetails();
   }
 
@@ -19,9 +20,10 @@ export class DetailsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes);
+
     if (changes.currentFilter) {
       const priceRange = changes.currentFilter.currentValue.priceRange;
+      const brand = changes.currentFilter.currentValue.brand;
 
       if (priceRange.length) {
         const minPrice = priceRange[0].range.min;
@@ -36,7 +38,33 @@ export class DetailsComponent implements OnInit, OnChanges {
         }) || [];
       }
 
-      console.log('priceRange', priceRange);
+      if (brand.length) {
+        this.initialiseCarDetails();
+
+        this.arr = [];
+
+        this.cardetails.filter((detail) => {
+
+
+          brand.filter(element => {
+            console.log(detail.title),
+            console.log(element.name)
+            if(detail.title == element.name) {
+              this.arr.push(detail);
+            }
+          });
+
+          //return detail.title == brand[0].name;
+
+          
+
+           
+        })
+
+        console.log('arr', this.arr);
+
+        
+      }
     }
   }
 

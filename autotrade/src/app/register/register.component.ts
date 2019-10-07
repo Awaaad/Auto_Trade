@@ -16,9 +16,9 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit() {
-      alert('You successfully registered!\n\n');
-      return("Successfully logged in");
+      // alert('You successfully registered!\n\n');
+      document.getElementById("registered").innerHTML= "You are now a member";
       }
 }
 
-document.getElementById("logged").innerHTML = onSubmit();
+

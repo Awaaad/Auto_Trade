@@ -368,3 +368,13 @@ button.btn:active:focus, button.btn.active:focus { outline: 0;  background: #343
 .form-group input{
     padding-left: 40px;
 }
+
+.message p{
+    background: #009432;
+    color: white;
+    font-size: 20px;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
