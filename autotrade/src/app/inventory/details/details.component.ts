@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import { FilterService } from '../filter/filter.service';
 
 @Component({
-selector: 'app-details',
+  selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss', '../inventory.component.scss']
 })
@@ -10,7 +10,6 @@ export class DetailsComponent implements OnInit, OnChanges {
 
   @Input() currentFilter: any;
 
-  arr: any[] = [];
   cardetails: any[];
   constructor() {
     this.initialiseCarDetails();
@@ -20,51 +19,59 @@ export class DetailsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-
+    console.warn(changes)
     if (changes.currentFilter) {
       const priceRange = changes.currentFilter.currentValue.priceRange;
       const brand = changes.currentFilter.currentValue.brand;
+      const year = changes.currentFilter.currentValue.year;
 
+      this.initialiseCarDetails();
+
+      // FOR PRICE RANGE
       if (priceRange.length) {
         const minPrice = priceRange[0].range.min;
         const maxPrice = priceRange[priceRange.length - 1].range.max;
-
-        this.initialiseCarDetails();
 
         this.cardetails = this.cardetails.filter((carDetail) => {
           if (carDetail.price >= minPrice && carDetail.price <= maxPrice) {
             return carDetail;
           }
         }) || [];
+
       }
 
+      // FOR YEAR
+      if (year.length) {
+
+        const arrayYears = year.map((yearObj) => {
+          // tslint:disable-next-line: radix
+          return (yearObj.value);
+
+        });
+
+        console.log('arrayYears', arrayYears);
+
+        this.cardetails = this.cardetails.filter((detail) => {
+          if (arrayYears.includes(detail.year)) {
+            return detail;
+          }
+        });
+
+      }
+
+      // FOR BRAND
       if (brand.length) {
-        this.initialiseCarDetails();
+        const arrBrandNames = brand.map((brandDetail) => {
+          return brandDetail.name.toLowerCase();
+        });
 
-        this.arr = [];
-
-        this.cardetails.filter((detail) => {
-
-
-          brand.filter(element => {
-            console.log(detail.title),
-            console.log(element.name)
-            if(detail.title == element.name) {
-              this.arr.push(detail);
-            }
-          });
-
-          //return detail.title == brand[0].name;
-
-          
-
-           
-        })
-
-        console.log('arr', this.arr);
-
-        
+        this.cardetails = this.cardetails.filter((detail) => {
+          if (arrBrandNames.includes(detail.title.toLowerCase())) {
+            return detail;
+          }
+        });
       }
+
     }
   }
 
@@ -82,16 +89,40 @@ export class DetailsComponent implements OnInit, OnChanges {
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
       fuel: 'Diesel',
-      year: '2015',
+      year: '2019',
       price: 300000
+    },
+    {
+      title: 'Kia',
+      power: '69bhp@6000rpm',
+      mileage: 'km/liter',
+      fuel: 'Diesel',
+      year: '2018',
+      price: 300500
+    },
+    {
+      title: 'Nissan',
+      power: '69bhp@6000rpm',
+      mileage: 'km/liter',
+      fuel: 'Diesel',
+      year: '2016',
+      price: 305000
     },
     {
       title: 'Mitsubishi',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
       fuel: 'Petrol',
-      year: '2011',
-      price: 500000
+      year: '2017',
+      price: 550000
+    },
+    {
+      title: 'Mitsubishi',
+      power: '69bhp@6000rpm',
+      mileage: 'km/liter',
+      fuel: 'Petrol',
+      year: '2018',
+      price: 100000
     }];
   }
 

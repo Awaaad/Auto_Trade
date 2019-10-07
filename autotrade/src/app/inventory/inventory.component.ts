@@ -18,7 +18,8 @@ export class InventoryComponent implements OnInit {
     console.log('selected', arr[1]);
     this.filterApplied = {
       priceRange: arr[0],
-      brand: arr[1]
+      brand: arr[1],
+      year: arr[2]
     };
   }
 

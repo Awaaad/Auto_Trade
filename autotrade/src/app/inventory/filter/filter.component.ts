@@ -21,7 +21,15 @@ export class FilterComponent implements OnInit {
     { name: 'Suzuki', value: 'Suzuki', checked: true },
     { name: 'Mitsubishi', value: 'Mitsubishi', checked: false },
     { name: 'Kia', value: 'Kia', checked: false },
-    { name: 'Nissan', value: 'Nissan', checked: false }
+    { name: 'Nissan', value: 'Nissan', checked: false },
+    { name: 'Mazda', value: 'Mazda', checked: false }
+  ];
+
+  public yearOptions = [
+    { name: '2019', value: '2019', checked: true },
+    { name: '2018', value: '2018', checked: false },
+    { name: '2017', value: '2017', checked: false },
+    { name: '2016', value: '2016', checked: false }
   ];
 
   ngOnInit() {
@@ -31,8 +39,9 @@ export class FilterComponent implements OnInit {
   onFilter() {
     const arrOptions = this.priceOptions.filter((priceOption) => priceOption.checked);
     const arrOptionsBrand = this.brandOptions.filter((brandOption) => brandOption.checked);
+    const arrOptionsYear = this.yearOptions.filter((yearOption) => yearOption.checked);
 
-    let arrOfObj = [arrOptions, arrOptionsBrand];
+    let arrOfObj = [arrOptions, arrOptionsBrand, arrOptionsYear];
     this.filterEmitter.emit(arrOfObj);
     console.log(arrOfObj);
     // this.filterEmitter.emit(arrOptionsBrand);
