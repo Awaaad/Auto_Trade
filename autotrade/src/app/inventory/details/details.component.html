@@ -1,11 +1,12 @@
 <div class="card" *ngFor="let cardetail of cardetails">
+  <div (click)="onClick(cardetail.id)">
   <div class="container-fliud">
     <div class="wrapper row">
       <div class="preview col-md-4">
 
         <div class="preview-pic tab-content">
           <div class="tab-pane active" id="pic-1">
-            <img src="assets\Suzuki-Swift\marutisuzuki-swift.jpg" /></div>
+            <img src="{{cardetail.carImage}}" /></div>
 
         </div>
 
@@ -48,4 +49,5 @@
 
     </div>
   </div>
+</div>
 </div>

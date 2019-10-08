@@ -6,6 +6,8 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
 import { SalesComponent } from './sales/sales.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { DetailsComponent} from './inventory/details/details.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path: 'inventory', component: InventoryComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sales', component: SalesComponent},
-  {path: 'car-details', component: CarDetailsComponent}
+  {path: 'car-details', component: CarDetailsComponent},
+  {path: 'details/:id', component: CarDetailsComponent},
+
 ];
 
 @NgModule({

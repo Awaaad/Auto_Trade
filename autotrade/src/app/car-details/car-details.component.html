@@ -3,7 +3,7 @@
     <div class="container-fliud">
       <div class="wrapper row">
         <div class="preview col-md-6">
-
+          
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1"><img src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" />
             </div>
@@ -28,7 +28,8 @@
 
         </div>
         <div class="details col-md-6">
-          <h3 class="product-title">Nissan - Micra</h3>
+          <h1>{{CarDetailId}}</h1>
+          <h3 class="product-title">{{carDetails[0].title}}</h3>
           <h4 class="description"> Description: </h4>
           <p class="product-description">Nissan Micra 2018 is primarily an updated version of the hatchback, which
             gets additional comfort and safety features. There are no changes to the exterior and interior
@@ -43,7 +44,7 @@
                 <div class="mileagetag">Mileage</div>
 
               </a>
-              <p>19.34 kmpl</p>
+              <p>{{carDetails[0].mileage}}</p>
             </div>
             <div class="engine-wrap col-md-4 col-sm-4 col-xs-12">
               <a class="engine">
@@ -57,45 +58,25 @@
                 <img src="assets\sales-spec\transmission.png" />
                 <div class="transmissiontag">Transmission</div>
               </a>
-              <p>Automatic</p>
+              <p>{{carDetails[0].transmission}}</p>
             </div>
           </div>
 
-          <h5 class="price">current price: <span>Rs400,500</span></h5>
+          <h5 class="price">current price: <span>Rs {{carDetails[0].price}}</span></h5>
           <p class="vote"><strong>91%</strong> of buyers enjoyed this product!</p>
           <div class="action">
             <button class="continue-shopping btn btn-default" type="button"><i class="fas fa-arrow-left"></i>   Continue Shopping</button>
             <button class="add-to-cart btn btn-default" type="button"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
 
           </div>
-          <!-- <div class="form-box">
-              <div class="form-top">
-                <div class="form-top-left">
-                  <h3>Ask Us</h3>
-                  <p>Please fill the below form with your query:</p>
-                </div>
-                <div class="form-top-right">
-                </div>
-              </div>
-              <div class="form-bottom">
-                <form role="form" action="" method="post" class="login-form">
-                  <div class="form-group">
-                    <label class="sr-only" for="form-name">Username</label>
-                    <input type="text" name="form-name" placeholder="Name..." class="form-name form-control"><i class="fa fa-user-o" aria-hidden="true"></i>
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for="form-email">Password</label>
-                    <input type="email" name="form-email" placeholder="Email..." class="form-email form-control"><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for="form-message">Message</label>
-                    <textarea class="form-control" id="message" rows="6" placeholder="Message..." required></textarea><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </div>
-                  <button type="submit" class="btn">Submit</button>
-                </form>
-              </div>
-            </div> -->
+
         </div>
       </div>
     </div>
   </div>
+
+  <h3>You selected</h3>
+  <h2>{{carDetails[0].title}}</h2>
+  <h2>{{carDetails[0].id}}</h2>
+  {{carDetails | json}}
+  

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { FilterService } from '../filter/filter.service';
-
+import { Router} from '@angular/router';
+import { DetailsService } from './details.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -11,12 +11,20 @@ export class DetailsComponent implements OnInit, OnChanges {
   @Input() currentFilter: any;
 
   cardetails: any[];
-  constructor() {
+  details: { id: number; title: string; power: string; mileage: string; fuel: string; year: string; price: number; }[];
+  // tslint:disable-next-line: variable-name
+  constructor(private _router: Router, private _detailsService: DetailsService) {
     this.initialiseCarDetails();
   }
 
   ngOnInit() {
+    this.details = this._detailsService.getCarDetails();
   }
+
+  onClick(id: number){
+    this._router.navigate(['/details', id]);
+  }
+
 
   ngOnChanges(changes: SimpleChanges) {
     console.warn(changes)
@@ -77,14 +85,17 @@ export class DetailsComponent implements OnInit, OnChanges {
 
   private initialiseCarDetails(): void {
     this.cardetails = [{
+      id: 1,
       title: 'Suzuki',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
       fuel: 'Diesel',
       year: '2019',
-      price: 100000
+      price: 100000,
+      carImage: '../../../assets/Suzuki-Swift/marutisuzuki-swift.jpg'
     },
     {
+      id: 2,
       title: 'Mazda',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
@@ -93,6 +104,7 @@ export class DetailsComponent implements OnInit, OnChanges {
       price: 300000
     },
     {
+      id: 3,
       title: 'Kia',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
@@ -101,6 +113,7 @@ export class DetailsComponent implements OnInit, OnChanges {
       price: 300500
     },
     {
+      id: 4,
       title: 'Nissan',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
@@ -109,6 +122,7 @@ export class DetailsComponent implements OnInit, OnChanges {
       price: 305000
     },
     {
+      id: 5,
       title: 'Mitsubishi',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',
@@ -117,6 +131,7 @@ export class DetailsComponent implements OnInit, OnChanges {
       price: 550000
     },
     {
+      id: 6,
       title: 'Mitsubishi',
       power: '69bhp@6000rpm',
       mileage: 'km/liter',

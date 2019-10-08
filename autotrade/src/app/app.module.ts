@@ -14,13 +14,14 @@ import { SalesComponent } from './sales/sales.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './dialog/dialog.component';
-import {CarouselModule} from "ngx-carousel-lib";
+import {CarouselModule} from 'ngx-carousel-lib';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { FilterComponent } from './inventory/filter/filter.component';
 import { DetailsComponent } from './inventory/details/details.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { DetailsService } from './inventory/details/details.service';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { RegisterComponent } from './register/register.component';
     CartComponent,
     RegisterComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { RegisterComponent } from './register/register.component';
     CarouselModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DetailsService],
   bootstrap: [AppComponent]
 })
 
