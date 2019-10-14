@@ -1,14 +1,11 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" >
   <div class="container-top">
   <div class="logo">
+    <div class="logo-resize">
     <img src="assets\CarDeal_Logo.png">
-
-
-
-
     <span class="dropdown">
       <button (click)="showDialog = !showDialog" class="btn btn-default dropdown-toggle" type="button"
-        id="dropdownMenu1"><i class="fas fa-cart-arrow-down"></i> </button>
+        id="dropdownMenu1"><i class="fas fa-cart-arrow-down"></i><div class="cartlabel">CART</div></button>
 
       <app-dialog [(visible)]="showDialog">
         <div class="container">
@@ -64,62 +61,24 @@
 
 
 
-
-    <!-- <div class="thumbnail">
-      <h4 class="text-center"><span class="label label-info">Apple</span></h4>
-      <img src="http://placehold.it/650x450&text=iPhone 6" class="img-responsive">
-      <div class="caption">
-        <div class="row">
-          <div class="col-md-6 col-xs-6">
-            <h3>iPhone 6</h3>
-          </div>
-          <div class="col-md-6 col-xs-6 price">
-            <h3>
-              <label>$749.99</label></h3>
-          </div>
-        </div>
-        <p>32GB, 64Bit, 1080HD, 4.7 inches, iOS 8</p>
-        <div class="row">
-          <div class="col-md-6">
-            <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span>
-              Like</a>
-          </div>
-          <div class="col-md-6">
-            <a href="#" class="btn btn-success btn-product"><span
-                class="glyphicon glyphicon-shopping-cart"></span>
-              Buy</a></div>
-        </div>
-
-        <p> </p>
-      </div>
-    </div> -->
-
-
+<!-- 
     <span class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="true">
+        aria-haspopup="true" aria-expanded="true" routerLink="/login">
         <i class="fas fa-user"></i>
         <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        <li class="welcome">WELCOME</li>
-
-        <li><a routerLink="/login">LOGIN</a></li>
-        <li> <a routerLink="/login">REGISTER</a></li>
-      </ul>
-    </span>
-
-    <!-- <span class="nav-right logos"><a href="#"><i class="fas fa-shopping-cart"></i></a></span>
-    <span class="nav-right logos"><a routerLink="/login"><i class="fas fa-user"></i></a></span> -->
-
-    <!-- <span class="dropdown">
-        <a class="dropbtn" ><i class="fas fa-user"></i></a>
-        <div class="dropdown-content">
-          <a>Welcome</a>
-          <a routerLink="/login">Login</a>
-          <a routerLink="/login">Register</a>
-        </div>
+      </button><label>LOGIN</label>
     </span> -->
+
+    <ul class="dropdown" >
+      <div class="loginlabel">
+      <li><i class="nav-item nav-link fas fa-user" ></i><div><a routerLink="/login">LOGIN / REGISTER</a></div></li>
+      <li><a class="nav-item nav-link"  *ngIf="currentUser" (click)="logout()">Logout</a></li>
+      </div>
+      <!-- <button (click)="logout()">LogOut</button> -->
+    </ul>
+  
+  </div>
   </div>
 </div>
   <div class="container-fluid">
@@ -141,41 +100,12 @@
         <li><a routerLink="/">Home </a></li>
         <li><a routerLink="/inventory">Cars</a></li>
         <li><a routerLink="/contact">Contact us</a></li>
-        <!-- <li><a routerLink="/sales">Sales</a></li> -->
-        <!-- <li><a routerLink="/car-details">Car Details</a></li> -->
-
-        <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li> -->
+        
       </ul>
+    </div>
+  </div>
 
-      <!-- <ul class="nav navbar-nav navbar-right">
 
-          <li class="dropdown">
-            
-            <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/login"><span class="glyphicon glyphicon-user"></span> Login / Register</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-                <div class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
-                    <div class="dropdown-content">
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
-                    </div>
-                  </div>
-            </ul>
-          </li>
-        </ul> -->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>
+
+

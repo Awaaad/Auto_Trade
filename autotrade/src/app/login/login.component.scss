@@ -235,7 +235,10 @@ footer a:hover, footer a:focus { border-bottom: 1px dotted #19b9e7; }
     max-width: 500px;
     margin: 0 auto;
 }
-
+.nav-tabs li{
+    width: -webkit-fill-available;
+    text-align: center;
+}
 .nav-tabs{
     justify-content: center;
     display: flex;
@@ -252,8 +255,9 @@ footer a:hover, footer a:focus { border-bottom: 1px dotted #19b9e7; }
 }
 .nav-tabs>li.active>a{
     border-radius: 0;
-    color:#343a40;
+    color:white;
     width: 100%;
+    background-color:#343a40;
 }
 
 
@@ -378,3 +382,7 @@ button.btn:active:focus, button.btn.active:focus { outline: 0;  background: #343
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+
+
+

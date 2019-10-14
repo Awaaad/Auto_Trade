@@ -1,5 +1,4 @@
 <div class="card" *ngFor="let cardetail of cardetails">
-  <div (click)="onClick(cardetail.id)">
   <div class="container-fliud">
     <div class="wrapper row">
       <div class="preview col-md-4">
@@ -15,39 +14,54 @@
       <div class="details col-md-8">
         <div class="row">
           <div class="col-md-6">
-            <h3 class="product-title">{{ cardetail.title }}</h3>
+            <h2 class="product-title">{{ cardetail.brand }}</h2>
           </div>
           <div class="col-md-6">
-            <div class="more-details"><i class="fa fa-list"></i><a routerLink="/car-details" class="hidden-xs">
-                More
-                details</a></div>
+            <div class="more-details"><button (click)="onClick(cardetail.id)" class="hidden-xs">
+                <i class="fa fa-list"></i> More details</button></div>
           </div>
         </div>
-
-        <div class="row sub">
-          <div class="power">
-            <h5>Power:</h5>
-            <p> {{ cardetail.power }}</p>
-          </div>
-          <div class="mileage">
-            <h5>Mileage:</h5>
-            <p>{{ cardetail.mileage }}</p>
-          </div>
-          <div class="fuel">
-            <h5>Fuel:</h5>
-            <p>{{ cardetail.fuel }}</p>
-          </div>
-          <div class="year">
-            <h5>Year:</h5>
-            <p>{{ cardetail.year }}</p>
-          </div>
-
-          <h4>Rs {{cardetail.price }}</h4>
-
-        </div>
+        <table id="customers">
+          <tr>
+            <div class="bold">
+              <td>Model:</td>
+            </div>
+            <td>{{ cardetail.model }}</td>
+          </tr>
+          <tr>
+            <div class="bold">
+              <td>Engine:</td>
+            </div>
+            <td>{{ cardetail.engine }}</td>
+          </tr>
+          <tr>
+            <div class="bold">
+              <td>Mileage:</td>
+            </div>
+            <td>{{ cardetail.mileage }}</td>
+          </tr>
+          <tr>
+            <div class="bold">
+              <td>Fuel:</td>
+            </div>
+            <td>{{ cardetail.fuel }}</td>
+          </tr>
+          <tr>
+            <div class="bold">
+              <td>Year:</td>
+            </div>
+            <td>{{ cardetail.year }}</td>
+          </tr>
+          <tr>
+            <div class="bold">
+              <td>Type:</td>
+            </div>
+            <td>{{ cardetail.type }}</td>
+          </tr>
+        </table>
+        <h2 class="price">Rs {{cardetail.price}}</h2>
       </div>
-
     </div>
   </div>
-</div>
+
 </div>

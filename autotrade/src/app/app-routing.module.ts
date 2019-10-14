@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SalesComponent } from './sales/sales.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { DetailsComponent} from './inventory/details/details.component';
-
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +17,8 @@ const routes: Routes = [
   {path: 'sales', component: SalesComponent},
   {path: 'car-details', component: CarDetailsComponent},
   {path: 'details/:id', component: CarDetailsComponent},
-
+  {path: 'about-us', component: AboutUsComponent}
+  // {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
@@ -25,3 +26,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const appRoutingModule = RouterModule.forRoot(routes);

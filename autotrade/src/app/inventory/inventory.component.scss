@@ -29,10 +29,21 @@
       margin-top: 20px;
   }
 
+  .panel-heading{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .panel-title.main{
+    font-size: 20px;
+    padding: 15px 15px;
+  }
+
   .panel-primary>.panel-heading{
       background-color: #343a40;
       border-bottom: 2px solid white;
-      padding: 12px 15px;
       border-radius: 4px 4px 0 0;
   }
 
@@ -100,11 +111,12 @@ body {
     overflow: hidden; }
     .tab-content img {
       // width: 100%;
-      max-width: 187px;
+      
       -webkit-animation-name: opacity;
               animation-name: opacity;
       -webkit-animation-duration: .3s;
-              animation-duration: .3s; }
+              animation-duration: .3s;
+             }
   
   .card {
     background: white;
@@ -267,13 +279,13 @@ body {
 
 
 h5{
-  font-size: 15px;
+  font-size: 18px;
   font-weight:600;
-  display:inline;
+
 }
 .sub p {
-  font-size: 15px;
-  display:inline;
+  font-size: 18px;
+
 }
 
 .sub h4{
@@ -285,21 +297,24 @@ h5{
   margin-top:15px;
 }
 
-.more-details{
+.more-details button{
   background-color:#f7c143;
   padding:10px 10px;
   width: 130px;
   border-radius: 4px;
   text-align: center;
   color:white;
+  margin: 0 auto;
+  border: none;
 }
-.more-details:hover{
+.more-details button:hover{
   background-color:#343a40;
   padding:10px 10px;
   width: 130px;
   border-radius: 4px;
   text-align: center;
   color:white;
+  transition: background-color .3s,color .2s;
 }
 
 .more-details a{
@@ -313,4 +328,25 @@ h5{
 .col-md-6{
   padding-left:0;
   padding-right:0;
+}
+
+.bold td{
+  font-weight: 600;
+}
+td{
+  font-size:18px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  max-width: 50px;
+}
+tr{
+  border-bottom:1px solid #ddd;
+}
+.price{
+  color: #f7c143;
+}
+
+.container-resize{
+  max-width: 1500px;
+  margin: 0 auto;
 }

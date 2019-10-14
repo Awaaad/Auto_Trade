@@ -196,6 +196,16 @@ nav.collapse ul .li:hover {
 .navbar-default{
     border: none;
 }
+.navbar-default .navbar-collapse{
+    max-width:1500px;
+    margin: 0 auto;
+
+}
+
+.logo-resize{
+    max-width: 1500px;
+    margin:0 auto;
+}
 
 .active img{
     max-width: 185px;
@@ -255,3 +265,29 @@ tr:hover td {background:#343a40;}
 //     width:1170px;
 //     margin:0 auto;
 // }
+
+.fas.fa-user{
+    color:white;
+    font-size: 35px;
+    padding:10px;
+}
+
+.dropdown a{
+    color:white;
+}
+
+.dropdown a:hover{
+    color:white;
+    text-decoration:none;
+}
+.loginlabel{
+    text-align:center;
+}
+.loginlabel:hover{
+    text-align:center;
+    cursor:pointer;
+}
+
+.cartlabel{
+    font-size: 14px;
+}

@@ -14,14 +14,19 @@ import { SalesComponent } from './sales/sales.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './dialog/dialog.component';
-import {CarouselModule} from 'ngx-carousel-lib';
+import { CarouselModule} from 'ngx-carousel-lib';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { FilterComponent } from './inventory/filter/filter.component';
 import { DetailsComponent } from './inventory/details/details.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { DetailsService } from './inventory/details/details.service';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { OwlModule } from 'ngx-owl-carousel';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 
 
 @NgModule({
@@ -42,8 +47,7 @@ import { DetailsService } from './inventory/details/details.service';
     DetailsComponent,
     CartComponent,
     RegisterComponent,
-
-
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +55,14 @@ import { DetailsService } from './inventory/details/details.service';
     FormsModule,
     BrowserAnimationsModule,
     CarouselModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    SlickCarouselModule,
+    OwlModule
   ],
-  providers: [DetailsService],
+  providers: [
+    DetailsService
+  ],
   bootstrap: [AppComponent]
 })
 

@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -6,15 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss', '../inventory.component.scss']
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, OnDestroy {
 
   @Output() filterEmitter = new EventEmitter();
 
+  private routeSubscription: Subscription;
+
+  constructor(private activatedRoute: ActivatedRoute) { }
+
   public priceOptions = [
-    { name: 'Rs0 - Rs100 000', value: 'Rs0 - Rs100 000', checked: false, range: { min: 0, max: 100000 } },
     { name: 'Rs100 000 - Rs300 000', value: 'Rs100 000 - Rs300 000', range: { min: 100001, max: 300000 }, checked: false },
     { name: 'Rs300 000 - Rs500 000', value: 'Rs300 000 - Rs500 000', range: { min: 300001, max: 500000 }, checked: false },
-    { name: 'Rs500 000 - Rs700 000', value: 'Rs500 000 - Rs700 000', range: { min: 500001, max: 700000 }, checked: false }
+    { name: 'Rs500 000 - Rs700 000', value: 'Rs500 000 - Rs700 000', range: { min: 500001, max: 700000 }, checked: false },
+    { name: 'Rs700 000 - Rs900 000', value: 'Rs700 000 - Rs900 000', range: { min: 700001, max: 900000 }, checked: false },
+    { name: 'Rs900 000 - Rs1100 000', value: 'Rs900 000 - Rs1100 000', range: { min: 900001, max: 1100000 }, checked: false },
+    { name: 'Rs1100 000 - Rs1400 000', value: 'Rs1100 000 - Rs1400 000', range: { min: 1100001, max: 1400000 }, checked: false }
   ];
 
   public brandOptions = [
@@ -22,7 +30,12 @@ export class FilterComponent implements OnInit {
     { name: 'Mitsubishi', value: 'Mitsubishi', checked: false },
     { name: 'Kia', value: 'Kia', checked: false },
     { name: 'Nissan', value: 'Nissan', checked: false },
-    { name: 'Mazda', value: 'Mazda', checked: false }
+    { name: 'Mazda', value: 'Mazda', checked: false },
+    { name: 'Mercedes', value: 'Mercedes', checked: false },
+    { name: 'BMW', value: 'BMW', checked: false },
+    { name: 'Honda', value: 'Honda', checked: false },
+    { name: 'Ford', value: 'Ford', checked: false },
+    { name: 'Hyundai', value: 'Hyundai', checked: false }
   ];
 
   public yearOptions = [
@@ -32,21 +45,64 @@ export class FilterComponent implements OnInit {
     { name: '2016', value: '2016', checked: false }
   ];
 
+  public typeOptions = [
+    { name: 'Sedan', value: 'Sedan', checked: false },
+    { name: 'Hatchback', value: 'Hatchback', checked: false },
+    { name: 'SUV', value: 'SUV', checked: false },
+    { name: 'Coupe', value: 'Coupé', checked: false },
+    { name: 'Van', value: 'Van', checked: false },
+    { name: 'Truck', value: 'Truck', checked: false },
+    { name: 'Convertible', value: 'Convertible', checked: false },
+    { name: 'Sport', value: 'Sport', checked: false }
+  ];
+
+
   ngOnInit() {
+    this.routeSubscription = this.activatedRoute.queryParamMap.subscribe(params => {
+      if (params.get("brand")) {
+        this.brandOptions = this.brandOptions.map((brandOption) => {
+          if (brandOption.name === params.get("brand")) {
+            brandOption.checked = true;
+          }
+          return brandOption;
+        });
+      }
+      else if(params.get("type")) {
+        this.typeOptions = this.typeOptions.map((typeOption) => {
+          if (typeOption.name === params.get("type")) {
+            typeOption.checked = true;
+          }
+          return typeOption;
+        });
+      }
+    });
     this.onFilter();
+  }
+
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+  }
+
+  onClick() {
+    this.brandOptions[1].checked = !this.brandOptions[1].checked;
+    console.log(this.brandOptions[1].checked);
   }
 
   onFilter() {
     const arrOptions = this.priceOptions.filter((priceOption) => priceOption.checked);
     const arrOptionsBrand = this.brandOptions.filter((brandOption) => brandOption.checked);
     const arrOptionsYear = this.yearOptions.filter((yearOption) => yearOption.checked);
+    const arrOptionsType = this.typeOptions.filter((typeOption) => typeOption.checked);
 
-    let arrOfObj = [arrOptions, arrOptionsBrand, arrOptionsYear];
+    let arrOfObj = [arrOptions, arrOptionsBrand, arrOptionsYear, arrOptionsType];
     this.filterEmitter.emit(arrOfObj);
     console.log(arrOfObj);
+    console.log(this.brandOptions[1].checked);
     // this.filterEmitter.emit(arrOptionsBrand);
   }
-  
+
+
+
   // onFilterBrand() {
   //   const arrOptions = this.brandOptions.filter((brandOption) => brandOption.checked);
   //   this.filterEmitter.emit(arrOptions);

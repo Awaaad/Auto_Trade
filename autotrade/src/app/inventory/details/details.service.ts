@@ -2,12 +2,20 @@ import { Injectable } from '@angular/core';
 
 export interface CarDetails {
   id: number;
-  title: string;
-  power: string;
+  brand: string;
+  model: string;
+  engine: string;
   mileage: string;
   fuel: string;
   year: string;
   price: number;
+  transmission: string;
+  carImage: string;
+  carImage1: string;
+  carImage2: string;
+  carImage3: string;
+  carImage4: string;
+  carImage5: string;
 }
 
 @Injectable({
@@ -19,57 +27,174 @@ export class DetailsService {
   public getCarDetails(): Array<CarDetails> {
     return [{
       id: 1,
-      title: 'Suzuki',
-      power: '69bhp@6000rpm',
-      mileage: 'km/liter',
+      brand: 'Suzuki',
+      model: 'Swift',
+      engine: '1248',
+      mileage: '28.40 km/liter',
       fuel: 'Diesel',
       year: '2019',
-      price: 100000
+      price: 450000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/Suzuki-Swift/Main.jpg',
+      carImage1: '../../../assets/Suzuki-Swift/1.jpg',
+      carImage2: '../../../assets/Suzuki-Swift/2.jpg',
+      carImage3: '../../../assets/Suzuki-Swift/3.jpg',
+      carImage4: '../../../assets/Suzuki-Swift/4.jpg',
+      carImage5: '../../../assets/Suzuki-Swift/5.jpg',
     },
     {
-      id: 2,
-      title: 'Mazda',
-      power: '69bhp@6000rpm',
-      mileage: 'km/liter',
+      id: 8,
+      brand: 'Ford',
+      model: 'Mustang',
+      engine: '2360 cc',
+      mileage: '13.00 km/liter',
       fuel: 'Diesel',
-      year: '2019',
-      price: 300000
+      year: '2018',
+      price: 10000000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/Ford Mustang/Main.jpg',
+      carImage1: '../../../assets/Ford Mustang/1.jpg',
+      carImage2: '../../../assets/Suzuki-Swift/2.jpg',
+      carImage3: '../../../assets/Suzuki-Swift/3.jpg',
+      carImage4: '../../../assets/Suzuki-Swift/4.jpg',
+      carImage5: '../../../assets/Suzuki-Swift/5.jpg',
     },
     {
       id: 3,
-      title: 'Kia',
-      power: '69bhp@6000rpm',
-      mileage: 'km/liter',
+      brand: 'Kia',
+      model: 'Seltos',
+      engine: '1497 cc',
+      mileage: '16.80 km/liter',
       fuel: 'Diesel',
       year: '2018',
-      price: 300500
+      price: 2200000,
+      transmission: 'Manual',
+      carImage: '../../../assets/Kia Seltos/Main.jpg',
+      carImage1: '../../../assets/Kia Seltos/1.jpg',
+      carImage2: '../../../assets/Kia Seltos/2.jpg',
+      carImage3: '../../../assets/Kia Seltos/3.jpg',
+      carImage4: '../../../assets/Kia Seltos/4.jpg',
+      carImage5: '../../../assets/Kia Seltos/5.jpg'
+    },
+    {
+      id: 2,
+      brand: 'Honda',
+      model: 'Amaze',
+      engine: '1199 cc',
+      mileage: '19.00 kmpl',
+      fuel: 'Diesel',
+      year: '2019',
+      price: 400000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/Honda Amaze/Main.jpg',
+      carImage1: '../../../assets/Honda Amaze/1.jpg',
+      carImage2: '../../../assets/Honda Amaze/2.jpg',
+      carImage3: '../../../assets/Honda Amaze/3.jpg',
+      carImage4: '../../../assets/Honda Amaze/4.jpg',
+      carImage5: '../../../assets/Honda Amaze/5.jpg'
+    },
+    {
+      id: 10,
+      brand: 'Hyundai',
+      model: 'I20',
+      engine: '1396 cc',
+      mileage: '22.54 km/liter',
+      fuel: 'Petrol',
+      year: '2018',
+      price: 1000000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/Hyndai i20/Main.jpg',
+      carImage1: '../../../assets/Hyndai i20/1.jpg',
+      carImage2: '../../../assets/Hyndai i20/2.jpg',
+      carImage3: '../../../assets/Hyndai i20/3.jpg',
+      carImage4: '../../../assets/Hyndai i20/4.jpg',
+      carImage5: '../../../assets/Hyndai i20/5.jpg',
     },
     {
       id: 4,
-      title: 'Nissan',
-      power: '69bhp@6000rpm',
-      mileage: 'km/liter',
-      fuel: 'Diesel',
+      brand: 'Nissan',
+      model: 'Sunny',
+      engine: '1498 cc',
+      mileage: '16.95 km/liter',
+      fuel: 'Petrol',
       year: '2016',
-      price: 305000
+      price: 550000,
+      transmission: 'Manual',
+      carImage: '../../../assets/Suzuki-Swift/Main.jpg',
+      carImage1: '../../../assets/Nissan Sunny/1.jpg',
+      carImage2: '../../../assets/Nissan Sunny/2.jpg',
+      carImage3: '../../../assets/Nissan Sunny/3.jpg',
+      carImage4: '../../../assets/Nissan Sunny/4.jpg',
+      carImage5: '../../../assets/Nissan Sunny/5.jpg'
     },
     {
       id: 5,
-      title: 'Mitsubishi',
-      power: '69bhp@6000rpm',
-      mileage: 'km/liter',
+      brand: 'Mitsubishi',
+      model: 'Pajero',
+      engine: '2477 cc',
+      mileage: '10.77 km/liter',
       fuel: 'Petrol',
       year: '2017',
-      price: 550000
+      price: 1550000,
+      transmission: 'Manual',
+      carImage: '../../../assets/Suzuki-Swift/Main.jpg',
+      carImage1: '../../../assets/Mitsubishi Pajero/1.jpg',
+      carImage2: '../../../assets/Mitsubishi Pajero/2.jpg',
+      carImage3: '../../../assets/Mitsubishi Pajero/3.jpg',
+      carImage4: '../../../assets/Mitsubishi Pajero/4.jpg',
+      carImage5: '../../../assets/Mitsubishi Pajero/5.jpg'
     },
     {
       id: 6,
-      title: 'Mitsubishi',
-      power: '69bhp@6000rpm',
-      mileage: 'km/liter',
-      fuel: 'Petrol',
+      brand: 'Mitsubishi',
+      model: 'Outlander',
+      engine: '2360 cc',
+      mileage: '9.62 km/liter',
+      fuel: 'Diesel',
       year: '2018',
-      price: 100000
-    }];
+      price: 1000000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/Suzuki-Swift/Main.jpg',
+      carImage1: '../../../assets/Mitsubishi Outlander/1.jpg',
+      carImage2: '../../../assets/Mitsubishi Outlander/2.jpg',
+      carImage3: '../../../assets/Mitsubishi Outlander/3.jpg',
+      carImage4: '../../../assets/Mitsubishi Outlander/4.jpg',
+      carImage5: '../../../assets/Mitsubishi Outlander/5.jpg'
+    },
+    {
+      id: 7,
+      brand: 'Mercedes',
+      model: 'Benz C-Class Cabriolet',
+      engine: '1991 cc',
+      mileage: '9.62 km/liter',
+      fuel: 'Petrol',
+      year: '2016',
+      price: 1500000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/MercedesBenz-C/Main.jpg',
+      carImage1: '../../../assets/MercedesBenz-C/1.jpg',
+      carImage2: '../../../assets/MercedesBenz-C/2.jpg',
+      carImage3: '../../../assets/MercedesBenz-C/3.jpg',
+      carImage4: '../../../assets/MercedesBenz-C/4.jpg',
+      carImage5: '../../../assets/MercedesBenz-C/5.jpg'
+    },
+    {
+      id: 9,
+      brand: 'Mercedes',
+      model: 'Benz E-Class',
+      engine: '3982 cc',
+      mileage: '18.00 km/liter',
+      fuel: 'Petrol',
+      year: '2019',
+      price: 1800000,
+      transmission: 'Automatic',
+      carImage: '../../../assets/Mercedes Benz/Main.jpg',
+      carImage1: '../../../assets/Mercedes Benz/1.jpg',
+      carImage2: '../../../assets/Mercedes Benz/2.jpg',
+      carImage3: '../../../assets/Mercedes Benz/3.jpg',
+      carImage4: '../../../assets/Mercedes Benz/4.jpg',
+      carImage5: '../../../assets/Mercedes Benz/5.jpg'
+    },
+  ];
   }
 }

@@ -2,13 +2,13 @@
   <div class="col-sm-3">
     <div class="panel panel-primary behclick-panel">
       <div class="panel-heading" >
-        <h3 class="panel-title">Search Filter Car</h3>
+        <h3 class="panel-title main">Refine your search: </h3>
       </div>
       <div class="panel-body">
         <div class="panel-heading" >
           <h4 class="panel-title">
             <a data-toggle="collapse" href="#collapse0">
-              <i class="indicator fa fa-caret-down" aria-hidden="true"></i> Price
+               Price
             </a>
           </h4>
         </div>
@@ -17,7 +17,7 @@
             <li class="list-group-item">
               <div class="checkbox" *ngFor="let priceOption of priceOptions" >
                 <label>
-                  <input type="checkbox" name="checkbox" value="{{priceOption.value}}" [(ngModel)]= "priceOption.checked" (change)="onFilter()">
+                  <input type="checkbox" name="checkbox" class="option-input checkbox" value="{{priceOption.value}}" [(ngModel)]= "priceOption.checked" (change)="onFilter()">
                   {{priceOption.name}}
                 </label>
               </div>
@@ -28,10 +28,11 @@
         <div class="panel-heading" >
           <h4 class="panel-title">
             <a data-toggle="collapse" href="#collapse0">
-              <i class="indicator fa fa-caret-down" aria-hidden="true"></i> Brands
+               Brands
             </a>
           </h4>
         </div>
+        <!-- <button (click)="onClick()">Trying</button> -->
         <div class="panel-collapse collapse in" >
           <ul class="list-group" >
             <li class="list-group-item">
@@ -49,7 +50,7 @@
         <div class="panel-heading" >
             <h4 class="panel-title">
               <a data-toggle="collapse" href="#collapse0">
-                <i class="indicator fa fa-caret-down" aria-hidden="true"></i> Year
+                 Year
               </a>
             </h4>
           </div>
@@ -66,10 +67,30 @@
             </ul>
           </div>
 
+          <div class="panel-heading" >
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse0">
+                   Body Type
+                </a>
+              </h4>
+            </div>
+            <div class="panel-collapse collapse in" >
+              <ul class="list-group" >
+                <li class="list-group-item">
+                  <div class="checkbox" *ngFor="let typeOption of typeOptions" >
+                    <label>
+                      <input type="checkbox" name="checkbox" value="{{typeOption.value}}" [(ngModel)]= "typeOption.checked" (change)="onFilter()">
+                      {{typeOption.name}}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
         <!-- <div class="panel-heading ">
           <h4 class="panel-title">
             <a data-toggle="collapse" href="#collapse1">
-              <i class="indicator fa fa-caret-down" aria-hidden="true"></i> Brand
+               Brand
             </a>
           </h4>
         </div>
@@ -103,7 +124,7 @@
         </div>
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse3"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>
+            <a data-toggle="collapse" href="#collapse3">
               Color</a>
           </h4>
         </div>

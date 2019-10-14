@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,17 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   model: any = {};
 
-
-  onSubmit() {
-      // alert('You successfully registered!\n\n');
-      document.getElementById("registered").innerHTML= "You are now a member";
+  ngOnInit() {
+  }
+    onSubmit() {
+      this.goToHome();
+      this.Store();
+    }
+    goToHome() {
+      this.router.navigate(['/']);
+    }
+    Store(){
+      const firstname = (document.getElementById('firstname') as HTMLInputElement);
+      localStorage.setItem('firstname', firstname.value);
+      const lastname = (document.getElementById('lastname') as HTMLInputElement);
+      localStorage.setItem('lastname', lastname.value);
+      const email = (document.getElementById('email') as HTMLInputElement);
+      localStorage.setItem('email', email.value);
+      const registerPass = (document.getElementById('registerPass') as HTMLInputElement);
+      localStorage.setItem('Password', registerPass.value);
+      const confirmRegisterPass = (document.getElementById('confirmRegisterPass') as HTMLInputElement);
+      localStorage.setItem('Confirm Password', confirmRegisterPass.value);
       }
 }
 

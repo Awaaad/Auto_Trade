@@ -1,375 +1,35 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
+  <div class="wrapper">
 
-  <div class="row">
-    <div class="row">
-      <div class="col-md-9 col-xs-9">
-        <h3>
-          Brands</h3>
-      </div>
-      <div class="col-xs-3 col-md-3">
-        <!-- Controls -->
-        <div class="controls pull-right ">
-          <a class="left fa fa-chevron-left btn btn-primary" href="#carousel-example-generic-1" data-slide="prev"></a><a
-            class="right fa fa-chevron-right btn btn-primary" href="#carousel-example-generic-1" data-slide="next"></a>
-        </div>
-      </div>
+    <div class="title">
+
+      <h2>Featured Cars</h2>
     </div>
     <div id="carousel-example-generic-1" class="carousel slide " data-ride="carousel">
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
           <div class="row">
-            <div class="col-sm-4 col-xs-4">
+            <div class="col-sm-3 col-xs-6" *ngFor="let car of carDetails">
               <div class="col-item">
                 <div class="photo">
-                  <p>wefwefw</p><img src="assets\sales-images\ford_350x260.png" class="img-responsive" alt="a" />
+                  <a (click)="onSelect(car.id)">
+                    <img src="{{car.carImage}}" class="img-responsive" alt="a" />
+                  </a>
                 </div>
                 <div class="info">
                   <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                        <h5>
-                        Ford</h5><h6>As From</h6>
-                        
-                      <h5 class="price-text-color">
-                        Rs300 000</h5>
+                      <a (click)="onSelect(car.id)">
+                    <div class="price col-md-12 col-xs-12">
+                      <h5><span>{{car.brand}} </span><span>{{car.model}}</span></h5>
+                      <br>
+                      <h5 class="price-text-color">Rs {{car.price}}</h5>
                     </div>
+                  </a>
+                  </div>
 
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\bmw_PNG1702_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                        <h5>
-                            BMW</h5><h6>As From</h6>
-                            
-                          <h5 class="price-text-color">
-                            Rs700 000</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\mercedes_PNG_2_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                        <h5>
-                            Mercedes</h5><h6>As From</h6>
-                            
-                          <h5 class="price-text-color">
-                            Rs800 000</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="row">
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\audi_small_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                        <h5>
-                            Audi</h5><h6>As From</h6>
-                            
-                          <h5 class="price-text-color">
-                            Rs750 000</h5>
-                        </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\bmw_PNG1702_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                        <h5>
-                            Ford</h5><h6>As From</h6>
-                            
-                          <h5 class="price-text-color">
-                            Rs300 000</h5>
-                        </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\volkswagen_PNG1821_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                        <h5>
-                            Wolkswagen</h5><h6>As From</h6>
-                            
-                          <h5 class="price-text-color">
-                            Rs350 000</h5>
-                        </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="row">
-      <div class="col-md-9 col-xs-9">
-        <h3>
-          Models</h3>
-      </div>
-      <div class="col-md-3 col-xs-3">
-        <!-- Controls -->
-        <div class="controls pull-right ">
-          <a class="left fa fa-chevron-left btn btn-primary" href="#carousel-example-generic" data-slide="prev"></a><a
-            class="right fa fa-chevron-right btn btn-primary" href="#carousel-example-generic" data-slide="next"></a>
-        </div>
-      </div>
-    </div>
-    <div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="row">
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\bmw_PNG1702_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                      <h5>
-                        Sample Product</h5>
-                      <h5 class="price-text-color">
-                        $199.99</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\bmw_PNG1702_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                      <h5>
-                        Sample Product</h5>
-                      <h5 class="price-text-color">
-                        $199.99</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\mercedes_PNG_2_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                      <h5>
-                        Sample Product</h5>
-                      <h5 class="price-text-color">
-                        $149.99</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="row">
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\mercedes_PNG_2_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                      <h5>
-                        Next Product</h5>
-                      <h5 class="price-text-color">
-                        $199.99</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\mercedes_PNG_2_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                      <h5>
-                        Sample Product</h5>
-                      <h5 class="price-text-color">
-                        $199.99</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-xs-4">
-              <div class="col-item">
-                <div class="photo">
-                  <img src="assets\sales-images\mercedes_PNG_2_350x260.png" class="img-responsive" alt="a" />
-                </div>
-                <div class="info">
-                  <div class="row">
-                    <div class="price col-md-6 col-xs-6">
-                      <h5>
-                        Next Product</h5>
-                      <h5 class="price-text-color">
-                        $149.99</h5>
-                    </div>
-
-                  </div>
-                  <div class="separator clear-left">
-
-                    <p class="btn-details">
-                      <i class="fa fa-list"></i><a routerLink="/inventory" class="hidden-xs">More
-                        details</a></p>
-                  </div>
-                  <div class="clearfix">
-                  </div>
                 </div>
               </div>
             </div>
@@ -381,57 +41,67 @@
 </div>
 
 
-<!-- Button POP UP -->
+<!-- You can now use your library component in app.component.html -->
+<div class="container">
+  <div class="wrapper">
 
+    <div class="title">
 
+      <h2>BROWSE BY BRAND</h2>
+    </div>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
 
-
-<!-- Nice CAROUSEL -->
-<!-- <carousel-component >
-        <div class="item-carousel">a</div>
-        <div class="item-carousel">
-            <div class="b">
-                <img src="https://www.losminionsaldia.com/images/mas-minions/minion.png" />
-            </div>
+        <div class="col-item">
+          <div class="photo logo">
+            <!-- <p class="price-tag">≈ Rs  300,000</p> -->
+            <a routerLink="/inventory" [queryParams]="{brand: slide.brand}">
+              <img src="{{slide.img}}" alt="" width="100%" class="img-responsive" alt="a" />
+            </a>
+          </div>
         </div>
-        <div class="item-carousel">c</div>
-        <div class="item-carousel">d</div>
-    </carousel-component> -->
+
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
 
 
-    <!--                     <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p>
-                    <p class="btn-add">
-                      <i class="fa fa-shopping-cart"></i><a routerLink="/inventory" class="hidden-xs">Add to
-                        cart</a></p> -->
+
+<div class="container">
+  <div class="wrapper">
+
+    <div class="title">
+
+      <h2>BROWSE BY BODY TYPE</h2>
+    </div>
+    <div id="carousel-example-generic-1" class="carousel slide " data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="row">
+            <div class="col-sm-3 col-xs-6" *ngFor="let slideType of slidesType">
+              <div class="col-item">
+                <div class="photo">
+                  <a routerLink="/inventory" [queryParams]="{type: slideType.type}">
+                    <img src="{{slideType.img}}" class="img-responsive" alt="a" />
+                  </a>
+                </div>
+                <div class="info type">
+                  <div class="row type">
+                    <div class="typelabel price col-md-12 col-xs-12">
+                      <a routerLink="/inventory" [queryParams]="{type: slideType.type}">
+                        <h5>{{slideType.type}}</h5>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@
 {
     border-radius: 5px;
     background: #FFF;
+    margin-bottom:20px;
 }
 .col-item .photo img
 {
@@ -11,13 +12,16 @@
 }
 
 .photo{
-    background-color: #f7c143;
+    background-color: transparent;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    position:relative;
+    border: 1px solid #ddd;
 }
-.photo:hover{
-    background-color: #343a40;
-}
+// .photo:hover{
+//     background-color: #343a40;
+//     transition: background-color .3s,color .2s;
+// }
 
 
 .col-item .info
@@ -27,23 +31,46 @@
     margin-top: 1px;
     background-color: #343a40;
     color:white;
+    border: 1px solid #ddd;
+}
+.col-item:hover .info.type
+{
+    background-color: white;
+    color:#343a40;
+    transition: background-color .3s,color .2s;
+    border: 1px solid #ddd;
 }
 
 // .col-item:hover .info {
-//     background-color: gray;
+//     background-color: white;
+//     color:#343a40;
+//     transition: background-color .3s,color .2s;
+//     border: 1px solid #ddd;
 // }
-.col-item .price
+.col-item:hover .info a{
+    background-color: white;
+    transition: background-color .3s,color .2s;
+}
+
+.col-item:hover .price-tag{
+    background-color:white;
+    transition: background-color .3s,color .2s;
+    border: 1px solid #ddd;
+}
+.col-item.price
 {
     /*width: 50%;*/
     float: left;
     margin-top: 5px;
     width:100%;
+
 }
 
 .col-item .price h5
 {
     line-height: 20px;
     margin: 0;
+    font-size: 20px;
 }
 
 .price-text-color
@@ -165,9 +192,151 @@
 
 
 .btn-details a{
-    color:white;
+    color:black;
 }
 
 .photo1{
     background-image:url(../../assets/sales-images/ford_350x260.png);
+}
+
+.price-tag{
+    position:absolute;
+    color:#f7c143;
+    background-color: #343a40;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top:4px;
+    margin-left:4px;
+}
+
+
+.slick-initialized .slick-slide{
+    padding:10px;
+}
+
+.container{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color:white;
+    padding:0;
+   
+}
+
+
+.slick-list{
+    width: 1500px;
+    margin: 0 auto;
+}
+.container .title{
+    text-align: left;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-bottom: 1px #eaeaea solid;
+    margin-bottom: 10px;
+    background: #343a40;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container .title h2{
+    color: #343a40;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    padding: 22px 25px 22px 25px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Saira Condensed', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #f7c143;
+    margin-top: 0px;
+    min-width: 250px;
+}
+
+.container .title h2:after{
+content: '';
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    transform: skew(-35deg);
+    right: -35px;
+    top: 0;
+    background-color: inherit;
+    z-index: 0;
+}
+
+// CAROUSEL
+// @media only screen and (min-width: 812px) {
+//     width:1500px;
+// } 
+// @media only screen and (min-width: 1200px) {
+//     .container{
+//     width:1500px;
+//     }
+// } 
+
+.photo.logo{
+    border:none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    container {
+      width: auto;
+    }
+  }
+
+  @media only screen and (min-width: 1200px)
+{
+    .container{
+    width:1500px;
+    }
+}
+
+.info.type{
+    background-color: #343a40!important;
+}
+.typelabel{
+    text-align: center;
+    color:white;
+}
+.row.type{
+    margin-bottom: 0;
+}
+
+.photo img{
+    border-radius:4px;
+}
+
+.typelabel h5{
+    color:white;
+}
+.typelabel a:hover{
+    color:white;
+    text-decoration: none;
+}
+
+.wrapper{
+}
+
+.price:hover{
+    cursor:pointer;
+}
+.col-item:hover{
+    cursor: pointer;
+}
+
+.info .row a{
+    color:white;
+}
+
+.info .row a:hover{
+    color:white;
+    text-decoration: none;
+}
+ul{
+    background-color: white;
+    margin-bottom: 0;
 }

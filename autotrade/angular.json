@@ -29,11 +29,18 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css" 
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "./node_modules/owl.carousel/dist/assets/owl.theme.default.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.js"
             ]
           },
           "configurations": {
@@ -97,7 +104,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
             ],
             "scripts": []
           }

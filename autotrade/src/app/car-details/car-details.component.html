@@ -3,70 +3,131 @@
     <div class="container-fliud">
       <div class="wrapper row">
         <div class="preview col-md-6">
-          
+
           <div class="preview-pic tab-content">
-            <div class="tab-pane active" id="pic-1"><img src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" />
+            <div class="tab-pane active" id="pic-1"><img [src]="carDetails[0].carImage1" />
             </div>
-            <div class="tab-pane" id="pic-2"><img src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></div>
-            <div class="tab-pane" id="pic-3"><img src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></div>
-            <div class="tab-pane" id="pic-4"><img src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></div>
-            <div class="tab-pane" id="pic-5"><img src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></div>
+            <div class="tab-pane" id="pic-2"><img [src]="carDetails[0].carImage2" /></div>
+            <div class="tab-pane" id="pic-3"><img [src]="carDetails[0].carImage3" /></div>
+            <div class="tab-pane" id="pic-4"><img [src]="carDetails[0].carImage4" /></div>
+            <div class="tab-pane" id="pic-5"><img [src]="carDetails[0].carImage5" /></div>
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
-            <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
-                  src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></a></li>
-            <li><a data-target="#pic-2" data-toggle="tab"><img
-                  src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></a></li>
-            <li><a data-target="#pic-3" data-toggle="tab"><img
-                  src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></a></li>
-            <li><a data-target="#pic-4" data-toggle="tab"><img
-                  src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></a></li>
-            <li><a data-target="#pic-5" data-toggle="tab"><img
-                  src="assets\Suzuki-Swift\marutisuzuki-swift-75c42aa0.jpg" /></a></li>
+            <li class="active"><a data-target="#pic-1" data-toggle="tab">
+                <img [src]="carDetails[0].carImage1" /></a></li>
+            <li><a data-target="#pic-2" data-toggle="tab">
+                <img [src]="carDetails[0].carImage2" /></a></li>
+            <li><a data-target="#pic-3" data-toggle="tab">
+                <img [src]="carDetails[0].carImage3" /></a></li>
+            <li><a data-target="#pic-4" data-toggle="tab">
+                <img [src]="carDetails[0].carImage4" /></a></li>
+            <li><a data-target="#pic-5" data-toggle="tab">
+                <img [src]="carDetails[0].carImage5" /></a></li>
 
           </ul>
-
+          <div class="container">
+              <div class="row">
+          
+                    <div class="well well-sm">
+                      <form class="form-horizontal" action="" method="post">
+                      <fieldset>
+                        <legend class="text-center">Contact us</legend>
+                
+                        <!-- Name input-->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="name">Name</label>
+                          <div class="col-md-9">
+                            <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+                          </div>
+                        </div>
+                
+                        <!-- Email input-->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="email">Your E-mail</label>
+                          <div class="col-md-9">
+                            <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+                          </div>
+                        </div>
+                
+                        <!-- Message body -->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="message">Your message</label>
+                          <div class="col-md-9">
+                            <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                          </div>
+                        </div>
+                
+                        <!-- Form actions -->
+                        <div class="form-group">
+                          <div class="col-md-12 text-right">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                          </div>
+                        </div>
+                      </fieldset>
+                      </form>
+                 
+                  </div>
+              </div>
+            </div>
         </div>
+        
         <div class="details col-md-6">
           <h1>{{CarDetailId}}</h1>
-          <h3 class="product-title">{{carDetails[0].title}}</h3>
+          <h3 class="product-title"><span>{{carDetails[0].brand}} </span><span>{{carDetails[0].model}}</span></h3>
           <h4 class="description"> Description: </h4>
-          <p class="product-description">Nissan Micra 2018 is primarily an updated version of the hatchback, which
-            gets additional comfort and safety features. There are no changes to the exterior and interior
-            styling. It also retains the same mechanical set-up, which means that it continues featuring the same
-            petrol as well as diesel engines. Transmission choices have also been retained. The Nissan Micra
-            variants include XL and XV trims in manual and CVT options. With the addition of new features, the
-            Nissan Micra price in India receives a slight bump.</p>
+          <p class="product-description">Aenean et interdum urna. Curabitur quis enim vel justo pulvinar facilisis
+            placerat in lorem. Maecenas ornare elit quis orci tincidunt, at lacinia dolor vulputate. Morbi sagittis ante
+            at mattis venenatis. Ut ex risus, auctor id lectus in, auctor tempus massa. Aliquam erat volutpat. Sed vitae
+            ultrices mi, id viverra nibh. Aliquam vitae ante gravida, molestie tellus vitae, dignissim odio. Integer
+            porta vehicula porttitor. Cras gravida porttitor libero, in dictum odio vestibulum a. Morbi non interdum
+            nisl. Donec vitae imperdiet metus.</p>
+            <br>
+            <h4 class="description"> Features & Options: </h4>
+            <p class="product-description">Aenean et interdum urna. Curabitur quis enim vel justo pulvinar facilisis
+              placerat in lorem. Maecenas ornare elit quis orci tincidunt, at lacinia dolor vulputate. Morbi sagittis ante
+              at mattis venenatis. Ut ex risus, auctor id lectus in, auctor tempus massa. Aliquam erat volutpat. Sed vitae
+              ultrices mi, id viverra nibh. Aliquam vitae ante gravida, molestie tellus vitae, dignissim odio. Integer
+              porta vehicula porttitor. Cras gravida porttitor libero, in dictum odio vestibulum a. Morbi non interdum
+              nisl. Donec vitae imperdiet metus.</p>
           <div class="specifications row">
             <div class="mileage-wrap col-md-4 col-sm-4 col-xs-12">
-              <a class="mileage">
-                <img src="assets\sales-spec\mileage.png" />
-                <div class="mileagetag">Mileage</div>
+              <div class="icons-space">
+                <a class="mileage">
+                  <img src="assets\sales-spec\mileage.png" />
+                  <div class="mileagetag">Mileage</div>
 
-              </a>
-              <p>{{carDetails[0].mileage}}</p>
+                </a>
+                <p>{{carDetails[0].mileage}}</p>
+              </div>
             </div>
             <div class="engine-wrap col-md-4 col-sm-4 col-xs-12">
-              <a class="engine">
-                <img src="assets\sales-spec\motor.png" />
-                <div class="enginetag">Engine</div>
-              </a>
-              <p>1198 cc</p>
+              <div class="icons-space">
+                <a class="engine">
+                  <img src="assets\sales-spec\motor.png" />
+                  <div class="enginetag">Engine</div>
+                </a>
+                <p>1198 cc</p>
+              </div>
             </div>
             <div class="transmission-wrap col-md-4 col-sm-4 col-xs-12">
-              <a class="transmission">
-                <img src="assets\sales-spec\transmission.png" />
-                <div class="transmissiontag">Transmission</div>
-              </a>
-              <p>{{carDetails[0].transmission}}</p>
+              <div class="icons-space">
+                <a class="transmission">
+                  <img src="assets\sales-spec\transmission.png" />
+                  <div class="transmissiontag">Transmission</div>
+                </a>
+                <p>{{carDetails[0].transmission}}</p>
+              </div>
             </div>
           </div>
+
 
           <h5 class="price">current price: <span>Rs {{carDetails[0].price}}</span></h5>
           <p class="vote"><strong>91%</strong> of buyers enjoyed this product!</p>
           <div class="action">
-            <button class="continue-shopping btn btn-default" type="button"><i class="fas fa-arrow-left"></i>   Continue Shopping</button>
-            <button class="add-to-cart btn btn-default" type="button"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
+            <button class="continue-shopping btn btn-default" type="button"><i class="fas fa-arrow-left"></i> Continue
+              Shopping</button>
+            <button class="add-to-cart btn btn-default" type="button"><i class="fas fa-cart-arrow-down"></i> Add to
+              cart</button>
 
           </div>
 
@@ -74,9 +135,8 @@
       </div>
     </div>
   </div>
-
+  <!-- 
   <h3>You selected</h3>
   <h2>{{carDetails[0].title}}</h2>
   <h2>{{carDetails[0].id}}</h2>
-  {{carDetails | json}}
-  
+  {{carDetails | json}} -->

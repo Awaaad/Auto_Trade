@@ -19,7 +19,8 @@ export class InventoryComponent implements OnInit {
     this.filterApplied = {
       priceRange: arr[0],
       brand: arr[1],
-      year: arr[2]
+      year: arr[2],
+      type: arr[3]
     };
   }
 

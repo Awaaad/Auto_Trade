@@ -109,7 +109,7 @@ body {
               animation-duration: .3s; }
   
   .card {
-    padding: 3em;
+    // padding: 3em;
     line-height: 1.5em;
     border-radius: 4px; }
   
@@ -142,7 +142,7 @@ body {
   .product-title, .price, .sizes, .colors {
     text-transform: UPPERCASE;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
    }
   
   .checked, .price span {
@@ -246,7 +246,11 @@ body {
   }
 
 
-  .mileage-wrap,.engine-wrap,.transmission-wrap{
+  // .mileage-wrap,.engine-wrap,.transmission-wrap{
+  //     border: 1px solid #343a40;
+  //     background-color:#f7c143;
+  // }
+  .icons-space{
       border: 1px solid #343a40;
       background-color:#f7c143;
   }
@@ -268,7 +272,7 @@ body {
       color: black;
   }
   .enginetag:hover,.transmissiontag:hover,.mileagetag:hover{
-    color: gray;
+
     text-decoration: none!important;
 }
 
@@ -289,6 +293,13 @@ a:hover, a:link, a:visited{
 
 .wrapper{
   border-radius: 4px;
-      border: 1px solid #eee;
-      box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+p{
+  font-size: 18px;
+}
+
+h4{
+  font-size:23px;
+  font-weight: 600;
 }
