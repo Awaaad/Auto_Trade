@@ -187,7 +187,7 @@
 
 
 .price-text-color{
-    color:#f7c143
+    color:#fbe122;
 }
 
 
@@ -201,7 +201,7 @@
 
 .price-tag{
     position:absolute;
-    color:#f7c143;
+    color:#fbe122;
     background-color: #343a40;
     padding: 10px;
     border-radius: 4px;
@@ -219,7 +219,7 @@
     margin-top: 20px;
     background-color:white;
     padding:0;
-   
+    box-shadow: 0 5px 0 rgba(200, 200, 200, 0.2);
 }
 
 
@@ -227,13 +227,24 @@
     width: 1500px;
     margin: 0 auto;
 }
-.container .title{
+.container .title,.title-brand{
     text-align: left;
     margin-left: -10px;
     margin-right: -10px;
     border-bottom: 1px #eaeaea solid;
     margin-bottom: 10px;
     background: #343a40;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.container .title-brand{
+    text-align: left;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-bottom: 1px #eaeaea solid;
+    margin-bottom: 10px;
+    background: white;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -250,12 +261,38 @@
     font-family: 'Saira Condensed', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background: #f7c143;
+    background: #fbe122;
+    margin-top: 0px;
+    min-width: 250px;
+}
+.container .title-brand h2{
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    padding: 22px 25px 22px 25px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Saira Condensed', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #343a40;
     margin-top: 0px;
     min-width: 250px;
 }
 
 .container .title h2:after{
+content: '';
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    transform: skew(-35deg);
+    right: -35px;
+    top: 0;
+    background-color: inherit;
+    z-index: 0;
+}
+.container .title-brand h2:after{
 content: '';
     position: absolute;
     width: 60px;

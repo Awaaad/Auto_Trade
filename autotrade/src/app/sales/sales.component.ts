@@ -16,41 +16,41 @@ export class SalesComponent implements OnInit {
 
   title = 'ngSlick';
   slides = [
-    // {
-    //   img: '../../assets/logo/kia.png',
-    //   brand: 'Kia'
-    // },
-    // { img: '../../../assets/logo/honda.png' ,
-    //   brand: 'Honda'
-    // },
-    // {
-    //   img: '../../../assets/logo/chevrolet.png',
-    //   brand: 'Chevrolet'
-    // },
-    // {
-    //   img: '../../../assets/logo/mercedes.png',
-    //   brand: 'Mercedes'
-    // },
-    // {
-    //   img: '../../../assets/logo/hyundai.png',
-    //   brand: 'Hyundai'
-    // },
-    // {
-    //   img: '../../../assets/logo/jeep.png',
-    //   brand: 'Jeep'
-    // },
-    // {
-    //   img: '../../../assets/logo/ford.png',
-    //   brand: 'Ford'
-    // },
-    // {
-    //   img: '../../../assets/logo/audi.png',
-    //   brand: 'Audi'
-    // },
-    // {
-    //   img: '../../../assets/logo/volkswagen.png',
-    //   brand: 'Volkswagen'
-    // }
+    {
+      img: '../../assets/logo/kia.png',
+      brand: 'Kia'
+    },
+    { img: '../../../assets/logo/honda.png' ,
+      brand: 'Honda'
+    },
+    {
+      img: '../../../assets/logo/chevrolet.png',
+      brand: 'Chevrolet'
+    },
+    {
+      img: '../../../assets/logo/mercedes.png',
+      brand: 'Mercedes'
+    },
+    {
+      img: '../../../assets/logo/hyundai.png',
+      brand: 'Hyundai'
+    },
+    {
+      img: '../../../assets/logo/jeep.png',
+      brand: 'Jeep'
+    },
+    {
+      img: '../../../assets/logo/ford.png',
+      brand: 'Ford'
+    },
+    {
+      img: '../../../assets/logo/audi.png',
+      brand: 'Audi'
+    },
+    {
+      img: '../../../assets/logo/volkswagen.png',
+      brand: 'Volkswagen'
+    }
   ];
 
   slidesType = [
@@ -172,7 +172,7 @@ export class SalesComponent implements OnInit {
       } 
 
   addSlide() {
-    this.slides.push({ img: "http://placehold.it/350x150/777777" })
+   // this.slides.push({ img: "http://placehold.it/350x150/777777" })
   }
 
   removeSlide() {

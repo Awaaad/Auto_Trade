@@ -4,10 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { SalesComponent } from './sales/sales.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { DetailsComponent} from './inventory/details/details.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CartComponent } from './cart/cart.component';
+import { AuthGuard } from '../_helpers';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +20,9 @@ const routes: Routes = [
   {path: 'sales', component: SalesComponent},
   {path: 'car-details', component: CarDetailsComponent},
   {path: 'details/:id', component: CarDetailsComponent},
-  {path: 'about-us', component: AboutUsComponent}
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'register', component: RegisterComponent}
   // {path: '**', redirectTo: ''}
 ];
 

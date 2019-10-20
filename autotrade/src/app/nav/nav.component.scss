@@ -1,12 +1,11 @@
 .logo{
     background-color: #343a40;
-    // background-image: linear-gradient(to bottom, #000000, #141414, #202020, #2d2d2d, #3b3a3a)
 }
 .container-fluid{
-    // background-color:#3b3a3a;
-    background-color:#343a40;
+    background-color:white;
     color: white;
-    border-top: 3px solid white;
+    border-top: 3px solid #eee;
+    box-shadow: 0 5px 0 rgba(200,200,200,.2);
 }
 
 
@@ -18,10 +17,10 @@
     margin-bottom:0;
 }
 .container-fluid a{
-    color: white;
+    color: #343a40;
     font-size:18px;
-    font-weight: 400;
-    font-family: roboto,Sans-Serif,Arial;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     text-transform: uppercase
 }
 
@@ -33,35 +32,44 @@
 .navbar-header .navbar-brand:hover{
     text-decoration: none;
     font-weight: 300px;
-    // font-size:17px;
     border-bottom: none;
 
 }
 
 .container-fluid a:hover{
-    color:white;
-    // font-size:16px;
-    // border-bottom: 3px solid white;
-    background-color: rgb(53, 51, 51);
-
+    background-color: #343a40;
+    transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+    box-shadow: inset 0 -50px 0 0 #23292e;
+    border-bottom: -1px solid #121518;
+    color: #fff;
 }
-.container-fluid a:visited{
+.container-fluid a:active{
     color:white;
-
-    font-size:16px;
+    background-color: #343a40;
 }
 .navbar-nav .active a{
-    background-color:#343a40;
+    background-color:#fbe122;
 }
 
 .navbar-right a:hover{
     text-decoration: none;
 }
+.navbar-default .navbar-nav>li>a:focus{
+    color:white;
+    background-color: #343a40;
+}
+a:focus{
+    text-decoration: none;
+}
+.navbar-default .navbar-nav>li>a:active{
+    color:white;
+    background-color: #343a40;
+}
 
 .logo img{
-    width: 100px;
-    height: 100px;
+    width: 300px;
     margin-left: 35px;
+    margin-top:15px;
 }
 
 .navbar-nav .li .a {
@@ -82,7 +90,7 @@ nav.collapse ul .li:hover {
 }
 
 
-/* Dropdown Button */
+
 .dropbtn {
     color: white;
     padding: 16px;
@@ -93,17 +101,17 @@ nav.collapse ul .li:hover {
 
   }
   
-  /* The container <div> - needed to position the dropdown content */
+
   .dropdown {
     position: relative;
     display: inline-block;
     justify-content: right;
     float: right;
-    margin-right: 50px;
+    margin-right: 10px;
     margin-top: 20px;
   }
   
-  /* Dropdown Content (Hidden by Default) */
+ 
   .dropdown-content {
     display: none;
     position: absolute;
@@ -113,7 +121,7 @@ nav.collapse ul .li:hover {
     z-index: 1;
   }
   
-  /* Links inside the dropdown */
+
   .dropdown-content a {
     color: #343a40;
     padding: 12px 16px;
@@ -122,13 +130,12 @@ nav.collapse ul .li:hover {
   }
 
 
-  /* Change color of dropdown links on hover */
+
   .dropdown-content a:hover {background-color: #ddd;}
   
-  /* Show the dropdown menu on hover */
+
   .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
+
   .dropdown:hover .dropbtn {}
 
   .nav-right{
@@ -137,7 +144,7 @@ nav.collapse ul .li:hover {
     justify-content: right;
     float: right;
     margin-right: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .nav-right a{
 
@@ -150,6 +157,11 @@ nav.collapse ul .li:hover {
     background-color: transparent;
     border: none;
     font-size: 35px;
+}
+
+.btn.btn-default.cart{
+    font-size: 10px;
+    padding-top:10px;
 }
 
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
@@ -246,11 +258,14 @@ nav.collapse ul .li:hover {
 	
 }
 .container{
-    color: white;
+    color: #343a40;
     width: 100%;
     
 }
-
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
 .row img{
     margin-left:0;
 }
@@ -261,10 +276,7 @@ tr{
 
 tr:hover td {background:#343a40;}
 
-// .navbar-default .navbar-collapse, .navbar-default .navbar-form{
-//     width:1170px;
-//     margin:0 auto;
-// }
+
 
 .fas.fa-user{
     color:white;
@@ -274,6 +286,7 @@ tr:hover td {background:#343a40;}
 
 .dropdown a{
     color:white;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .dropdown a:hover{
@@ -290,4 +303,85 @@ tr:hover td {background:#343a40;}
 
 .cartlabel{
     font-size: 14px;
+    padding-top:5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+$shopping-cart-black: #343a40;
+.fa-shopping-cart:before{
+    color: white;
+}
+.fa-stack[data-count]:after{
+  position:absolute;
+  right:-32%;
+  top:-17%;
+  content: attr(data-count);
+  font-size:50%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.75em;
+  color: #343a40;
+  color:#343a40;
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+  background: white;
+  border-style:solid;
+}
+.fa-circle {
+  color: white;
+}
+
+.red-cart {
+	color: white; background:#343a40;
+}
+
+.logo-link:hover{
+    cursor: pointer;
+}
+
+
+
+.container .title{
+    text-align: left;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-bottom: 1px #eaeaea solid;
+    margin-bottom: 10px;
+    background: #343a40;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container .title h2{
+    color: #343a40;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    padding: 22px 25px 22px 25px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Saira Condensed', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #f7c143;
+    margin-top: 0px;
+    min-width: 250px;
+}
+
+.container .title h2:after{
+content: '';
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    transform: skew(-35deg);
+    right: -35px;
+    top: 0;
+    background-color: inherit;
+    z-index: 0;
+}
+
+.fas.fa-user:hover{
+
 }

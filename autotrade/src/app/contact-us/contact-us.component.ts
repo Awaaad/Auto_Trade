@@ -18,7 +18,7 @@ export class ContactUsComponent implements OnInit {
   model: any = {};
 
   onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
   }
 
 }

@@ -8,6 +8,7 @@ import { DetailsService, CarDetails } from '../inventory/details/details.service
   templateUrl: './car-details.component.html',
   styleUrls: ['./car-details.component.scss']
 })
+
 export class CarDetailsComponent implements OnInit {
   // details: Details;
   carDetails: Array<CarDetails>;
@@ -22,4 +23,12 @@ export class CarDetailsComponent implements OnInit {
     console.log(this.carDetails);
   }
 
+
+  model: any = {};
+
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+  }
 }
+
+

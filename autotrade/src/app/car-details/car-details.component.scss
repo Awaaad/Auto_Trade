@@ -111,7 +111,10 @@ body {
   .card {
     // padding: 3em;
     line-height: 1.5em;
-    border-radius: 4px; }
+
+    max-width: 1500px;
+    margin: 0 auto;
+  }
   
   @media screen and (min-width: 997px) {
     .wrapper {
@@ -146,7 +149,7 @@ body {
    }
   
   .checked, .price span {
-    color: #f7c143; }
+    color: #fbe122; }
   
   .product-title, .rating, .product-description, .price, .vote, .sizes {
     margin-bottom: 15px; }
@@ -165,38 +168,59 @@ body {
     margin-right: 10px;
     height: 2em;
     width: 2em;
-    border-radius: 2px; }
+ }
     .color:first-of-type {
       margin-left: 20px; }
   
   .add-to-cart, .like {
-    background: #f7c143;
-    padding: 10px 10px;
-    border: none;
-    font-weight: 300;
-    color: #fff;
+    padding: 10px 20px 8px 20px;
     font-size: 16px;
-    font-family: "Roboto", sans-serif;
-    -webkit-transition: background .3s ease;
-            transition: background .3s ease; }
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #121212;
+    letter-spacing: 1px!important;
+    border: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #fbe122;
+    border-radius: 0px;
+    border-bottom: 2px #ecd213 solid;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 4px;
+           }
     .add-to-cart:hover, .like:hover {
-      background: #343a40;
-      color: white; }
+      -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+      -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+      transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+      box-shadow: inset 0 -46px 0 0 #23292e;
+      border-bottom: 2px solid #121518;
+      color: #fff; }
 
       .continue-shopping, .like {
-        background: #343a40;
-        padding: 10px 10px;
-        border: none;
-        font-weight: 300;
-        color: #fff;
+        padding: 10px 20px 8px 20px;
         font-size: 16px;
-        font-family: "Roboto", sans-serif;
-        margin-right:20px;
-        -webkit-transition: background .3s ease;
-                transition: background .3s ease; }
+        text-transform: uppercase;
+        font-weight: 500;
+        color: white;
+        letter-spacing: 1px!important;
+        border: none;
+        margin-right: 5px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background: #343a40;
+        border-radius: 0px;
+        border-bottom: 2px black solid;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        border-radius: 4px; }
         .continue-shopping:hover, .like:hover {
-          background: #f7c143;
-          color: white; }
+          -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+          -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+          transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+          box-shadow: inset 0 -46px 0 0 #fbe122;
+          border-bottom: 2px solid #fbe122;
+          color: #343a40;
+   }
+          //#343a40;
   
   .not-available {
     text-align: center;
@@ -242,7 +266,6 @@ body {
 
   .container{
       width: 100%;
-      
   }
 
 
@@ -251,8 +274,8 @@ body {
   //     background-color:#f7c143;
   // }
   .icons-space{
-      border: 1px solid #343a40;
-      background-color:#f7c143;
+      // border: 1px solid #343a40;
+      // background-color:#fbe122;
   }
 
   .mileage-wrap,.engine-wrap,.transmission-wrap{
@@ -292,7 +315,7 @@ a:hover, a:link, a:visited{
 
 
 .wrapper{
-  border-radius: 4px;
+
 }
 
 p{
@@ -302,4 +325,224 @@ p{
 h4{
   font-size:23px;
   font-weight: 600;
+}
+
+.container-fluid{
+  background-color:white;
+  margin-top:20px;
+  margin-bottom:20px;
+  box-shadow: 0 5px 0 rgba(200, 200, 200, 0.2);
+}
+
+.action{
+  margin-bottom: 20px;;
+}
+
+.page-heading {
+  padding: 70px 0 70px 0;
+  background-size: cover;
+  border-bottom: none;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/productdetail.jpg");
+  background-position: bottom;
+}
+
+.page-title h2{
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 46px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0px 25px;
+  display: inline-block;
+  margin-top: 5px;
+  color:white
+}
+
+.small-description{
+  margin-top: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.continue-shopping{
+  margin-bottom: 10px;
+}
+.add-to-cart{
+  margin-bottom: 10px;
+}
+ul.shipping-pro {
+  padding: 0px 0 0 20px;
+  font-size: 17px;
+  margin-top: 5px;
+  display: inline-block;
+  width: 100%;
+  font-weight: normal;
+}
+
+.container-bottom{
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+.panel{
+  border-radius:0;
+  border: none;
+  box-shadow: 0 5px 0 rgba(200, 200, 200, 0.2);
+}
+
+.panel-heading, .panel-body{
+  background-color: white;
+  border: none;
+}
+
+.specifications{
+  border-bottom: 1px solid #ddd;
+}
+
+.panel-heading{
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  border: none;
+  background: none repeat scroll 0 0 #fff;
+  color: white;
+  background-color: #343a40;
+  border-radius: 0;
+}
+
+.nav-tabs{
+  width: -webkit-fill-available;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-tabs li{
+  font-size: 20px;
+}
+.nav>li>a{
+  color:#343a40;
+}
+
+.nav>li>a:hover {
+  text-decoration: none;
+  background-color: #eee;
+}
+.bottom li.active a:after {
+
+}
+
+.ask-more{
+  background-color: white;
+  margin-bottom:20px;
+}
+
+.form-group{
+  position:relative;
+}
+
+.form-group i{
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding-left: 30px;
+  color: #343a40;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.ask-more{
+  background-color: white;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.text-center{
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+  padding-bottom: 9px;
+  background-color: #343a40;
+  color:white;
+}
+
+.form-horizontal .form-group {
+  margin-left:0;
+  margin-right:0;
+}
+.container-bottom-align{
+  padding-left:0;
+}
+
+.form-control{
+  width: 90%;
+  margin:0 auto;
+  padding: 18px 12px;
+}
+
+.btn-primary{
+  background-color: #343a40;
+  border: none;
+  width: 100%;
+}
+form{
+  box-shadow: 0 5px 0 rgba(200, 200, 200, 0.2);
+}
+.form-group input{
+  padding-left: 30px;
+}
+.form-group textarea{
+  padding-left: 30px;
+}
+
+.btn-primary{
+  height: 50px;
+  font-size: 18px;
+  background-color: #343a40;
+  color:white;
+}
+.btn-primary:hover,.btn-primart:active,.btn-primary:focus{
+  transition: background-color .3s,color .2s;
+  background-color: gray;
+  color:white;
+  outline:0;
+}
+
+.ng-star-inserted{
+  padding-left: 15px;
+  color: red;
+}
+
+button.btn-primary {
+  padding: 10px 20px 8px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #121212;
+  letter-spacing: 1px!important;
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #fbe122;
+  border-radius: 0px;
+  border-bottom: 2px #ecd213 solid;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 4px;
+}
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus{
+  -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -45px 0 0 #23292e;
+  border-bottom: 5px solid #121518;
+  color: #fff;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus, textarea.form-control:focus {
+  outline: 0;
+  background: white;
+  border: 2px solid #ccc;
+  box-shadow: none;
 }

@@ -1,77 +1,108 @@
-.footer{
-    background: #343a40;
-    color:white;
-    
-    .links{
-      ul {list-style-type: none;}
-      li a{
-        color: white;
-        transition: color .2s;
-        &:hover{
-          text-decoration:none;
-          color:#4180CB;
-          }
-      }
-    }  
-    .about-company{
-      i{font-size: 25px;}
-      a{
-        color:white;
-        transition: color .2s;
-        &:hover{color:#4180CB}
-      }
-    } 
-    .location{
-      i{font-size: 18px;}
+.footer {
+  background: #343a40;
+  color: white;
+
+  .links {
+    ul {
+      list-style-type: none;
     }
-    .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+
+    li a {
+      color: white;
+      transition: color .2s;
+
+      &:hover {
+        text-decoration: none;
+        color: #4180CB;
+      }
+    }
   }
-.container{
+
+  .about-company {
+    i {
+      font-size: 25px;
+    }
+
+    a {
+      color: white;
+      transition: color .2s;
+
+      &:hover {
+        color: #4180CB
+      }
+    }
+  }
+
+  .location {
+    i {
+      font-size: 18px;
+    }
+  }
+
+  .copyright p {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+  }
+}
+
+.container {
   line-height: 24px;
-  padding-left:0;
+  padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
-.container p{
-  color: hsla(0,0%,100%,.7)
+
+.container p {
+  color: hsla(0, 0%, 100%, .7)
 }
-.container a{
-  color: hsla(0,0%,100%,.7)
+
+.container a {
+  color: hsla(0, 0%, 100%, .7)
 }
-.container h4{
+.container p a {
+  color: white;
+}
+.container p a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.container h4 {
   margin-top: 30px;
 }
-input[type=email]{
+
+input[type=email] {
   transition: border .3s;
   border: 1px solid #dfdfdf;
   width: 100%;
   -webkit-appearance: none;
   padding: 8px;
-  color:#343a40;
+  color: #343a40;
 }
 
-.btn{
+.btn {
   border: 1px solid gray;
   color: white;
   background-color: gray;
   margin-top: 10px;
   font-size: 17px;
   margin-bottom: 20px;
-  border-radius:4px;
+  border-radius: 4px;
 }
 
-.btn:hover,.btn:active,.btn:focus{
+.btn:hover,
+.btn:active,
+.btn:focus {
   border: 1px solid white;
-  transition: background-color .3s,color .2s;
+  transition: background-color .3s, color .2s;
   color: #343a40;
   background-color: white;
   margin-top: 10px;
   font-size: 17px;
-  border-radius:4px;
-  outline:0;
+  border-radius: 4px;
+  outline: 0;
 }
 
-.about-company i{
+.about-company i {
   padding: 10px 20px;
   margin-top: 5px;
   text-align: left;
@@ -79,44 +110,53 @@ input[type=email]{
   float: left;
 }
 
-.about-company i:hover{
+.about-company i:hover {
   padding: 7px 20px;
   cursor: pointer;
 }
 
-.footer{
+.footer {
 
   justify-content: center;
   text-align: left;
 }
 
-.container img{
+.container img {
   max-width: 120px;
 }
 
-.social-medias{
+.social-medias {
   margin-top: 50px;
 }
 
-.small, small{
+.small,
+small {
   padding-left: 18px;
 }
-.copyright{
+
+.copyright {
   margin-top: 50px;
 }
 
-.row{
+.row {
   margin-left: 0;
-  margin-right:0;
+  margin-right: 0;
 }
 
-.container p{
+.container p {
   color: white;
   text-align: justify;
   font-size: 17px;
 }
 
-.wrapper{
-  max-width:1500px;
-  margin:0 auto;
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.location a{
+  color:white;
+}
+.location a:hover{
+  text-decoration: none;
 }

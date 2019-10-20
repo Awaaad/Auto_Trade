@@ -1,73 +1,74 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../_services';
+import { first } from 'rxjs/operators';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  isDisplayed: boolean = false;
-  isHidden: boolean = true;
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error: string;
+  success: string;
 
-  constructor(private formBuilder: FormBuilder,
-              private route: ActivatedRoute,
-              private router: Router) {}
-  ngOnInit() {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {
+    // redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+  }
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
 
-  model: any = {};
-// var Users = [
-//   {
-//     username : "Awad"
-//     password: "Awad"
-//   }
-// ]
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
-
- 
-
-  onSubmit() {
-    this.isDisplayed = true;
-    this.isHidden = false;
-    //   setTimeout(() => {
-    //     this.router.navigate(['/']);
-    // }, 3000);
-
-    this.goToHome();
-    this.Store();
-  
-    // this.router.navigate(['/']);
-    //document.getElementById("logged").innerHTML= "Successfully logged in!";
-    // console.log(this.isDisplayed)
+    // show success message on registration
+    if (this.route.snapshot.queryParams['registered']) {
+      this.success = 'Registration successful';
+    }
   }
 
-  goToHome() {
-    this.router.navigate(['/']);
-  }
+    // convenience getter for easy access to form fields
+    get f() { return this.loginForm.controls; }
 
-  Store(){
-    const username = (document.getElementById('loginUsername') as HTMLInputElement);
-    localStorage.setItem('username', username.value);
-    const password = (document.getElementById('loginPass') as HTMLInputElement);
-    localStorage.setItem('password', password.value);
-   }
+    onSubmit() {
+        this.submitted = true;
 
-//   login(){
-//   var username = document.getElementById("loginUsername").value
-//   var password = document.getElementById("loginPass").value
+        // reset alerts on submit
+        this.error = null;
+        this.success = null;
 
-//   for(i=0; i<objUsers.length; i++){
-//     if(username == Users[i].username && password == Users[i].password){
-//       this.router.navigate(['/']);
-//     }
-//     else{
-//       alert("wrong username and password");
-//     }
-//   }
-// }
-  isLogin: boolean = true;
-  onClick() {
-    this.isLogin = !this.isLogin;
-  }
+        // stop here if form is invalid
+        if (this.loginForm.invalid) {
+            return;
+        }
+
+        this.loading = true;
+        this.authenticationService.login(this.f.username.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.error = error;
+                    this.loading = false;
+                });
+    }
+
 }
 

@@ -49,6 +49,7 @@
 
   .panel-primary{
       border: none;
+      box-shadow: 0 5px 0 rgba(200,200,200,.2);
   }
 
   .panel-body{
@@ -124,6 +125,7 @@ body {
     line-height: 1.5em;
     border: 1px solid #ddd;
     margin-bottom: 10px;
+    box-shadow: 0 5px 0 rgba(200,200,200,.2);
    }
   
   @media screen and (min-width: 997px) {
@@ -238,6 +240,8 @@ body {
   .container{
       width: 100%;
       margin-bottom: 10px;
+      padding-left:0;
+      padding-right: 0;
   }
   
 
@@ -290,7 +294,7 @@ h5{
 
 .sub h4{
   font-weight: 600;
-  color: #f7c143;
+  color: #fbe122;
 }
 
 .sub{
@@ -298,23 +302,45 @@ h5{
 }
 
 .more-details button{
-  background-color:#f7c143;
+  // background-color:#fbe122;
+  // padding:10px 10px;
+  // width: 130px;
+  // border-radius: 4px;
+  // text-align: center;
+  // color:black;
+  // margin: 0 auto;
+  // border: none;
   padding:10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  text-align: center;
-  color:white;
-  margin: 0 auto;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #121212;
+  letter-spacing: 1px!important;
   border: none;
+  margin-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #fbe122;
+  border-radius: 0px;
+  border-bottom: 2px #ecd213 solid;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 4px;
 }
 .more-details button:hover{
-  background-color:#343a40;
-  padding:10px 10px;
-  width: 130px;
-  border-radius: 4px;
-  text-align: center;
-  color:white;
-  transition: background-color .3s,color .2s;
+  // background-color:#343a40;
+  // padding:10px 10px;
+  // width: 130px;
+  // border-radius: 4px;
+  // text-align: center;
+  // color:white;
+  // transition: background-color .3s,color .2s;
+
+  -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -45px 0 0 #23292e;
+  border-bottom: 2px solid #121518;
+  color: #fff;
 }
 
 .more-details a{
@@ -343,7 +369,7 @@ tr{
   border-bottom:1px solid #ddd;
 }
 .price{
-  color: #f7c143;
+  color: #fbe122;
 }
 
 .container-resize{
