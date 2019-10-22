@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class MainOneComponent implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit() {
   }
+  model: any = {};
 
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+  }
 }

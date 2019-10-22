@@ -85,7 +85,7 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   onClick() {
     this.brandOptions[1].checked = !this.brandOptions[1].checked;
-    console.log(this.brandOptions[1].checked);
+    // console.log(this.brandOptions[1].checked);
   }
 
   onFilter() {
@@ -96,8 +96,8 @@ export class FilterComponent implements OnInit, OnDestroy {
 
     let arrOfObj = [arrOptions, arrOptionsBrand, arrOptionsYear, arrOptionsType];
     this.filterEmitter.emit(arrOfObj);
-    console.log(arrOfObj);
-    console.log(this.brandOptions[1].checked);
+    // console.log(arrOfObj);
+    // console.log(this.brandOptions[1].checked);
     // this.filterEmitter.emit(arrOptionsBrand);
   }
 

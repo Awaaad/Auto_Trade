@@ -50,7 +50,10 @@
           <div class="action">
             <button routerLink="/inventory" class="continue-shopping btn btn-default" type="button"><i class="fas fa-arrow-left"></i> Continue
               Shopping</button>
-            <button [routerLink]="['/cart', { id:carDetails[0].id }]" class="add-to-cart btn btn-default"
+            <!-- <button [routerLink]="['/cart', { id:carDetails[0].id }]" class="add-to-cart btn btn-default"
+              type="button"><i class="fas fa-cart-arrow-down"></i> Add to
+              cart</button> -->
+            <button (click)='incrementCart()' class="add-to-cart btn btn-default"
               type="button"><i class="fas fa-cart-arrow-down"></i> Add to
               cart</button>
           </div>
@@ -149,7 +152,7 @@
       </div>
 
     </div>
-    <div class="ask-more col-md-4">
+    <div class="more col-md-4">
       <form class="form-horizontal" action="" method="post" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
               <fieldset>
                 <legend class="text-center">ASK FOR MORE DETAILS</legend>

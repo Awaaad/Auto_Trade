@@ -24,6 +24,17 @@ export interface CarDetails {
 export class DetailsService {
   constructor() { }
 
+  private url: number;
+
+  public setUrl(url: number): void {
+    console.log(url);
+    this.url = url;
+  }
+
+  public getUrl(): number {
+    return this.url;
+  }
+
   public getCarDetails(): Array<CarDetails> {
     return [{
       id: 1,
@@ -120,7 +131,7 @@ export class DetailsService {
       year: '2016',
       price: 550000,
       transmission: 'Manual',
-      carImage: '../../../assets/Suzuki-Swift/Main.jpg',
+      carImage: '../../../assets/Nissan Sunny/Main.jfif',
       carImage1: '../../../assets/Nissan Sunny/1.jpg',
       carImage2: '../../../assets/Nissan Sunny/2.jpg',
       carImage3: '../../../assets/Nissan Sunny/3.jpg',

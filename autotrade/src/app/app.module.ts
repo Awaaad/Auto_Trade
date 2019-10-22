@@ -69,7 +69,7 @@ import { ProductService } from '../app/services/product.services';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, 
     fakeBackendProvider,
     DetailsService,
-    ProductService
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })

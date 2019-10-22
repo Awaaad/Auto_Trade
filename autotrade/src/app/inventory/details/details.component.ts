@@ -58,7 +58,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
         });
 
-        console.log('arrayYears', arrayYears);
+        // console.log('arrayYears', arrayYears);
 
         this.cardetails = this.cardetails.filter((detail) => {
           if (arrayYears.includes(detail.year)) {

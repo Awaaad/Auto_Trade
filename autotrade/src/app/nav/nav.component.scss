@@ -89,7 +89,9 @@ nav.collapse ul .li:hover {
     border-top: 6px solid #7ad3f7;
 }
 
-
+.btn:focus{
+    outline: none;
+}
 
 .dropbtn {
     color: white;
@@ -195,7 +197,14 @@ nav.collapse ul .li:hover {
     min-width: 190px;
     padding: 0;
     border-radius: 4px;
+    right:0;
+    left:auto;
 }
+.dropdown-menu a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-menu {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .welcome{
     padding: 10px 20px;
@@ -303,6 +312,7 @@ tr:hover td {background:#343a40;}
 
 .cartlabel{
     font-size: 14px;
+    margin-left: 8px;
     padding-top:5px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -338,6 +348,9 @@ $shopping-cart-black: #343a40;
 
 .logo-link:hover{
     cursor: pointer;
+}
+.logo-link:focus{
+    outline: none;
 }
 
 
@@ -383,5 +396,32 @@ content: '';
 }
 
 .fas.fa-user:hover{
+
+}
+
+.btn-success{
+    background-color:blue;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo img{
+        width: 183px;
+        margin-top: 24px;
+    }
+    .dropdown .loginlabel .target-login{
+        display: none;
+    }
+    .cartlabel{
+        display: none;
+    }
+    .fas.fa-user{
+        font-size: 31px;
+    }
+    .fa-stack-2x {
+        font-size: 33px;
+    }
+    .dropdown:hover .dropdown-menu{
+        display:none;
+    }
 
 }

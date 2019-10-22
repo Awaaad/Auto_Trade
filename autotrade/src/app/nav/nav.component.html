@@ -8,26 +8,30 @@
           </div>
           <div class="col-md-8">
             <span class="dropdown">
-              <button (click)="showDialog = !showDialog" class="btn btn-default dropdown-toggle cart" type="button"
-                id="dropdownMenu1"><span class="fa-stack fa-2x has-badge" data-count="4">
+              <!-- <button (click)="showDialog = !showDialog" class="btn btn-default dropdown-toggle cart" type="button"
+                id="dropdownMenu1"><span class="fa-stack fa-2x has-badge" data-count="4"> -->
+              <button (click)="navigate()" class="btn btn-default dropdown-toggle cart" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="fa-stack fa-2x has-badge" data-count="">
                   <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                  <i style="" class="fas fa-shopping-cart fa-stack-2x red-cart"></i>
+                  <i style ="" class="fas fa-shopping-cart fa-stack-2x red-cart"></i>
                 </span>
                 <div class="cartlabel">CART</div>
               </button>
 
-              <app-dialog [(visible)]="showDialog">
+              <!-- <app-dialog [(visible)]="showDialog">
                 <div class="container">
                   <app-cart></app-cart>
                 </div>
                 <button (click)="showDialog = !showDialog" class="btn">Close</button>
-              </app-dialog>
+              </app-dialog> -->
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <app-cart></app-cart>
+              </ul>
             </span>
 
             <ul class="dropdown">
               <div class="loginlabel">
                 <li *ngIf="!currentUser"><a routerLink="/login"><i class="nav-item nav-link fas fa-user"></i></a>
-                  <div *ngIf="!currentUser"><a routerLink="/login">LOGIN / REGISTER</a></div>
+                  <div *ngIf="!currentUser"><a class="target-login" routerLink="/login">LOGIN / REGISTER</a></div>
                 </li>
                 <li *ngIf="currentUser"><i class="nav-item nav-link fas fa-user"></i>
                 <div *ngIf="currentUser"><a class="nav-item nav-link" (click)="logout()">LOGOUT</a></div>
@@ -35,6 +39,7 @@
 
               </div>
             </ul>
+
           </div>
         </div>
       </div>

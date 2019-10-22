@@ -14,8 +14,8 @@ export class InventoryComponent implements OnInit {
   }
 
   selectedPriceRange(arr): void {
-    console.log('selected', arr[0]);
-    console.log('selected', arr[1]);
+    // console.log('selected', arr[0]);
+    // console.log('selected', arr[1]);
     this.filterApplied = {
       priceRange: arr[0],
       brand: arr[1],

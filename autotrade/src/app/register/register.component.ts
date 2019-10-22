@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { MustMatch } from '../_helpers/must-match.validator';
+import { MustMatch } from '../../_helpers/must-match.validator';
 import { UserService, AuthenticationService } from '../_services';
 
 @Component({
@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   error: string;
+  patternValidate = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$';
 
   constructor(
     private router: Router,
@@ -32,8 +33,9 @@ export class RegisterComponent implements OnInit {
           name: ['', Validators.required],
           username: ['', Validators.required],
           email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(6)]],
-          confirmPassword: ['', Validators.required] 
+          password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.patternValidate)]],
+          // Validators.pattern('^[0-9]*$')
+          confirmPassword: ['', Validators.required]
       },
       {
         validator: MustMatch('password', 'confirmPassword')

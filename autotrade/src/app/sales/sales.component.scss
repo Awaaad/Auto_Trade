@@ -8,7 +8,7 @@
 .col-item .photo img
 {
     margin: 0 auto;
-    width: 100%;
+    width: 77%;
 }
 
 .photo{
@@ -29,8 +29,7 @@
     padding: 10px;
     border-radius: 0 0 5px 5px;
     margin-top: 1px;
-    background-color: #343a40;
-    color:white;
+    background-color: white;
     border: 1px solid #ddd;
 }
 .col-item:hover .info.type
@@ -51,6 +50,9 @@
     background-color: white;
     transition: background-color .3s,color .2s;
 }
+.price{
+    text-align:center;
+}
 
 .col-item:hover .price-tag{
     background-color:white;
@@ -60,9 +62,10 @@
 .col-item.price
 {
     /*width: 50%;*/
-    float: left;
+    text-align:center;
     margin-top: 5px;
     width:100%;
+    margin: 0 auto;
 
 }
 
@@ -252,13 +255,13 @@
 
 .container .title h2{
     color: #343a40;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 0px;
-    padding: 22px 25px 22px 25px;
+    padding: 15px 20px 15px 20px;
     position: relative;
     display: inline-block;
-    font-family: 'Saira Condensed', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: #fbe122;
@@ -267,13 +270,13 @@
 }
 .container .title-brand h2{
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 0px;
-    padding: 22px 25px 22px 25px;
+    padding: 15px 20px 15px 20px;
     position: relative;
     display: inline-block;
-    font-family: 'Saira Condensed', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: #343a40;
@@ -287,7 +290,7 @@ content: '';
     width: 60px;
     height: 100%;
     transform: skew(-35deg);
-    right: -35px;
+    right: -41px;
     top: 0;
     background-color: inherit;
     z-index: 0;
@@ -298,7 +301,7 @@ content: '';
     width: 60px;
     height: 100%;
     transform: skew(-35deg);
-    right: -35px;
+    right: -41px;
     top: 0;
     background-color: inherit;
     z-index: 0;
@@ -322,6 +325,16 @@ content: '';
 @media only screen and (max-width: 600px) {
     container {
       width: auto;
+    }
+    .col-item .price h5{
+        font-size: 18px;
+    }
+    .price{
+        padding-left:0;
+        padding-right:0;
+    }
+    .little-info{
+        font-size: x-small;
     }
   }
 
@@ -366,14 +379,23 @@ content: '';
 }
 
 .info .row a{
-    color:white;
+    color:#343a40;
 }
 
 .info .row a:hover{
-    color:white;
+    color:#343a40;
     text-decoration: none;
 }
 ul{
     background-color: white;
     margin-bottom: 0;
+}
+
+.little-info{
+    color:#ccc;
+    text-align: center;
+}
+.little-info p{
+    color:#777;
+    text-align: center;
 }
