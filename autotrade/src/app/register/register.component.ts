@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { MustMatch } from '../../_helpers/must-match.validator';
 import { UserService, AuthenticationService } from '../_services';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-register',
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
       {
         validator: MustMatch('password', 'confirmPassword')
     });
+    AOS.init();
   }
 
   // convenience getter for easy access to form fields

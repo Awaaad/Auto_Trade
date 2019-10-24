@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
   cardetails: any[];
   details: { id: number; brand: string; engine: string; mileage: string; fuel: string; year: string; price: number; }[];
+  actualPage: number = 1;
   // tslint:disable-next-line: variable-name
   constructor(private _router: Router, private _detailsService: DetailsService) {
     this.initialiseCarDetails();
@@ -27,7 +28,6 @@ export class DetailsComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges) {
-    console.warn(changes);
     if (changes.currentFilter) {
       const priceRange = changes.currentFilter.currentValue.priceRange;
       const brand = changes.currentFilter.currentValue.brand;

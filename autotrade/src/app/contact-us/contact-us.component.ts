@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-contact-us',
@@ -14,6 +15,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   ngOnInit() {
+    AOS.init();
   }
   model: any = {};
 

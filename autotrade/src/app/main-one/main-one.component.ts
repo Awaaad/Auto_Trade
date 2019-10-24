@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-main-one',
   templateUrl: './main-one.component.html',
@@ -10,6 +10,7 @@ export class MainOneComponent implements OnInit {
   constructor() { }
   
   ngOnInit() {
+    AOS.init();
   }
   model: any = {};
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ ActivatedRoute, Router} from '@angular/router';
+import{ ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import { CarItem } from '../../entities/car-item.entity';
 import { DetailsService, CarDetails } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
@@ -24,12 +24,18 @@ export class CarDetailsComponent implements OnInit {
     private router: Router) {   }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
     // tslint:disable-next-line: radix
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.carDetails = this._detailsService.getCarDetails();
 
     this.carDetails = this.carDetails.filter(data => data.id === id);
-    console.log(this.carDetails);
+    // console.log(this.carDetails);
   }
 
 
@@ -43,7 +49,7 @@ export class CarDetailsComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.carDetails = this._detailsService.getCarDetails();
     this.carDetails = this.carDetails.filter(data => data.id === id);
-    console.log("adding", this.carDetails);
+    // console.log("adding", this.carDetails);
 
     this._detailsService.setUrl(this.carDetails[0].id);
     // this.router.navigate(['/cart', { id:this.carDetails[0].id }]);

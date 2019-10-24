@@ -1,4 +1,7 @@
-<div class="filter">
+<div class="filter filter-desktop" data-aos="fade-zoom-in"
+data-aos-easing="ease-in-back"
+data-aos-delay="100"
+data-aos-offset="5">
   <div class="col-sm-3">
     <div class="panel panel-primary behclick-panel">
       <div class="panel-heading" >
@@ -85,114 +88,94 @@
                   </div>
                 </li>
               </ul>
-            </div>
-            
-<!-- ////////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-
-        <div class="panel-heading ">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse1">
-               Brand
-            </a>
-          </h4>
-        </div>
-        <div class="panel-collapse collapse in">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  citroen
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  benz
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  bmw
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse3">
-              Color</a>
-          </h4>
-        </div>
-        <div id="collapse3" class="panel-collapse collapse in">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  red
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  blue
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  green
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2"><i class="indicator fa fa-caret-right" aria-hidden="true"></i>
-              Collapsible list group</a>
-          </h4>
-        </div>
-        <div id="collapse2" class="panel-collapse collapse">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  7
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  8
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  9
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div>
+          </div>      
       </div>
     </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="filter-mobile" data-aos="fade-zoom-in"
+data-aos-easing="ease-in-back"
+data-aos-delay="100"
+data-aos-offset="5">
+  <div class="panel-group" id="accordion">
+      <div class="panel panel-heading-container">
+          <div class="panel-heading--no-link">
+              <div class="panel-title">
+                  <h4>Refine your search: </h4>
+              </div>
+          </div>
+      </div>
+      <div class="panel panel-default">
+          <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+              data-target="#price">
+              <h4 class="panel-title panel-subtitle">Price</h4>
+
+          </div>
+          <div id="price" class="panel-collapse collapse">
+              <div class="panel-body">
+                  <ul *ngFor="let priceOption of priceOptions">
+                      <li>
+                          <input type="checkbox" name="checkbox" value="{{priceOption.value}}"
+                              [(ngModel)]="priceOption.checked" (change)="onFilter()" #checkboxes>
+                          <span>{{priceOption.name}}</span>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="panel panel-default">
+          <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+              data-target="#brand">
+              <h4 class="panel-title panel-subtitle">Brands</h4>
+
+          </div>
+          <div id="brand" class="panel-collapse collapse">
+              <div class="panel-body">
+                  <ul *ngFor="let brandOption of brandOptions">
+                      <li><input type="checkbox" value="{{brandOption.value}}" [(ngModel)]="brandOption.checked"
+                              (change)="onFilter()" #checkboxes><span>{{brandOption.name}}</span></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="panel panel-default">
+          <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+              data-target="#year">
+              <h4 class="panel-title panel-subtitle">Year</h4>
+
+          </div>
+          <div id="year" class="panel-collapse collapse">
+              <div class="panel-body">
+                  <ul *ngFor="let yearOption of yearOptions">
+                      <li><input type="checkbox" value="{{yearOption.value}}" [(ngModel)]="yearOption.checked"
+                              (change)="onFilter()" #checkboxes><span>{{yearOption.name}}</span></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="panel panel-default">
+          <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+              data-target="#bodytype">
+              <h4 class="panel-title panel-subtitle">Body Type</h4>
+
+          </div>
+          <div id="bodytype" class="panel-collapse collapse">
+              <div class="panel-body">
+                  <ul *ngFor="let typeOption of typeOptions">
+                      <li><input type="checkbox" value="{{typeOption.value}}" [(ngModel)]="typeOption.checked"
+                              (change)="onFilter()" #checkboxes><span>{{typeOption.name}}</span></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
   </div>
 </div>

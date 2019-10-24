@@ -26,3 +26,5 @@ export class ProductService {
         }
     }
 }
+
+console.log("sxsxsx", localStorage.getItem('quantity'));

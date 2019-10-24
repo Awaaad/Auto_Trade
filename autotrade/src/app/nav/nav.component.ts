@@ -17,7 +17,6 @@ export class NavComponent implements OnInit{
     // console.log("bla", this.cart.loadCart());
     // let cartLength = (localStorage.getItem('quantity'));
     // console.log("cart length", cartLength);
-    console.log('entered nav')
     document.getElementsByClassName("has-badge")[0].setAttribute("data-count",this.cartLength);
   }
   constructor(

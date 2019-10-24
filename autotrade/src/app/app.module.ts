@@ -33,6 +33,8 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductService } from '../app/services/product.services';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,11 +64,12 @@ import { ProductService } from '../app/services/product.services';
     ReactiveFormsModule,
     HttpClientModule,
     SlickCarouselModule,
-    OwlModule
+    OwlModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, 
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider,
     DetailsService,
     ProductService,

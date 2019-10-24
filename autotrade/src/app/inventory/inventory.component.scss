@@ -377,3 +377,18 @@ tr{
   max-width: 1500px;
   margin: 0 auto;
 }
+
+#customers{
+  width:100%;
+}
+@media (min-width: 768px){
+.col-sm-9 {
+    width: 100%;
+}
+}
+
+@media (min-width: 1024px){
+  .col-sm-9 {
+      width: 75%;
+  }
+  }
