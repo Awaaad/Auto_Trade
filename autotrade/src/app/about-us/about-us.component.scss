@@ -1,6 +1,14 @@
 .container{
     margin-top:20px;
     margin-bottom:20px;
+    padding-left:0;
+    padding-right:0;
+    width: 100% !important;
+}
+
+.main-container{
+    max-width: 1500px;
+    margin: 0 auto;
 }
 .th-widget{
     padding: 30px 20px;
@@ -101,10 +109,7 @@ a {
     color: #343a40;
     text-decoration: none;
 }
-.container{
-    padding-left:0;
-    padding-right:0;
-}
+
 
 @media only screen and (min-width: 1000px) {
     .container{
@@ -147,4 +152,8 @@ a {
 
 .th-widgetcontent ul li{
     border-bottom: 1px solid #ddd;
+}
+
+.contaner{
+    max-width:100%;
 }

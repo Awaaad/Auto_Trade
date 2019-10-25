@@ -8,7 +8,7 @@ import * as AOS from 'aos';
 export class MainOneComponent implements OnInit {
 
   constructor() { }
-  
+
   ngOnInit() {
     AOS.init();
   }

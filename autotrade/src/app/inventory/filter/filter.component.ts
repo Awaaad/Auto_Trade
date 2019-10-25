@@ -59,17 +59,16 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.routeSubscription = this.activatedRoute.queryParamMap.subscribe(params => {
-      if (params.get("brand")) {
+      if (params.get('brand')) {
         this.brandOptions = this.brandOptions.map((brandOption) => {
-          if (brandOption.name === params.get("brand")) {
+          if (brandOption.name === params.get('brand')) {
             brandOption.checked = true;
           }
           return brandOption;
         });
-      }
-      else if(params.get("type")) {
+      } else if (params.get('type')) {
         this.typeOptions = this.typeOptions.map((typeOption) => {
-          if (typeOption.name === params.get("type")) {
+          if (typeOption.name === params.get('type')) {
             typeOption.checked = true;
           }
           return typeOption;
@@ -94,18 +93,10 @@ export class FilterComponent implements OnInit, OnDestroy {
     const arrOptionsYear = this.yearOptions.filter((yearOption) => yearOption.checked);
     const arrOptionsType = this.typeOptions.filter((typeOption) => typeOption.checked);
 
-    let arrOfObj = [arrOptions, arrOptionsBrand, arrOptionsYear, arrOptionsType];
+    const arrOfObj = [arrOptions, arrOptionsBrand, arrOptionsYear, arrOptionsType];
     this.filterEmitter.emit(arrOfObj);
     // console.log(arrOfObj);
     // console.log(this.brandOptions[1].checked);
     // this.filterEmitter.emit(arrOptionsBrand);
   }
-
-
-
-  // onFilterBrand() {
-  //   const arrOptions = this.brandOptions.filter((brandOption) => brandOption.checked);
-  //   this.filterEmitter.emit(arrOptions);
-  // }
-
 }

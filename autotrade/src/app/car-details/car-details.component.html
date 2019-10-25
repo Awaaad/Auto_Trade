@@ -24,7 +24,6 @@
                 <img [src]="carDetails[0].carImage4" /></a></li>
             <li><a data-target="#pic-5" data-toggle="tab">
                 <img [src]="carDetails[0].carImage5" /></a></li>
-
           </ul>
 
         </div>
@@ -48,13 +47,14 @@
           <h5 class="price"><span>Rs {{carDetails[0].price}}</span></h5>
           <p class="vote"><strong>91%</strong> of buyers enjoyed this product!</p>
           <div class="action">
-            <button routerLink="/inventory" class="continue-shopping btn btn-default" type="button"><i class="fas fa-arrow-left"></i> Continue
+            <button routerLink="/inventory" class="continue-shopping btn btn-default" type="button"><i
+                class="fas fa-arrow-left"></i> Continue
               Shopping</button>
             <!-- <button [routerLink]="['/cart', { id:carDetails[0].id }]" class="add-to-cart btn btn-default"
               type="button"><i class="fas fa-cart-arrow-down"></i> Add to
               cart</button> -->
-            <button (click)='incrementCart()' class="add-to-cart btn btn-default"
-              type="button"><i class="fas fa-cart-arrow-down"></i> Add to
+            <button (click)='incrementCart()' class="add-to-cart btn btn-default" type="button"><i
+                class="fas fa-cart-arrow-down"></i> Add to
               cart</button>
           </div>
 
@@ -153,39 +153,45 @@
 
     </div>
     <div class="more col-md-4">
-      <form class="form-horizontal" action="" method="post" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-              <fieldset>
-                <legend class="text-center">ASK FOR MORE DETAILS</legend>
-        
-                <!-- Name input-->
-                <div class="form-group">
-                    <input type="text" class="from-name form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" placeholder="Name..." required /><i class="fas fa-user"></i>
-                    <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
-                        <div *ngIf="firstName.errors.required">*First Name is required</div>
-                    </div>
-                </div>
-        
-                <!-- Email input-->
-                <div class="form-group">
-                    <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"  placeholder="Email..." required email /><i class="fas fa-envelope"></i>
-                    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                        <div *ngIf="email.errors.required">*Email is required</div>
-                        <div *ngIf="email.errors.email">*Email must be a valid email address</div>
-                    </div>
-                </div>
-                <!-- Message body -->
-                <div class="form-group">
-                    <label class="sr-only" for="form-message">Message</label>
-                    <textarea class="form-control" id="message" rows="9" placeholder="Message..." required></textarea><i class="fas fa-pen-alt"></i>
-                  </div>
-                <!-- Form actions -->
-                <div class="form-group">
-                  <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                  </div>
-                </div>
-              </fieldset>
-              </form>
+      <form class="form-horizontal" action="" method="post" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
+        <fieldset>
+          <legend class="text-center">ASK FOR MORE DETAILS</legend>
+
+          <!-- Name input-->
+          <div class="form-group">
+            <input type="text" class="from-name form-control" name="firstName" [(ngModel)]="model.firstName"
+              #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" placeholder="Name..."
+              required /><i class="fas fa-user"></i>
+            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required">*First Name is required</div>
+            </div>
+          </div>
+
+          <!-- Email input-->
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Email..." required email /><i
+              class="fas fa-envelope"></i>
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.required">*Email is required</div>
+              <div *ngIf="email.errors.email">*Email must be a valid email address</div>
+            </div>
+          </div>
+          <!-- Message body -->
+          <div class="form-group">
+            <label class="sr-only" for="form-message">Message</label>
+            <textarea class="form-control" id="message" rows="9" placeholder="Message..." required></textarea><i
+              class="fas fa-pen-alt"></i>
+          </div>
+          <!-- Form actions -->
+          <div class="form-group">
+            <div class="col-md-12 text-right">
+              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
 </div>

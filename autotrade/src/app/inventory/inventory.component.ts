@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import * as AOS from 'aos';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import { CarItem } from '../../entities/car-item.entity';
 import { DetailsService, CarDetails } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
@@ -18,7 +18,7 @@ export class CarDetailsComponent implements OnInit {
   private total: number = 0;
   private totalQuantity: number = 0;
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private productService: ProductService,
     private _detailsService: DetailsService,
     private router: Router) {   }
@@ -28,9 +28,8 @@ export class CarDetailsComponent implements OnInit {
       if (!(evt instanceof NavigationEnd)) {
           return;
       }
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
   });
-    // tslint:disable-next-line: radix
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.carDetails = this._detailsService.getCarDetails();
 
@@ -45,7 +44,7 @@ export class CarDetailsComponent implements OnInit {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
   }
 
-  incrementCart(){
+  incrementCart() {
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.carDetails = this._detailsService.getCarDetails();
     this.carDetails = this.carDetails.filter(data => data.id === id);
@@ -56,32 +55,33 @@ export class CarDetailsComponent implements OnInit {
 
 
     if (id) {
-      var item: CarItem = {
+      const item: CarItem = {
         product: this.productService.find(id),
         quantity: 1
       };
       if (localStorage.getItem('cart') == null) {
-        let cart: any = [];
+        const cart: any = [];
         cart.push(JSON.stringify(item));
         localStorage.setItem('cart', JSON.stringify(cart));
       } else {
-        let cart: any = JSON.parse(localStorage.getItem('cart'));
+        const cart: any = JSON.parse(localStorage.getItem('cart'));
         let index: number = -1;
-        for (var i = 0; i < cart.length; i++) {
-          let item: CarItem = JSON.parse(cart[i]);
-          if (item.product.id == id) {
+        for (let i = 0; i < cart.length; i++) {
+          // tslint:disable-next-line: no-shadowed-variable
+          const item: CarItem = JSON.parse(cart[i]);
+          if (item.product.id === id) {
             index = i;
             break;
           }
         }
-        if (index == -1) {
+        if (index === -1) {
           cart.push(JSON.stringify(item));
           localStorage.setItem('cart', JSON.stringify(cart));
         } else {
-          let item: CarItem = JSON.parse(cart[index]);
+          const item: CarItem = JSON.parse(cart[index]);
           item.quantity += 1;
           cart[index] = JSON.stringify(item);
-          localStorage.setItem("cart", JSON.stringify(cart));
+          localStorage.setItem('cart', JSON.stringify(cart));
         }
       }
     }
@@ -97,9 +97,10 @@ export class CarDetailsComponent implements OnInit {
     this.total = 0;
     this.totalQuantity = 0;
     this.items = [];
-    let cart = JSON.parse(localStorage.getItem('cart'));
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    // tslint:disable-next-line: prefer-for-of
     for (var i = 0; i < cart.length; i++) {
-      let item = JSON.parse(cart[i]);
+      const item = JSON.parse(cart[i]);
       this.items.push({
         product: item.product,
         quantity: item.quantity
@@ -107,7 +108,7 @@ export class CarDetailsComponent implements OnInit {
       this.total += item.product.price * item.quantity;
       this.totalQuantity += 0 + item.quantity;
     }
-    localStorage.setItem("quantity", JSON.stringify(this.totalQuantity));
+    localStorage.setItem('quantity', JSON.stringify(this.totalQuantity));
   }
 }
 

@@ -10,7 +10,9 @@
     margin: 0 auto;
     width: 77%;
 }
-
+// .col-item .photo img:hover{
+//     width:50%;
+// }
 .photo{
     background-color: transparent;
     border-top-left-radius: 5px;
@@ -187,7 +189,11 @@
         padding: 6px 6px;
     }
 }
-
+@media only screen and (min-width: 350px){
+    .container .title h2{
+        font-size:15px;
+    }
+}
 
 .price-text-color{
     color:#fbe122;
@@ -223,8 +229,13 @@
     background-color:white;
     padding:0;
     box-shadow: 0 5px 0 rgba(200, 200, 200, 0.2);
+    width:100%!important;
 }
 
+.main-container{
+    max-width:1500px;
+    margin: 0 auto;
+}
 
 .slick-list{
     width: 1500px;

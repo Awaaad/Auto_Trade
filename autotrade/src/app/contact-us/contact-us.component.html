@@ -21,13 +21,13 @@
             <input type="text" [(ngModel)]="user.name" name="form-name" placeholder="Name..." class="form-name form-control"><i class="fas fa-user"></i>
           </div> -->
           <div class="form-group">
-              <input type="text" class="from-name form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" placeholder="Name..." required /><i class="fas fa-user"></i>
+              <input type="text" class="from-name form-control" id="contactName" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" placeholder="Name..." required /><i class="fas fa-user"></i>
               <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
                   <div *ngIf="firstName.errors.required">*First Name is required</div>
               </div>
           </div>
           <div class="form-group">
-              <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"  placeholder="Email..." required email /><i class="fas fa-envelope"></i>
+              <input type="text" class="form-control" id="contactEmail" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"  placeholder="Email..." required /><i class="fas fa-envelope"></i>
               <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
                   <div *ngIf="email.errors.required">*Email is required</div>
                   <div *ngIf="email.errors.email">*Email must be a valid email address</div>
@@ -41,11 +41,25 @@
     
 
           <div class="form-group">
-              <button class="btn btn-primary">Submit</button>
+              <button (click)="showDialog = !showDialog" class="btn btn-primary">Submit</button>
           </div>
         </form>
       </div>
     </div>
+
+    <div *ngIf="submitted">
+      <app-dialog [(visible)]="showDialog">
+        <div id="container">
+            <button (click)="showDialog = !showDialog; close()" class="btn-close">×</button>
+            <div class="thank-you-pop">
+              <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+              <h1>Thank You!</h1>
+              <p>Your submission is received and we will contact you soon</p>   
+            </div>
+        </div>
+      </app-dialog>
+  </div>
+  
   </div>
   <div class="col-sm-6">
     <div class="form-box" data-aos="fade-zoom-in"

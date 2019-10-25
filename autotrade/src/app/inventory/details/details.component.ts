@@ -13,7 +13,6 @@ export class DetailsComponent implements OnInit, OnChanges {
   cardetails: any[];
   details: { id: number; brand: string; engine: string; mileage: string; fuel: string; year: string; price: number; }[];
   actualPage: number = 1;
-  // tslint:disable-next-line: variable-name
   constructor(private _router: Router, private _detailsService: DetailsService) {
     this.initialiseCarDetails();
   }
@@ -22,7 +21,7 @@ export class DetailsComponent implements OnInit, OnChanges {
     this.details = this._detailsService.getCarDetails();
   }
 
-  onClick(id: number){
+  onClick(id: number) {
     this._router.navigate(['/details', id]);
   }
 
@@ -227,8 +226,6 @@ export class DetailsComponent implements OnInit, OnChanges {
       transmission: 'Automatic',
       type: 'Hatchback',
       carImage: '../../../assets/Hyndai i20/Main.jpg'
-    }
-  ];
+    }];
   }
-
 }

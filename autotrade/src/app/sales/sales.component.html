@@ -1,52 +1,51 @@
 <!------ Include the above in your HEAD tag ---------->
+<div class="main-container">
+  <div class="container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100"
+    data-aos-offset="5">
+    <div class="wrapper">
 
-<div class="container" data-aos="fade-zoom-in"
-data-aos-easing="ease-in-back"
-data-aos-delay="100"
-data-aos-offset="5">
-  <div class="wrapper">
+      <div class="title">
 
-    <div class="title">
-
-      <h2>Featured Cars</h2>
-    </div>
-    <div id="carousel-example-generic-1" class="carousel slide " data-ride="carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="row">
-            <div class="col-sm-3 col-xs-6" *ngFor="let car of carDetails">
-              <div class="col-item">
-                <div class="photo">
-                  <a (click)="onSelect(car.id)">
-                    <img src="{{car.carImage}}" class="img-responsive" alt="a" />
-                  </a>
-                </div>
-                <div class="info">
-                  <div class="row">
+        <h2>Featured Cars</h2>
+      </div>
+      <div id="carousel-example-generic-1" class="carousel slide " data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="row">
+              <div class="col-md-3 col-sm-3 col-xs-6" *ngFor="let car of carDetails">
+                <div class="col-item">
+                  <div class="photo">
+                    <a (click)="onSelect(car.id)">
+                      <img src="{{car.carImage}}" class="img-responsive" alt="a" />
+                    </a>
+                  </div>
+                  <div class="info">
+                    <div class="row">
                       <a (click)="onSelect(car.id)">
-                    <div class="price col-md-12 col-xs-12">
-                      <h5><span>{{car.brand}} </span><span>{{car.model}}</span></h5>
-                      <br>
-                      <h5 class="price-text-color">Rs {{car.price}}</h5>
+                        <div class="price col-md-12 col-xs-12">
+                          <h5><span>{{car.brand}} </span><span>{{car.model}}</span></h5>
+                          <br>
+                          <h5 class="price-text-color">Rs {{car.price}}</h5>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                  </div>
-                  <div class="row">
-                    <div class="little-info col-md-4 col-xs-4">
-                      <i class="fas fa-tachometer-alt"></i>
-                      <p>{{car.mileage}}</p>
+                    <div class="row">
+                      <div class="little-info col-md-4 col-xs-4">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <p>{{car.mileage}}</p>
+                      </div>
+                      <div class="little-info col-md-4 col-xs-4">
+                        <i class="fas fa-cog"></i>
+                        <p>{{car.transmission}}</p>
+                      </div>
+                      <div class="little-info col-md-4 col-xs-4">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>{{car.year}}</p>
+                      </div>
                     </div>
-                    <div class="little-info col-md-4 col-xs-4">
-                      <i class="fas fa-cog"></i>
-                      <p>{{car.transmission}}</p>
-                    </div>
-                    <div class="little-info col-md-4 col-xs-4">
-                      <i class="fas fa-calendar-alt"></i>
-                      <p>{{car.year}}</p>
-                    </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,68 +54,65 @@ data-aos-offset="5">
       </div>
     </div>
   </div>
-</div>
 
 
-<!-- You can now use your library component in app.component.html -->
-<div class="container" data-aos="fade-zoom-in"
-data-aos-easing="ease-in-back"
-data-aos-delay="100"
-data-aos-offset="5">
-  <div class="wrapper">
+  <!-- You can now use your library component in app.component.html -->
+  <div class="container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100"
+    data-aos-offset="5">
+    <div class="wrapper">
 
-    <div class="title-brand">
+      <div class="title-brand">
 
-      <h2>BROWSE BY BRAND</h2>
-    </div>
-    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
-      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-
-        <div class="col-item">
-          <div class="photo logo">
-            <!-- <p class="price-tag">≈ Rs  300,000</p> -->
-            <a routerLink="/inventory" [queryParams]="{brand: slide.brand}">
-              <img src="{{slide.img}}" alt="" width="100%" class="img-responsive" alt="a" />
-            </a>
-          </div>
-        </div>
-
+        <h2>BRANDS</h2>
       </div>
-    </ngx-slick-carousel>
-  </div>
-</div>
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
 
+          <div class="col-item">
+            <div class="photo logo">
+              <!-- <p class="price-tag">≈ Rs  300,000</p> -->
+              <a routerLink="/inventory" [queryParams]="{brand: slide.brand}">
+                <img src="{{slide.img}}" alt="" width="100%" class="img-responsive" alt="a" />
+              </a>
+            </div>
+          </div>
 
-
-<div class="container" data-aos="fade-zoom-in"
-data-aos-easing="ease-in-back"
-data-aos-delay="100"
-data-aos-offset="5">
-  <div class="wrapper">
-
-    <div class="title">
-
-      <h2>BROWSE BY BODY TYPE</h2>
+        </div>
+      </ngx-slick-carousel>
     </div>
-    <div id="carousel-example-generic-1" class="carousel slide " data-ride="carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="row">
-            <div class="col-sm-3 col-xs-6" *ngFor="let slideType of slidesType">
-              <div class="col-item">
-                <div class="photo">
-                  <a routerLink="/inventory" [queryParams]="{type: slideType.type}">
-                    <img src="{{slideType.img}}" class="img-responsive" alt="a" />
-                  </a>
-                </div>
-                <div class="info type">
-                  <div class="row type">
-                    <div class="typelabel price col-md-12 col-xs-12">
-                      <a routerLink="/inventory" [queryParams]="{type: slideType.type}">
-                        <h5>{{slideType.type}}</h5>
-                      </a>
+  </div>
+
+
+
+  <div class="container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100"
+    data-aos-offset="5">
+    <div class="wrapper">
+
+      <div class="title">
+
+        <h2>BODY TYPE</h2>
+      </div>
+      <div id="carousel-example-generic-1" class="carousel slide " data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="row">
+              <div class="col-sm-3 col-xs-6" *ngFor="let slideType of slidesType">
+                <div class="col-item">
+                  <div class="photo">
+                    <a routerLink="/inventory" [queryParams]="{type: slideType.type}">
+                      <img src="{{slideType.img}}" class="img-responsive" alt="a" />
+                    </a>
+                  </div>
+                  <div class="info type">
+                    <div class="row type">
+                      <div class="typelabel price col-md-12 col-xs-12">
+                        <a routerLink="/inventory" [queryParams]="{type: slideType.type}">
+                          <h5>{{slideType.type}}</h5>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

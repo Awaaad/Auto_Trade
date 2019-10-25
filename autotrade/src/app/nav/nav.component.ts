@@ -8,16 +8,16 @@ import { AuthenticationService } from '../_services';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent implements OnInit{
+export class NavComponent implements OnInit {
 
   currentUser: any;
   public cartLength = (localStorage.getItem('quantity'));
 
-  ngOnInit(){
+  ngOnInit() {
     // console.log("bla", this.cart.loadCart());
     // let cartLength = (localStorage.getItem('quantity'));
     // console.log("cart length", cartLength);
-    document.getElementsByClassName("has-badge")[0].setAttribute("data-count",this.cartLength);
+    document.getElementsByClassName('has-badge')[0].setAttribute('data-count', this.cartLength);
   }
   constructor(
       private router: Router,
@@ -32,7 +32,7 @@ export class NavComponent implements OnInit{
       this.router.navigate(['/login']);
   }
 
-  navigate(){
+  navigate() {
     this.router.navigate(['/cart']);
   }
 }

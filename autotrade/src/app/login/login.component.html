@@ -34,6 +34,7 @@ data-aos-offset="5">
                     <input type="password" id="loginPass" class="form-control"  placeholder="Password..."  formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/><i class="fas fa-key"></i>
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                         <div *ngIf="f.password.errors.required">*Password is required</div>
+                        <div *ngIf="f.password.errors.pattern">*Password should contain an upper Case, lower case and a character</div>
                         <div *ngIf="f.password.errors.minlength">*Password must be at least 6 characters</div>
                     </div>
                 </div>
@@ -63,6 +64,10 @@ data-aos-offset="5">
             <i class="fab fa-google-plus-g"></i> Google Plus
           </a>
         </div>
+        <button (click)="signInWithGoogle(); onSubmit()" class="google-social">Google</button>
+        <button (click)="signInWithFB()" class="facebook-social">Facebook</button>
+        <button (click)="signOut()" class="facebook-social">Sign Out</button>
+        
       </div>
 
 
@@ -72,3 +77,8 @@ data-aos-offset="5">
   </div>
 </div>
 
+
+<!-- <div>
+    <h4>{{ user.name }}</h4>
+    <p>{{ user.email }}</p>
+  </div> -->

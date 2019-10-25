@@ -6,19 +6,19 @@ import { CarDetails, DetailsService} from '../../app/inventory/details/details.s
 export class ProductService {
     private carDetails: CarDetails[];
 
-    constructor(private DetailsService: DetailsService){
+    constructor(private DetailsService: DetailsService) {
         this.carDetails = this.DetailsService.getCarDetails();
     }
 
-    findAll(): CarDetails[]{
+    findAll(): CarDetails[] {
         return this.carDetails;
     }
 
-    find(id: number): CarDetails{
+    find(id: number): CarDetails {
         return this.carDetails[this.getSelectedCarDetails(id)];
     }
 
-    private getSelectedCarDetails(id: number){
+    private getSelectedCarDetails(id: number) {
         for (let i = 0; i < this.carDetails.length; i++) {
             if (this.carDetails[i].id == id) {
                 return i;
@@ -26,5 +26,3 @@ export class ProductService {
         }
     }
 }
-
-console.log("sxsxsx", localStorage.getItem('quantity'));

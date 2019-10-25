@@ -35,6 +35,26 @@ import { ProductService } from '../app/services/product.services';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
+
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("685350294588-q0npi9qtotfe9j454kpuki95c4huru6g.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("550874669004847")
+  }
+]);
+ 
+export function provideConfig() {
+  return config;
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +85,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     SlickCarouselModule,
     OwlModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SocialLoginModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -73,6 +94,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     fakeBackendProvider,
     DetailsService,
     ProductService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

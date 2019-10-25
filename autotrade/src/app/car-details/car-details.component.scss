@@ -269,16 +269,6 @@ body {
       width: 100%;
   }
 
-
-  // .mileage-wrap,.engine-wrap,.transmission-wrap{
-  //     border: 1px solid #343a40;
-  //     background-color:#f7c143;
-  // }
-  .icons-space{
-      // border: 1px solid #343a40;
-      // background-color:#fbe122;
-  }
-
   .mileage-wrap,.engine-wrap,.transmission-wrap{
       text-align: center;
   }
@@ -286,9 +276,7 @@ body {
       justify-content: center;
       max-width: 70px;
   }
-  .mileage ,.engine , .transmission {
-      
-  }
+
   p{
       text-align: justify;
   }
@@ -312,11 +300,6 @@ a:hover, a:link, a:visited{
 .row{
   margin-right:0;
   margin-left:0;
-}
-
-
-.wrapper{
-
 }
 
 p{
@@ -430,9 +413,6 @@ ul.shipping-pro {
 .nav>li>a:hover {
   text-decoration: none;
   background-color: #eee;
-}
-.bottom li.active a:after {
-
 }
 
 .ask-more{
