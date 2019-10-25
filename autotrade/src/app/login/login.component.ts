@@ -42,28 +42,6 @@ export class LoginComponent implements OnInit {
   //Social Medias Login
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.submitted = true;
-
-        // reset alerts on submit
-        this.error = null;
-        this.success = null;
-
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
-
-        this.loading = true;
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.error = error;
-                    this.loading = false;
-                });
   }
  
   signInWithFB(): void {
@@ -94,6 +72,7 @@ export class LoginComponent implements OnInit {
       this.user = user;
       this.loggedIn = (user != null);
       console.log('user', user);
+      console.log(SocialUser.name);
     });
   }
 
