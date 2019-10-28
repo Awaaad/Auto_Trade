@@ -1,117 +1,209 @@
 .newsletter-row {
-    overflow: hidden;
-    width: 100%;
-    padding: 55px 0px;
-    // background: url(../images/newsletter-bg.jpg) no-repeat bottom right;
-    background-color: #343a40;
-    margin-bottom:4px;
+  overflow: hidden;
+  width: 100%;
+  padding: 55px 0px;
+  // background: url(../images/newsletter-bg.jpg) no-repeat bottom right;
+  background-color: #343a40;
+  margin-bottom: 4px;
 }
 
 .newsletter-row .col1 {
-    text-align: center;
+  text-align: center;
 }
 
 .newsletter-wrap h5 {
-    margin: 0px;
-    margin-bottom: 10px;
-    display: block;
-    padding: 0px;
-    font-family: 'Saira Condensed', sans-serif;
-    font-size: 26px;
-    letter-spacing: 0px;
-    font-weight: 500;
-    color: #fbe122;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  margin: 0px;
+  margin-bottom: 10px;
+  display: block;
+  padding: 0px;
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0px;
+  font-weight: 500;
+  color: #fbe122;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .newsletter-wrap h4 {
-    margin-bottom: 23px;
-    display: block;
-    padding: 0px;
-    font-family: 'Saira Condensed', sans-serif;
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #fff;
+  margin-bottom: 23px;
+  display: block;
+  padding: 0px;
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 #container_form_news {
-    position: relative;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
 #container_form_news2 input[type="text"] {
-    background: #FFFFFF;
-    width: 50%;
-    display: inline;
-    color: #a7a7a7;
-    line-height: 20px;
-    background-color: #FFFFFF;
-    border: 1px solid #e9e7e7;
-    padding-left: 20px;
-    font-size: 17px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-right: 0px;
-    padding: 20px 20px;
-    border-radius: 4px;
+  background: #FFFFFF;
+  width: 100%;
+  display: inline;
+  color: #a7a7a7;
+  line-height: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #e9e7e7;
+  padding-left: 20px;
+  font-size: 17px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-right: 248px;
+  padding: 27px 20px;
+  border-radius: 4px;
 }
 
 .newsletter-wrap button.subscribe {
-    background: none;
-    border: 0 none;
-    filter: none;
-    overflow: hidden;
-    padding: 15px 28px 16px 28px;
-    cursor: pointer;
-    font-weight: 500;
-    border: none;
-    background: #fbe122;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #121212;
-    margin-left: 5px;
-    border-radius: 4px;
+  background: none;
+  border: 0 none;
+  filter: none;
+  overflow: hidden;
+  padding: 12px 28px 12px 28px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  background: #fbe122;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #121212;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.wrapper {
+  display: -webkit-inline-box;
 }
 
 button.subscribe:before {
-    content: "\f0e0";
-    font-family: FontAwesome;
-    font-size: 23px;
-    padding-right: 8px;
+  content: "\f0e0";
+  font-family: FontAwesome;
+  font-size: 23px;
+  padding-right: 8px;
 }
 
 .newsletter-wrap button.subscribe span {
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.invalid-feedback {
+  color: red;
 }
 
 button.button {
-    padding: 10px 20px 8px 20px;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #121212;
-    letter-spacing: 1px!important;
-    border: none;
-    background: #fbe122;
-    border-radius: 0px;
-    border-bottom: 2px #ecd213 solid;
-    font-family: 'Saira Condensed', sans-serif;
+  padding: 10px 20px 8px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #121212;
+  letter-spacing: 1px !important;
+  border: none;
+  background: #fbe122;
+  border-radius: 0px;
+  border-bottom: 2px #ecd213 solid;
+  font-family: 'Saira Condensed', sans-serif;
 }
 
-.newsletter-wrap button.subscribe:hover, .newsletter-wrap button.subscribe:focus {
-    transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
-    box-shadow: inset 0 -70px 0 0 #121212;
-    border: none;
-    color: #fff;
-    outline: none;
+.newsletter-wrap button.subscribe:hover
+{
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -70px 0 0 #121212;
+  border: none;
+  color: #fff;
+  outline: none;
+}
+.newsletter-wrap button.subscribe:focus {
+  outline:none;
 }
 
 @media only screen and (max-width: 600px) {
-    #container_form_news2 input[type="text"] {
-        width: 72%;
-        margin-bottom: 10px;
-    }
+  #container_form_news2 input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
   }
+}
+@media only screen and (max-width: 722px) {
+  .wrapper{
+    display: block;
+  }
+  #container_form_news2 input{
+    width:100%;
+  }
+}
+
+//POP UP
+.thank-you-pop{
+	width:100%;
+ 	padding:20px;
+	text-align:center;
+}
+.thank-you-pop img{
+	width:76px;
+	height:auto;
+	margin:0 auto;
+	display:block;
+	margin-bottom:25px;
+}
+
+.thank-you-pop h1{
+	font-size: 42px;
+    margin-bottom: 25px;
+	color:#5C5C5C;
+}
+.thank-you-pop p{
+	font-size: 20px;
+    margin-bottom: 27px;
+ 	color:#5C5C5C;
+}
+.thank-you-pop h3.cupon-pop{
+	font-size: 25px;
+    margin-bottom: 40px;
+	color:#222;
+	display:inline-block;
+	text-align:center;
+	padding:10px 20px;
+	border:2px dashed #222;
+	clear:both;
+	font-weight:normal;
+}
+.thank-you-pop h3.cupon-pop span{
+	color:#03A9F4;
+}
+.thank-you-pop a{
+	display: inline-block;
+    margin: 0 auto;
+    padding: 9px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #8BC34A;
+    border-radius: 17px;
+}
+.thank-you-pop a i{
+	margin-right:5px;
+	color:#fff;
+}
+#ignismyModal .modal-header{
+    border:0px;
+}
+.btn-close{
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(53, 49, 49);
+    text-shadow: 0 1px 0 #fff;
+}
+.btn-close:hover, .btn-close:focus{
+    color: black;
+    outline: none;
+}

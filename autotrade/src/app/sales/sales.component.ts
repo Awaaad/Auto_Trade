@@ -169,7 +169,7 @@ export class SalesComponent implements OnInit {
   }
   onSelect(id: number) {
         this.router.navigate(['/details', id]);
-      } 
+  } 
 
   addSlide() {
    // this.slides.push({ img: "http://placehold.it/350x150/777777" })

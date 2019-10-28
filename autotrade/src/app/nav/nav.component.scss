@@ -405,23 +405,30 @@ content: '';
 
 @media only screen and (max-width: 600px) {
     .logo img{
-        width: 183px;
+        width: 160px;
         margin-top: 24px;
     }
     .dropdown .loginlabel .target-login{
+        display: none;
+    }
+    .dropdown .loginlabel .nav-item.nav-link.target-logout{
         display: none;
     }
     .cartlabel{
         display: none;
     }
     .fas.fa-user{
-        font-size: 31px;
+        font-size: 28px;
     }
     .fa-stack-2x {
-        font-size: 33px;
+        font-size: 30px;
     }
     .dropdown:hover .dropdown-menu{
         display:none;
+    }
+    .btn.btn-default.cart {
+        padding-right: 0;
+        padding-left: 0;
     }
 
 }

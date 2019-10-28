@@ -28,8 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
               "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
@@ -85,6 +85,9 @@
           "configurations": {
             "production": {
               "browserTarget": "autotrade:build:production"
+            },
+            "es5": {
+              "browserTarget": "IEdemo:build:es5"
             }
           }
         },
@@ -106,7 +109,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           }

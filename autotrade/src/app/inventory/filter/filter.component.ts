@@ -53,7 +53,8 @@ export class FilterComponent implements OnInit, OnDestroy {
     { name: 'Van', value: 'Van', checked: false },
     { name: 'Truck', value: 'Truck', checked: false },
     { name: 'Convertible', value: 'Convertible', checked: false },
-    { name: 'Sport', value: 'Sport', checked: false }
+    { name: 'Sport', value: 'Sport', checked: false },
+    { name: 'Wagon', value: 'Wagon', checked: false }
   ];
 
 

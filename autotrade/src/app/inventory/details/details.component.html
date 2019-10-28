@@ -1,7 +1,7 @@
 <div class="card" data-aos="fade-zoom-in"
 data-aos-easing="ease-in-back"
 data-aos-delay="100"
-data-aos-offset="5" *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: 4, currentPage: actualPage}">
+data-aos-offset="5" *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage}">
   <div class="container-fliud">
     <div class="wrapper row">
       <div class="preview col-md-4 col-xs-12">
@@ -73,3 +73,4 @@ data-aos-delay="100"
 data-aos-offset="5">
 <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
 </div>
+<p>first number:<input type="text" id="numberOfItems" [(ngModel)] = "value" ></p><button id="add" (click)="onAdd()">Add</button>

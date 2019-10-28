@@ -321,7 +321,7 @@ button.btn {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 4px;
 }
-.btn:hover,.btn:active,.btn:focus, .btn:focus{
+.btn:hover,.btn:active{
     -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
     -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
     transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
@@ -329,11 +329,13 @@ button.btn {
     border-bottom: 2px solid #121518;
     color: #fff;
 }
+.btn:focus{
+    outline:none;
+}
 
 
 button.btn:active { outline: 0;  color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
-button.btn:focus { outline: 0;  background: #343a40; color: #fff; }
 
 button.btn:active:focus, button.btn.active:focus { outline: 0;  background: #343a40; color: #fff; }
 

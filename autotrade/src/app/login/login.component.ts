@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../_services';
 import { first } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 import { AuthService } from "angularx-social-login";
@@ -24,15 +25,17 @@ export class LoginComponent implements OnInit {
   success: string;
   patternValidate = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$';
 
-  private user: SocialUser;
-  private loggedIn: boolean;
+  user: SocialUser;
+  loggedIn: boolean;
+
+
   
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private authService: AuthService) {
+    private authService: AuthService,) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -41,10 +44,12 @@ export class LoginComponent implements OnInit {
 
   //Social Medias Login
   signInWithGoogle(): void {
+    this.authenticationService.loginSocial();
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
  
   signInWithFB(): void {
+    this.authenticationService.loginSocial();
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   } 
  
@@ -68,16 +73,22 @@ export class LoginComponent implements OnInit {
     }
 
     //social-login
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-      console.log('user', user);
-      console.log(SocialUser.name);
-    });
+    // this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = (user != null);
+    //   if (user != null){
+    //     this.router.navigateByUrl('/');
+    //     return user;
+    //   }
+    //   else {
+    //     this.router.navigateByUrl('/login');
+    //   }
+    // });
   }
 
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
+    
 
     onSubmit() {
         this.submitted = true;
@@ -93,15 +104,15 @@ export class LoginComponent implements OnInit {
 
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.error = error;
-                    this.loading = false;
-                });
+        .pipe(first())
+        .subscribe(
+          data => {
+              this.router.navigate([this.returnUrl]);
+          },
+          error => {
+              this.error = error;
+              this.loading = false;
+          });
     }
 
 }

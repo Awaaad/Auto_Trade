@@ -116,7 +116,7 @@
         <div class="panel-heading">
           <ul class="bottom nav nav-tabs">
             <li class="active"><a href="#tab1default" data-toggle="tab">PRODUCT DESCRIPTION</a></li>
-            <li><a href="#tab2default" data-toggle="tab">DEFAULT 2</a></li>
+            <li><a href="#tab2default" data-toggle="tab">PAYMENT OPTION</a></li>
             <li><a href="#tab3default" data-toggle="tab">DEFAULT 3</a></li>
           </ul>
         </div>
@@ -143,7 +143,67 @@
                 porta vehicula porttitor. Cras gravida porttitor libero, in dictum odio vestibulum a. Morbi non interdum
                 nisl. Donec vitae imperdiet metus.</p>
             </div>
-            <div class="tab-pane fade" id="tab2default">Default 2</div>
+            <div class="tab-pane fade" id="tab2default">
+              <div class="col-md-12 paymentCalc">
+
+                <div class="col-md-6">
+
+                  <form id="loanCalc" action="" method="get" class="calculate-loan">
+                    <div class="col-md-12">
+                      <h4>Calculate Your Auto Loan Payment</h4>
+                      <div class="form-group">
+                        <label for="vehiclePrice">Vehicle Price</label>
+                        <input type="text"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          class="form-control payment-option" id="vehiclePrice" placeholder="Vehicle Price">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="downPayment">Down Payment</label>
+                        <input type="text"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          class="form-control payment-option" id="downPayment" placeholder="Down Payment" value="0">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="tradeValue">Trade In Value</label>
+                        <input type="text"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          class="form-control payment-option" id="tradeValue" placeholder="Trade In Value" value="0">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="intRate">Interest Rate</label>
+                        <input type="text"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          class="form-control payment-option" id="intRate" placeholder="Interest Rate" value="3.25">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="loanTerm">Loan Term</label>
+                        <input type="text"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          class="form-control payment-option" id="loanTerm" placeholder="Loan Term (ex: 36 Months)">
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                      <button class="btn calcBtn" (click)="calculatePayments()" id="calculate"
+                        value="Calulate">Calculate</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-6">
+                  <div id="paymentResults">
+
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="tab-pane fade" id="tab3default">Default 3</div>
             <div class="tab-pane fade" id="tab4default">Default 4</div>
             <div class="tab-pane fade" id="tab5default">Default 5</div>
@@ -153,8 +213,8 @@
 
     </div>
     <div class="more col-md-4">
-      <form class="form-horizontal" action="" method="post" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
-        novalidate>
+      <form class="form-horizontal" name="form" action="" method="post" (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm" novalidate>
         <fieldset>
           <legend class="text-center">ASK FOR MORE DETAILS</legend>
 
@@ -181,17 +241,33 @@
           <!-- Message body -->
           <div class="form-group">
             <label class="sr-only" for="form-message">Message</label>
-            <textarea class="form-control" id="message" rows="9" placeholder="Message..." required></textarea><i
-              class="fas fa-pen-alt"></i>
+            <textarea class="form-control" id="message" rows="6" name="message" [(ngModel)]="model.message"
+              #message="ngModel" [ngClass]="{ 'is-invalid': f.submitted && message.invalid }" placeholder="Message..."
+              required></textarea><i class="fas fa-pen-alt"></i>
+            <div *ngIf="f.submitted && message.invalid" class="invalid-feedback">
+              <div *ngIf="message.errors.required">*Message is required</div>
+            </div>
           </div>
           <!-- Form actions -->
           <div class="form-group">
             <div class="col-md-12 text-right">
-              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              <button (click)="showDialog = !showDialog" type="submit" class="btn btn-primary btn-lg">Submit</button>
             </div>
           </div>
         </fieldset>
       </form>
     </div>
   </div>
+</div>
+<div *ngIf="submitted">
+  <app-dialog [(visible)]="showDialog">
+    <div id="container">
+      <button (click)="showDialog = !showDialog; close()" class="btn-close">×</button>
+      <div class="thank-you-pop">
+        <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+        <h1>Thank You!</h1>
+        <p>Your submission is received and we will contact you soon</p>
+      </div>
+    </div>
+  </app-dialog>
 </div>

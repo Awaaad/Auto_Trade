@@ -3,6 +3,8 @@
   vertical-align: middle;
 }
 
+
+
 @media screen and (max-width: 600px) {
   table#cart tbody td .form-control {
     width: 20%;
@@ -36,10 +38,10 @@
       width: 100%;
   }
 
-  tbody{
-    display: flex;
-    justify-content: center;
-  }
+  // tbody{
+  //   display: flex;
+  //   justify-content: center;
+  // }
   // tfoot{
   //   display: flex;
   //   justify-content: center;

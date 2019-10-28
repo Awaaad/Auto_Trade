@@ -28,13 +28,15 @@
 
             <ul class="dropdown">
               <div class="loginlabel">
-                <li *ngIf="!currentUser"><a routerLink="/login"><i class="nav-item nav-link fas fa-user"></i></a>
-                  <div *ngIf="!currentUser"><a class="target-login" routerLink="/login">LOGIN / REGISTER</a></div>
+                <li *ngIf="!currentUser && !currentSocialUser"><a routerLink="/login"><i class="nav-item nav-link fas fa-user"></i></a>
+                  <div *ngIf="!currentUser && !currentSocialUser"><a class="target-login" routerLink="/login">LOGIN / REGISTER</a></div>
                 </li>
-                <li *ngIf="currentUser"><i class="nav-item nav-link fas fa-user"></i>
-                <div *ngIf="currentUser"><a class="nav-item nav-link" (click)="logout()">LOGOUT</a></div>
+                <li *ngIf="currentUser"><i class="nav-item nav-link fas fa-user" (click)="logout()"></i>
+                  <div *ngIf="currentUser"><a class="nav-item nav-link target-logout" (click)="logout()">LOGOUT</a></div>
                 </li>
-
+                <li *ngIf="currentSocialUser"><i class="nav-item nav-link fas fa-user" (click)="logout()"></i>
+                  <div *ngIf="currentSocialUser"><a class="nav-item nav-link target-logout" (click)="signOut()">LOGOUT</a></div>
+                </li>
               </div>
             </ul>
 

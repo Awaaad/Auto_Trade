@@ -38,15 +38,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("")
+    provider: new GoogleLoginProvider("685350294588-q0npi9qtotfe9j454kpuki95c4huru6g.apps.googleusercontent.com")
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("")
+    provider: new FacebookLoginProvider("550874669004847")
   }
 ]);
  
@@ -74,6 +75,7 @@ export function provideConfig() {
     CartComponent,
     RegisterComponent,
     AboutUsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 import { resetFakeAsyncZone } from '@angular/core/testing';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,34 +9,34 @@ import { resetFakeAsyncZone } from '@angular/core/testing';
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent implements OnInit {
+  contactForm: FormGroup;
+  submitted = false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   user={
     name: ''
   }
 
   ngOnInit() {
+    this.contactForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
+    });
     AOS.init();
   }
   model: any = {};
 
-  submitted = false;
-
   onSubmit() {
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
     this.submitted = true;
-    console.log(this.submitted);
     document.forms["form"].reset();
     setTimeout(()=>{    //<<<---    using ()=> syntax
             this.submitted= false;
     }, 2000); 
-    console.log(this.submitted);
   }
 
   close(){
     this.submitted = false;
-    console.log(this.submitted, "close");
   }
-
 }

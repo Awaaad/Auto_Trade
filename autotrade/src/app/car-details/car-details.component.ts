@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import { CarItem } from '../../entities/car-item.entity';
 import { DetailsService, CarDetails } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 // import { Details} from '../inventory/details.model';
 @Component({
@@ -17,6 +18,8 @@ export class CarDetailsComponent implements OnInit {
   private items: CarItem[] = [];
   private total: number = 0;
   private totalQuantity: number = 0;
+  submitted = false;
+
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -34,14 +37,22 @@ export class CarDetailsComponent implements OnInit {
     this.carDetails = this._detailsService.getCarDetails();
 
     this.carDetails = this.carDetails.filter(data => data.id === id);
-    // console.log(this.carDetails);
   }
 
 
   model: any = {};
 
   onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+    this.submitted = true;
+    document.forms["form"].reset();
+    setTimeout(()=>{   
+            this.submitted= false;
+    }, 2000); 
+  }
+
+  close(){
+    this.submitted = false;
   }
 
   incrementCart() {
@@ -110,6 +121,60 @@ export class CarDetailsComponent implements OnInit {
     }
     localStorage.setItem('quantity', JSON.stringify(this.totalQuantity));
   }
+
+
+  //Car Financing
+  calculatePayments(){
+    var vehiclePrice = (<HTMLInputElement>document.getElementById('vehiclePrice')).value,
+        loanTerm = (<HTMLInputElement>document.getElementById('loanTerm')).value,
+        intRate = (<HTMLInputElement>document.getElementById('intRate')).value,
+        downPayment = (<HTMLInputElement>document.getElementById('downPayment')).value,
+        tradeValue = (<HTMLInputElement>document.getElementById('tradeValue')).value,
+        amount = parseInt(vehiclePrice),
+        months = parseInt(loanTerm),
+        down  = parseInt(downPayment),
+        trade =  parseInt(tradeValue),
+        totalDown  = down + trade
+        const annInterest = parseFloat(intRate),
+        monInt = annInterest / 1200;
+  
+        if(!amount){
+          alert('Please add a loan amount');
+          return;
+        }
+  
+        if(!months){
+          months = 60;
+          loanTerm = (<HTMLInputElement>document.getElementById('loanTerm')).value = '60';
+        }
+  
+        if(!downPayment){
+          down = 0;
+          downPayment = (<HTMLInputElement>document.getElementById('downPayment')).value = '0';
+        }
+  
+        if(!trade){
+          trade = 0;
+          tradeValue = (<HTMLInputElement>document.getElementById('tradeValue')).value = '0';
+        }
+  
+        if(!annInterest){
+          let annInterest = 3.25;
+          intRate = (<HTMLInputElement>document.getElementById('intRate')).value = '3.25';
+        }
+  
+  
+        var calc = ((monInt + (monInt / (Math.pow((1 + monInt), months) -1))) * (amount - (totalDown || 0))).toFixed(2);
+  
+        var paymentResults = document.getElementById('paymentResults');
+        paymentResults.style.display = 'block';
+        paymentResults.innerHTML = '';
+        var results = document.createElement('div');
+        results.innerHTML = '<h1 style="text-align:center; font-size: 20px;">Estimated Monthly Payment is:<br/></h1>' + '<h3 style="text-align:center; font-size: 18px;">Rs' + calc + '/Month</h3>';
+
+        paymentResults.append(results);
+  }
+  
 }
 
 

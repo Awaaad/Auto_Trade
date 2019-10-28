@@ -54,26 +54,18 @@ data-aos-offset="5">
       <div class="social-login">
         <h3>...or login with:</h3>
         <div class="social-login-buttons">
-          <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+          <button class="btn btn-link-1 btn-link-1-facebook" (click)="signInWithFB()" href="#">
             <i class="fab fa-facebook-f"></i> Facebook
-          </a>
-          <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+          </button>
+          <button class="btn btn-link-1 btn-link-1-twitter" href="#">
             <i class="fab fa-twitter"></i> Twitter
-          </a>
-          <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+          </button>
+          <button class="btn btn-link-1 btn-link-1-google-plus" (click)="signInWithGoogle()" href="#">
             <i class="fab fa-google-plus-g"></i> Google Plus
-          </a>
+          </button>
         </div>
-        <button (click)="signInWithGoogle(); onSubmit()" class="google-social">Google</button>
-        <button (click)="signInWithFB()" class="facebook-social">Facebook</button>
-        <button (click)="signOut()" class="facebook-social">Sign Out</button>
-        
       </div>
-
-
-
     </div>
-
   </div>
 </div>
 

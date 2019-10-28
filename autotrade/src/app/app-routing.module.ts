@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'details/:id', component: CarDetailsComponent},
   {path: 'about-us', component: AboutUsComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
   // {path: '**', redirectTo: ''}
 ];
 
