@@ -1,0 +1,62 @@
+.number{
+    height: 38px;
+    margin: 0;
+    padding-left: 20px;
+    vertical-align: middle;
+    background: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #343a40;
+    border-radius: 4px;
+    box-shadow: none;
+    transition: all 0.3s;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+
+
+.number:focus{
+    outline: 0;
+    background: white;
+    border: 2px solid #ccc;
+    box-shadow: none;
+}
+.amount{
+    padding-left:15px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      margin: 0; 
+}
+
+.amount button{
+        padding:8px 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #121212;
+        letter-spacing: 1px!important;
+        border: none;
+        margin-bottom: 10px;
+        // padding-top: 12px;
+        // padding-bottom: 3px;
+        background: #fbe122;
+        border-radius: 0px;
+        border-bottom: 2px #ecd213 solid;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        border-radius: 4px;
+        float: right;
+        margin-right: 15px;
+}
+.amount button:hover{
+    -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+    -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+    transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+    box-shadow: inset 0 -45px 0 0 #23292e;
+    border-bottom: 2px solid #121518;
+    color: #fff;
+    outline: none;
+}

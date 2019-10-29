@@ -31,7 +31,17 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     document.getElementsByClassName('has-badge')[0].setAttribute('data-count', this.cartLength);
+    
+    var myNav = document.getElementById("bs-example-navbar-collapse-1");
+    var menu = myNav.getElementsByClassName("nav-link");
+    for (var i = 0; i < menu.length; i++) {
+      menu[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      }); }
   }
+  
   
   signOut(): void {
     this.authenticationService.logoutSocial(); 
@@ -40,6 +50,9 @@ export class NavComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+    localStorage.removeItem('cart');
+    localStorage.removeItem('quantity');
+    window.location.reload();
   }
 
   navigate() {

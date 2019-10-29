@@ -43,7 +43,6 @@ export class CarDetailsComponent implements OnInit {
   model: any = {};
 
   onSubmit() {
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
     this.submitted = true;
     document.forms["form"].reset();
     setTimeout(()=>{   
@@ -59,11 +58,8 @@ export class CarDetailsComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.carDetails = this._detailsService.getCarDetails();
     this.carDetails = this.carDetails.filter(data => data.id === id);
-    // console.log("adding", this.carDetails);
 
     this._detailsService.setUrl(this.carDetails[0].id);
-    // this.router.navigate(['/cart', { id:this.carDetails[0].id }]);
-
 
     if (id) {
       const item: CarItem = {
@@ -99,8 +95,8 @@ export class CarDetailsComponent implements OnInit {
     this.loadCart();
 
     window.location.reload();
+    alert("added");
   // setTimeout( () =>  window.location.reload(), 2000 );
-
   }
 
 
@@ -174,7 +170,6 @@ export class CarDetailsComponent implements OnInit {
 
         paymentResults.append(results);
   }
-  
 }
 
 

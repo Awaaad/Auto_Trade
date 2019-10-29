@@ -1,8 +1,23 @@
-<p>first number:<input type="text" id="numberOfItems" [(ngModel)] = "value" ></p><button id="add" (click)="onAdd()">Add</button>
-<div class="card" data-aos="fade-zoom-in"
-data-aos-easing="ease-in-back"
-data-aos-delay="100"
-data-aos-offset="5" *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage}">
+<div class="row">
+  <div class="col-md-6 col-xs-12 amountDisplay">
+    <div class="row amount">
+      <div class="col-md-10 col-xs-9">
+        <input class="number" type="number" id="numberOfItems" [(ngModel)]="value" min="1" max="15"
+        placeholder="Enter amount to be displayed...">
+      </div>
+      <div class="col-md-2 col-xs-3">
+        <button id="add" (click)="onAdd()">Enter</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div>
+
+
+<div class="card" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5"
+  *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage}">
   <div class="container-fliud">
     <div class="wrapper row">
       <div class="preview col-md-4 col-xs-12">
@@ -10,7 +25,6 @@ data-aos-offset="5" *ngFor="let cardetail of cardetails | paginate: {itemsPerPag
         <div class="preview-pic tab-content">
           <div class="tab-pane active" id="pic-1">
             <img src="{{cardetail.carImage}}" /></div>
-
         </div>
 
 
@@ -21,7 +35,7 @@ data-aos-offset="5" *ngFor="let cardetail of cardetails | paginate: {itemsPerPag
             <h2 class="product-title">{{ cardetail.brand }}</h2>
           </div>
           <div class="col-md-6">
-            <div class="more-details"><button (click)="onClick(cardetail.id)" >
+            <div class="more-details"><button (click)="onClick(cardetail.id)">
                 <i class="fa fa-list"></i> More details</button></div>
           </div>
         </div>
@@ -68,9 +82,6 @@ data-aos-offset="5" *ngFor="let cardetail of cardetails | paginate: {itemsPerPag
     </div>
   </div>
 </div>
-<div class="page" data-aos="fade-zoom-in"
-data-aos-easing="ease-in-back"
-data-aos-delay="100"
-data-aos-offset="5">
-<pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
+<div class="page" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5">
+  <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
 </div>
