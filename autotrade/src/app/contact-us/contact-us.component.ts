@@ -11,32 +11,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
+  showMsg = false;
+  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"; 
 
   constructor(private formBuilder: FormBuilder) { }
 
-  user={
-    name: ''
-  }
+  get f() { return this.contactForm.controls; } 
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
     });
     AOS.init();
   }
-  model: any = {};
 
   onSubmit() {
     this.submitted = true;
+    
+    // stop here if form is invalid
+    if (this.contactForm.invalid) {
+        return;  
+        console.log(this.submitted);
+    }
+    else{
+      this.showMsg = true;
+    }
     document.forms["form"].reset();
     setTimeout(()=>{    //<<<---    using ()=> syntax
-            this.submitted= false;
+            this.showMsg= false;
+            this.submitted = false;
     }, 2000); 
+    // console.log(this.submitted);
   }
 
   close(){
     this.submitted = false;
+    console.log(this.submitted);
   }
+
+ 
+
 }
