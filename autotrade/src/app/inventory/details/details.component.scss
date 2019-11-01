@@ -60,3 +60,27 @@ input[type=number]::-webkit-outer-spin-button {
     color: #fff;
     outline: none;
 }
+
+.amount button:focus{
+    outline: none;
+}
+
+.noCarAvailable{
+    background: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.noCarAvailable h3{
+    font-weight: 600;
+}
+.noCarAvailable img{
+    width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+    .amount{
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

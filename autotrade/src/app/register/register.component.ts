@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   error: string;
   patternValidate = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$';
+  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
 
   constructor(
     private router: Router,
@@ -31,8 +32,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-          name: ['', Validators.required],
-          username: ['', Validators.required],
+          name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
+          username: ['', [Validators.required, Validators.pattern(this.namePattern)]],
           email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.patternValidate)]],
           // Validators.pattern('^[0-9]*$')

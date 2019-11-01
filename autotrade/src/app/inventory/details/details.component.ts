@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { DetailsService } from './details.service';
 import { TouchSequence } from 'selenium-webdriver';
+import * as AOS from 'aos';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -19,6 +20,14 @@ export class DetailsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    AOS.init();
+    this._router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0);
+    });
+    
     this.numberOfItems = "4";
     this.details = this._detailsService.getCarDetails();
     
@@ -31,6 +40,13 @@ export class DetailsComponent implements OnInit, OnChanges {
     });
   }
 
+  scrollTop(){
+    window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+    });
+  }
   
   onAdd() {
     this.numberOfItems = (<HTMLInputElement>document.getElementById('numberOfItems')).value;
@@ -58,6 +74,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
         this.cardetails = this.cardetails.filter((carDetail) => {
           if (carDetail.price >= minPrice && carDetail.price <= maxPrice) {
+            this.scrollTop();
             return carDetail;
           }
         }) || [];
@@ -68,15 +85,14 @@ export class DetailsComponent implements OnInit, OnChanges {
       if (year.length) {
 
         const arrayYears = year.map((yearObj) => {
-          // tslint:disable-next-line: radix
           return (yearObj.value);
-
         });
 
         // console.log('arrayYears', arrayYears);
 
         this.cardetails = this.cardetails.filter((detail) => {
           if (arrayYears.includes(detail.year)) {
+            this.scrollTop();
             return detail;
           }
         });
@@ -91,6 +107,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
         this.cardetails = this.cardetails.filter((detail) => {
           if (arrBrandNames.includes(detail.brand.toLowerCase())) {
+            this.scrollTop();
             return detail;
           }
         });
@@ -104,6 +121,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
         this.cardetails = this.cardetails.filter((detail) => {
           if (arrTypeNames.includes(detail.type.toLowerCase())) {
+            this.scrollTop();
             return detail;
           }
         });

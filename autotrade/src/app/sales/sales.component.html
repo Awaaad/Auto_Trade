@@ -13,7 +13,7 @@
         <div class="carousel-inner">
           <div class="item active">
             <div class="row">
-              <div class="col-md-3 col-sm-3 col-xs-12" *ngFor="let car of carDetails">
+              <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let car of carDetails">
                 <div class="col-item">
                   <div class="photo">
                     <a (click)="onSelect(car.id)">
@@ -23,7 +23,7 @@
                   <div class="info">
                     <div class="row">
                       <a (click)="onSelect(car.id)">
-                        <div class="price col-md-12 col-sm-6 col-xs-12">
+                        <div class="price col-md-12 col-sm-12 col-xs-12">
                           <h5><span>{{car.brand}} </span><span>{{car.model}}</span></h5>
                           <br>
                           <h5 class="price-text-color">Rs {{car.price}}</h5>

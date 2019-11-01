@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-6 col-xs-12 amountDisplay">
     <div class="row amount">
-      <div class="col-md-10 col-xs-9">
+      <div class="col-md-10 col-sm-9 col-xs-9">
         <input class="number" type="number" id="numberOfItems" [(ngModel)]="value" min="1" max="15"
         placeholder="Enter amount to be displayed...">
       </div>
-      <div class="col-md-2 col-xs-3">
+      <div class="col-md-2 col-sm-3 col-xs-3">
         <button id="add" (click)="onAdd()">Enter</button>
       </div>
     </div>
@@ -15,9 +15,12 @@
   </div>
 </div>
 
+<!-- ngIf cardetails.length !== 0 then display no cars available -->
+<!-- ngIf cardetails.length > 0 -->
 
 <div class="card" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5"
-  *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage}">
+ *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage}">
+ <div class="carAvailable" *ngIf="cardetails.length > 0">
   <div class="container-fliud">
     <div class="wrapper row">
       <div class="preview col-md-4 col-xs-12">
@@ -81,7 +84,17 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
+
+<div class="noCarAvailable" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5" *ngIf="cardetails.length == 0">
+  <!-- <img src="../../../assets/CarUnavailable.jpg"> -->
+  <!-- <img src="../../../assets/caryingNoCar.jpg"> -->
+  <img src="../../../assets/cryingCar.jpg">
+  <h3>SORRY NO CARS AVAILABLE AT THE MOMENT</h3>
+</div>
+
 <div class="page" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5">
-  <pagination-controls (pageChange)="actualPage = $event"></pagination-controls>
+  <pagination-controls (click)="scrollTop()" (pageChange)="actualPage = $event"></pagination-controls>
 </div>
+

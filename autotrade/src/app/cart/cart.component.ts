@@ -4,6 +4,7 @@ import { CarItem } from '../../entities/car-item.entity';
 import { CarDetails, DetailsService  } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
 import * as AOS from 'aos';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 @Component({
   selector: 'app-cart',
@@ -16,6 +17,10 @@ export class CartComponent implements OnInit {
   private total: number = 0;
   private totalQuantity: number = 0;
 
+  public payPalConfig?: IPayPalConfig;
+  showSuccess: boolean = false;
+  private checkout: boolean = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
@@ -26,6 +31,7 @@ export class CartComponent implements OnInit {
         let id = this.detailsService.getUrl();
         this.loadCart();
         AOS.init();
+        this.initConfig();
     }
 
     loadCart(): void {
@@ -59,5 +65,70 @@ export class CartComponent implements OnInit {
         localStorage.setItem('cart', JSON.stringify(cart));
         this.loadCart();
         window.location.reload();
+    }
+
+    performCheckout(){
+        this.checkout = !this.checkout;
+    }
+
+    private initConfig(): void {
+        this.payPalConfig = {
+        currency: 'MUR',
+        clientId: 'sb',
+        createOrderOnClient: (data) => <ICreateOrderRequest>{
+          intent: 'CAPTURE',
+          purchase_units: [
+            {
+              amount: {
+                currency_code: 'MUR',
+                value: JSON.stringify(this.total),
+                breakdown: {
+                  item_total: {
+                    currency_code: 'MUR',
+                    value: JSON.stringify(this.total),
+                  }
+                }
+              },
+              items: [
+                {
+                  name: 'Enterprise Subscription',
+                  quantity: '1',
+                  category: 'DIGITAL_GOODS',
+                  unit_amount: {
+                    currency_code: 'MUR',
+                    value: JSON.stringify(this.total),
+                  },
+                }
+              ]
+            }
+          ]
+        },
+        advanced: {
+          commit: 'true'
+        },
+        style: {
+          label: 'paypal',
+          layout: 'vertical'
+        },
+        onApprove: (data, actions) => {
+          console.log('onApprove - transaction was approved, but not authorized', data, actions);
+          actions.order.get().then(details => {
+            console.log('onApprove - you can get full order details inside onApprove: ', details);
+          });
+        },
+        onClientAuthorization: (data) => {
+          console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+          this.showSuccess = true;
+        },
+        onCancel: (data, actions) => {
+          console.log('OnCancel', data, actions);
+        },
+        onError: err => {
+          console.log('OnError', err);
+        },
+        onClick: (data, actions) => {
+          console.log('onClick', data, actions);
+        },
+      };
     }
 }

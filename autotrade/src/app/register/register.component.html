@@ -28,6 +28,7 @@ data-aos-offset="5">
                             <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name..." required /><i class="fas fa-user"></i>
                                 <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                                 <div *ngIf="f.name.errors.required">*Name is required</div>
+                                <div *ngIf="f.name.errors.pattern">*Name is not valid</div>
                             </div>
                         </div>
                         <!-- <div class="form-group">
@@ -40,6 +41,7 @@ data-aos-offset="5">
                             <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username..." required /><i class="fas fa-user"></i>
                                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                                 <div *ngIf="f.username.errors.required">*Username is required</div>
+                                <div *ngIf="f.username.errors.pattern">*Username is not valid</div>
                             </div>
                         </div>
                         <div class="form-group">

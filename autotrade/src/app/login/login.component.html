@@ -28,6 +28,7 @@ data-aos-offset="5">
                     <input type="text" id="loginUsername" class="from-name form-control" placeholder="Username..." formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/><i class="fas fa-user"></i>
                     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                         <div *ngIf="f.username.errors.required">*Username is required</div>
+                        <div *ngIf="f.username.errors.pattern">*Username is not valid</div>
                     </div>
                 </div>
                 <div class="form-group">

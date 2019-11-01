@@ -13,6 +13,9 @@ export class ContactUsComponent implements OnInit {
   submitted = false;
   showMsg = false;
   namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"; 
+  public name="";
+  public email="";
+  public message="";
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -51,6 +54,7 @@ export class ContactUsComponent implements OnInit {
     console.log(this.submitted);
   }
 
- 
-
+  write(email){
+    console.log(email);
+  }
 }

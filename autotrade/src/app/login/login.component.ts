@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   error: string;
   success: string;
   patternValidate = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$';
+  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
 
   user: SocialUser;
   loggedIn: boolean;
@@ -60,7 +61,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      username: ['', [Validators.required, Validators.pattern(this.namePattern)]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.patternValidate)]]
     });
 

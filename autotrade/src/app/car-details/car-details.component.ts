@@ -4,6 +4,7 @@ import { CarItem } from '../../entities/car-item.entity';
 import { DetailsService, CarDetails } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
 import { resetFakeAsyncZone } from '@angular/core/testing';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // import { Details} from '../inventory/details.model';
 @Component({
@@ -18,15 +19,30 @@ export class CarDetailsComponent implements OnInit {
   private items: CarItem[] = [];
   private total: number = 0;
   private totalQuantity: number = 0;
+ 
+  contactForm: FormGroup;
   submitted = false;
+  showMsg = false;
+  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"; 
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private _detailsService: DetailsService,
-    private router: Router) {   }
+    private router: Router,
+    private formBuilder: FormBuilder) {   }
+
+  get f() { return this.contactForm.controls; } 
 
   ngOnInit() {
+    this.contactForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
+    });
+    
+
+
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
           return;
@@ -39,19 +55,28 @@ export class CarDetailsComponent implements OnInit {
     this.carDetails = this.carDetails.filter(data => data.id === id);
   }
 
-
-  model: any = {};
-
   onSubmit() {
     this.submitted = true;
+    
+    // stop here if form is invalid
+    if (this.contactForm.invalid) {
+        return;  
+        console.log(this.submitted);
+    }
+    else{
+      this.showMsg = true;
+    }
     document.forms["form"].reset();
-    setTimeout(()=>{   
-            this.submitted= false;
+    setTimeout(()=>{    //<<<---    using ()=> syntax
+            this.showMsg= false;
+            this.submitted = false;
     }, 2000); 
+    // console.log(this.submitted);
   }
 
   close(){
     this.submitted = false;
+    console.log(this.submitted);
   }
 
   incrementCart() {
@@ -95,7 +120,6 @@ export class CarDetailsComponent implements OnInit {
     this.loadCart();
 
     window.location.reload();
-    alert("added");
   // setTimeout( () =>  window.location.reload(), 2000 );
   }
 

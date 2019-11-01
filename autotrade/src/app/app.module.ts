@@ -34,11 +34,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductService } from '../app/services/product.services';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 let config = new AuthServiceConfig([
   {
@@ -76,6 +78,7 @@ export function provideConfig() {
     RegisterComponent,
     AboutUsComponent,
     PageNotFoundComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ export function provideConfig() {
     SlickCarouselModule,
     OwlModule,
     NgxPaginationModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgxPayPalModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

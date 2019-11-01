@@ -10,8 +10,8 @@
 
 
 .navbar-toggle {
-    float:left;
-    margin-left: 40px;
+    float:right;
+    margin-right: 18px;
 }
 .navbar{
     margin-bottom:0;
@@ -54,10 +54,10 @@
 .navbar-right a:hover{
     text-decoration: none;
 }
-.navbar-default .navbar-nav>li>a:focus{
-    color:white;
-    background-color: #343a40;
-}
+// .navbar-default .navbar-nav>li>a:focus{
+//     color:white;
+//     background-color: #343a40;
+// }
 a:focus{
     text-decoration: none;
 }
@@ -100,47 +100,46 @@ nav.collapse ul .li:hover {
     border: none;
     justify-content: right;
     float: right;
-
-  }
+}
   
 
-  .dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
     justify-content: right;
     float: right;
     margin-right: 10px;
     margin-top: 20px;
-  }
-  
- 
-  .dropdown-content {
+}
+
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-  }
+}
   
 
-  .dropdown-content a {
+.dropdown-content a {
     color: #343a40;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
+}
 
 
 
-  .dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #ddd;}
   
 
-  .dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;}
 
-  .dropdown:hover .dropbtn {}
+.dropdown:hover .dropbtn {}
 
-  .nav-right{
+.nav-right{
     font-size:35px;
     color:white;
     justify-content: right;
@@ -166,10 +165,10 @@ nav.collapse ul .li:hover {
     padding-top:10px;
 }
 
-.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
-    background-color: transparent;
-    border: none;
-}
+// .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+//     background-color: transparent;
+//     border: none;
+// }
 
 .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default{
     background-color: transparent;
@@ -434,5 +433,6 @@ content: '';
 }
 
 .nav-link.active{
-    background-color: red;
+    color:white!important;
+    background-color: #343a40!important;
 }
