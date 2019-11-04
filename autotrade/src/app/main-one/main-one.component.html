@@ -7,25 +7,24 @@
         <div class="newsletter-wrap">
           <h5>Newsletter</h5>
           <h4>Get Notified Of any Updates!</h4>
-          <form action="mailto:awad_luckhoo@hotmail.com" method="GET" name="form" id="newsletter-validate-detail1"
-            (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <form [formGroup]="newsLetterForm" name="form" (ngSubmit)="onSubmit()">
             <div class="wrapper">
               <div class="form-group" id="container_form_news2">
-                <input type="text" name="email" id="newsletter1" [(ngModel)]="model.email" #email="ngModel"
+                <input type="text" [(ngModel)]="email" formControlName="email" name="email" id="newsletter1"
                   [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" title="Sign up for our newsletter"
                   class="form-control input-text required-entry validate-email" placeholder="Enter your email address"
                   required>
-                <span *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                  <div *ngIf="email.errors.required">*Email is required</div>
-                  <div *ngIf="email.errors.email">*Email must be a valid email address</div>
-                </span>
+                  <span *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">*Email is required</div>
+                    <div *ngIf="f.email.errors.email">*Email must be a valid email address</div>
+                  </span>
               </div>
               <!--container_form_news2-->
               <!--container_form_news-->
               <button (click)="showDialog = !showDialog" type="submit" class="button subscribe"><span>SUBSCRIBE</span></button>
             </div>
           </form>
-          <div *ngIf="submitted">
+          <div *ngIf="showMsg">
               <app-dialog [(visible)]="showDialog">
                 <div id="container">
                   <button (click)="showDialog = !showDialog; close()" class="btn-close">×</button>

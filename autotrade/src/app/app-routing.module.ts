@@ -20,11 +20,13 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'sales', component: SalesComponent},
   {path: 'car-details', component: CarDetailsComponent},
-  {path: 'details/:id', component: CarDetailsComponent},
+  {path: 'car-details/:id', component: CarDetailsComponent},
   {path: 'about-us', component: AboutUsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'checkout', component: CheckoutComponent}
+  {path: 'checkout', component: CheckoutComponent},
+  // {path: '/inventory/details/:brand', component: InventoryComponent},
+
   // {path: '**', redirectTo: ''}
 ];
 

@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { DetailsService } from './details.service';
 import { TouchSequence } from 'selenium-webdriver';
 import * as AOS from 'aos';
+import { OrderPipe } from 'ngx-order-pipe';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -13,10 +14,19 @@ export class DetailsComponent implements OnInit, OnChanges {
   @Input() currentFilter: any;
   public numberOfItems: string;
   cardetails: any[];
-  details: { id: number; brand: string; engine: string; mileage: string; fuel: string; year: string; price: number; }[];
+  // details: { id: number; brand: string; engine: string; mileage: string; fuel: string; year: string; price: number; }[];
+  details: {}[];
   actualPage: number = 1;
-  constructor(private _router: Router, private _detailsService: DetailsService) {
+  searchTerm: string;
+  search="";
+
+  order: string = 'brand';
+  reverse: boolean = false;
+  sortedCollection: any[];
+
+  constructor(private _router: Router, private _detailsService: DetailsService, private orderPipe: OrderPipe) {
     this.initialiseCarDetails();
+    this.sortedCollection = orderPipe.transform(this.cardetails, 'brand');
   }
 
   ngOnInit() {
@@ -38,6 +48,15 @@ export class DetailsComponent implements OnInit, OnChanges {
         document.getElementById("add").click();
       }
     });
+
+
+    document.getElementById("searchCars")
+    .addEventListener("keyup", function (event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        document.getElementById("search").click();
+      }
+    });
   }
 
   scrollTop(){
@@ -47,14 +66,28 @@ export class DetailsComponent implements OnInit, OnChanges {
             behavior: 'smooth'
     });
   }
+
+  
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
   
   onAdd() {
     this.numberOfItems = (<HTMLInputElement>document.getElementById('numberOfItems')).value;
     console.log(this.numberOfItems);
+    this.scrollTop();
+  }
+
+  onSearch(){
+    this.search = this.searchTerm;
+    console.log(this.search);
   }
 
   onClick(id: number) {
-    this._router.navigate(['/details', id]);
+    this._router.navigate(['/car-details', id]);
   }
 
 
@@ -126,154 +159,11 @@ export class DetailsComponent implements OnInit, OnChanges {
           }
         });
       }
-
     }
   }
 
   private initialiseCarDetails(): void {
-    this.cardetails = [{
-      id: 1,
-      brand: 'Suzuki',
-      model: 'Swift',
-      engine: '1248',
-      mileage: '28.40 km/liter',
-      fuel: 'Diesel',
-      year: '2019',
-      price: 450000,
-      transmission: 'Automatic',
-      type: 'Hatchback',
-      carImage: '../../../assets/Suzuki-Swift/Main.jpg',
-    },
-    {
-      id: 2,
-      brand: 'Mercedes',
-      model: 'Benz E-Class',
-      engine: '3982 cc',
-      mileage: '18.00 km/liter',
-      fuel: 'Petrol',
-      year: '2019',
-      price: 1800000,
-      transmission: 'Automatic',
-      type: 'Coupe',
-      carImage: '../../../assets/Mercedes Benz/Main.jpg'
-    },
-    {
-      id: 3,
-      brand: 'BMW',
-      model: '5 Series',
-      engine: '1995 cc',
-      mileage: '18.12 km/liter',
-      fuel: 'Petrol',
-      year: '2019',
-      price: 2000000,
-      transmission: 'Automatic',
-      type: 'Sedan',
-      carImage: '../../../assets/BMW/Main.jpg',
-    },
-    {
-      id: 4,
-      brand: 'Hyundai',
-      model: 'I20',
-      engine: '1396 cc',
-      mileage: '22.54 km/liter',
-      fuel: 'Petrol',
-      year: '2018',
-      price: 1000000,
-      transmission: 'Automatic',
-      type: 'Hatchback',
-      carImage: '../../../assets/Hyndai i20/Main.jpg'
-    },
-    {
-      id: 5,
-      brand: 'Nissan',
-      model: 'Sunny',
-      engine: '1498 cc',
-      mileage: '16.95 km/liter',
-      fuel: 'Petrol',
-      year: '2016',
-      price: 550000,
-      transmission: 'Manual',
-      type: 'Sedan',
-      carImage: '../../../assets/Nissan Sunny/Main.jfif'
-    },
-    {
-      id: 6,
-      brand: 'Ford',
-      model: 'Mustang',
-      engine: '2360 cc',
-      mileage: '13.00 km/liter',
-      fuel: 'Diesel',
-      year: '2018',
-      price: 10000000,
-      transmission: 'Automatic',
-      type: 'Sport',
-      carImage: '../../../assets/Ford Mustang/Main.jpg'
-    },
-    {
-      id: 7,
-      brand: 'Kia',
-      model: 'Seltos',
-      engine: '1497 cc',
-      mileage: '16.80 km/liter',
-      fuel: 'Diesel',
-      year: '2018',
-      price: 2200000,
-      transmission: 'Manual',
-      type: 'SUV',
-      carImage: '../../../assets/Kia Seltos/Main.jpg'
-    },
-    {
-      id: 8,
-      brand: 'Honda',
-      model: 'Amaze',
-      engine: '1199 cc',
-      mileage: '19.00 kmpl',
-      fuel: 'Diesel',
-      year: '2019',
-      price: 400000,
-      transmission: 'Automatic',
-      type: 'Sedan',
-      carImage: '../../../assets/Honda Amaze/Main.jpg',
-    },
-    {
-      id: 9,
-      brand: 'Mitsubishi',
-      model: 'Pajero',
-      engine: '2477 cc',
-      mileage: '10.77 km/liter',
-      fuel: 'Petrol',
-      year: '2017',
-      price: 1550000,
-      transmission: 'Manual',
-      type: 'SUV',
-      carImage: '../../../assets/Mitsubishi Pajero/Main.jfif'
-    },
-    {
-      id: 10,
-      brand: 'Mitsubishi',
-      model: 'Outlander',
-      engine: '2360 cc',
-      mileage: '9.62 km/liter',
-      fuel: 'Diesel',
-      year: '2018',
-      price: 1000000,
-      transmission: 'Automatic',
-      type: 'SUV',
-      carImage: '../../../assets/Mitsubishi Outlander/Mitsubishi Outlander.jpg'
-    },
-    {
-      id: 11,
-      brand: 'Mercedes',
-      model: 'Benz C-Class Cabriolet',
-      engine: '1991 cc',
-      mileage: '9.62 km/liter',
-      fuel: 'Petrol',
-      year: '2016',
-      price: 1500000,
-      transmission: 'Automatic',
-      type: 'Convertible',
-      carImage: '../../../assets/MercedesBenz-C/Main.jpg'
-    }
-    ];
+    this.cardetails = this._detailsService.getCarDetails();
   }
 }
+

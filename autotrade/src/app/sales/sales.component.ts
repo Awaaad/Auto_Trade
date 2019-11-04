@@ -158,7 +158,6 @@ export class SalesComponent implements OnInit {
     ]
   };
 
-
   ngOnInit() {
     this.carDetails = this.detailsService.getCarDetails();
     this.fourItems();
@@ -167,9 +166,14 @@ export class SalesComponent implements OnInit {
   fourItems(){
     this.carDetails = this.carDetails.filter((car, idx) => idx < 4); 
   }
+
   onSelect(id: number) {
-        this.router.navigate(['/details', id]);
-  } 
+        this.router.navigate(['/car-details',id]);
+  }
+  
+  // onClick(brand:string) {
+  //       this.router.navigate(['/car-details', 'Suzuki']);
+  // } 
 
   addSlide() {
    // this.slides.push({ img: "http://placehold.it/350x150/777777" })

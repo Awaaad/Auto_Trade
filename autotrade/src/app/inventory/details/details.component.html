@@ -1,100 +1,118 @@
-<div class="row">
-  <div class="col-md-6 col-xs-12 amountDisplay">
-    <div class="row amount">
-      <div class="col-md-10 col-sm-9 col-xs-9">
-        <input class="number" type="number" id="numberOfItems" [(ngModel)]="value" min="1" max="15"
-        placeholder="Enter amount to be displayed...">
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6">
+        <div class="input-group custom-search-form">
+          <input type="text" id="searchCars" class="form-control" placeholder="Search by Brand..." [(ngModel)]="searchTerm">
+          <span class="input-group-btn">
+          <button class="btn btn-search" id="search" type="button" (click)="onSearch()">
+              <i class="fas fa-search"></i>
+          </button>
+          </span>
+        </div>
       </div>
-      <div class="col-md-2 col-sm-3 col-xs-3">
-        <button id="add" (click)="onAdd()">Enter</button>
+      <div class="col-md-4 col-sm-6 orderBy">
+          <button [class.active]="order === 'brand'" class="orderByBrand" (click)="setOrder('brand')">brand<span [hidden]="reverse">▼</span> <span [hidden]="!reverse">▲</span></button>
+          <button [class.active]="order === 'year'" class="orderByYear" (click)="setOrder('year')">year <span [hidden]="reverse">▼</span> <span [hidden]="!reverse">▲</span></button>
+          <button [class.active]="order === 'price'" class="orderByPrice" (click)="setOrder('price')">price <span [hidden]="reverse">▼</span> <span [hidden]="!reverse">▲</span></button>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
-    
-  </div>
-</div>
-
-<!-- ngIf cardetails.length !== 0 then display no cars available -->
-<!-- ngIf cardetails.length > 0 -->
-
 <div class="card" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5"
- *ngFor="let cardetail of cardetails | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage}">
- <div class="carAvailable" *ngIf="cardetails.length > 0">
-  <div class="container-fliud">
-    <div class="wrapper row">
-      <div class="preview col-md-4 col-xs-12">
+  *ngFor="let cardetail of cardetails | orderBy: order:reverse:'case-insensitive' | SearchFilterPipe:search | paginate: {itemsPerPage: numberOfItems, currentPage: actualPage} " >
+  <div class="carAvailable" *ngIf="cardetails.length > 0">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-4 col-xs-12">
 
-        <div class="preview-pic tab-content">
-          <div class="tab-pane active" id="pic-1">
-            <img src="{{cardetail.carImage}}" /></div>
-        </div>
-
-
-      </div>
-      <div class="details col-md-8 col-xs-12">
-        <div class="row">
-          <div class="col-md-6">
-            <h2 class="product-title">{{ cardetail.brand }}</h2>
+          <div class="preview-pic tab-content">
+            <div class="active" id="pic-1">
+              <img src="{{cardetail.carImage}}" /></div>
           </div>
-          <div class="col-md-6">
-            <div class="more-details"><button (click)="onClick(cardetail.id)">
-                <i class="fa fa-list"></i> More details</button></div>
-          </div>
+
+
         </div>
-        <table id="customers">
-          <tr>
-            <div class="bold">
-              <td>Model:</td>
+        <div class="details col-md-8 col-xs-12">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="product-title">{{ cardetail.brand }}</h2>
             </div>
-            <td>{{ cardetail.model }}</td>
-          </tr>
-          <tr>
-            <div class="bold">
-              <td>Engine:</td>
+            <div class="col-md-6">
+              <div class="more-details"><button (click)="onClick(cardetail.id)">
+                  <i class="fa fa-list"></i> More details</button></div>
             </div>
-            <td>{{ cardetail.engine }}</td>
-          </tr>
-          <tr>
-            <div class="bold">
-              <td>Mileage:</td>
-            </div>
-            <td>{{ cardetail.mileage }}</td>
-          </tr>
-          <tr>
-            <div class="bold">
-              <td>Fuel:</td>
-            </div>
-            <td>{{ cardetail.fuel }}</td>
-          </tr>
-          <tr>
-            <div class="bold">
-              <td>Year:</td>
-            </div>
-            <td>{{ cardetail.year }}</td>
-          </tr>
-          <tr>
-            <div class="bold">
-              <td>Type:</td>
-            </div>
-            <td>{{ cardetail.type }}</td>
-          </tr>
-        </table>
-        <h2 class="price">Rs {{cardetail.price}}</h2>
+          </div>
+          <table id="customers">
+            <tr>
+              <div class="bold">
+                <td>Model:</td>
+              </div>
+              <td>{{ cardetail.model }}</td>
+            </tr>
+            <tr>
+              <div class="bold">
+                <td>Engine:</td>
+              </div>
+              <td>{{ cardetail.engine }}</td>
+            </tr>
+            <tr>
+              <div class="bold">
+                <td>Mileage:</td>
+              </div>
+              <td>{{ cardetail.mileage }}</td>
+            </tr>
+            <tr>
+              <div class="bold">
+                <td>Fuel:</td>
+              </div>
+              <td>{{ cardetail.fuel }}</td>
+            </tr>
+            <tr>
+              <div class="bold">
+                <td>Year:</td>
+              </div>
+              <td>{{ cardetail.year }}</td>
+            </tr>
+            <tr>
+              <div class="bold">
+                <td>Type:</td>
+              </div>
+              <td>{{ cardetail.type }}</td>
+            </tr>
+          </table>
+          <h2 class="price">Rs {{cardetail.price}}</h2>
+        </div>
       </div>
     </div>
   </div>
-  </div>
 </div>
 
-<div class="noCarAvailable" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5" *ngIf="cardetails.length == 0">
+<div class="noCarAvailable" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100"
+  data-aos-offset="5" *ngIf="cardetails.length == 0">
+  <h3>SORRY</h3>
   <!-- <img src="../../../assets/CarUnavailable.jpg"> -->
   <!-- <img src="../../../assets/caryingNoCar.jpg"> -->
   <img src="../../../assets/cryingCar.jpg">
-  <h3>SORRY NO CARS AVAILABLE AT THE MOMENT</h3>
+  <h3>NO CARS AVAILABLE AT THE MOMENT</h3>
 </div>
 
 <div class="page" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5">
   <pagination-controls (click)="scrollTop()" (pageChange)="actualPage = $event"></pagination-controls>
+</div>
+
+
+<div class="row bottom-container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="totalNumberOfCars">
+      <p class="para">TOTAL NUMBER OF CARS: {{cardetails.length}}</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12 amountDisplay">
+    <div class="showNumberOfCars">
+      <p class="leftpara">SHOW </p>
+      <input class="number" type="number" id="numberOfItems" [(ngModel)]="value" min="1" max="15"
+        placeholder="{{numberOfItems}}">
+      <p class="rightpara">CARS ON THE PAGE</p><button id="add" (click)="onAdd()">Enter</button>
+    </div>
+  </div>
 </div>
 

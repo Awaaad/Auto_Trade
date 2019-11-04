@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from '../services/validators.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -12,18 +13,17 @@ export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
   showMsg = false;
-  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"; 
   public name="";
   public email="";
   public message="";
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private validatorsService: ValidatorsService) { }
 
   get f() { return this.contactForm.controls; } 
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
+      name: ['', [Validators.required, Validators.pattern(this.validatorsService.namePattern)]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
     });
@@ -36,25 +36,24 @@ export class ContactUsComponent implements OnInit {
     // stop here if form is invalid
     if (this.contactForm.invalid) {
         return;  
-        console.log(this.submitted);
     }
     else{
       this.showMsg = true;
     }
-    document.forms["form"].reset();
+    
     setTimeout(()=>{    //<<<---    using ()=> syntax
             this.showMsg= false;
             this.submitted = false;
+            document.forms["form"].reset();
     }, 2000); 
     // console.log(this.submitted);
   }
 
   close(){
     this.submitted = false;
-    console.log(this.submitted);
   }
 
-  write(email){
-    console.log(email);
-  }
+  // write(email){
+  //   console.log(email);
+  // }
 }

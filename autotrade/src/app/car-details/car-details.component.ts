@@ -5,6 +5,8 @@ import { DetailsService, CarDetails } from '../inventory/details/details.service
 import { ProductService } from '../services/product.services';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from '../services/validators.service';
+import { CartService } from '../services/cart.service';
 
 // import { Details} from '../inventory/details.model';
 @Component({
@@ -23,20 +25,20 @@ export class CarDetailsComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
   showMsg = false;
-  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"; 
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private _detailsService: DetailsService,
     private router: Router,
-    private formBuilder: FormBuilder) {   }
+    private formBuilder: FormBuilder,
+    private validatorsService: ValidatorsService) {   }
 
   get f() { return this.contactForm.controls; } 
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
+      name: ['', [Validators.required, Validators.pattern(this.validatorsService.namePattern)]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
     });
@@ -66,10 +68,10 @@ export class CarDetailsComponent implements OnInit {
     else{
       this.showMsg = true;
     }
-    document.forms["form"].reset();
     setTimeout(()=>{    //<<<---    using ()=> syntax
             this.showMsg= false;
             this.submitted = false;
+            document.forms["form"].reset();
     }, 2000); 
     // console.log(this.submitted);
   }

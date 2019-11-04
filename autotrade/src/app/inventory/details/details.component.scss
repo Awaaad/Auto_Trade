@@ -1,86 +1,295 @@
-.number{
-    height: 38px;
-    margin: 0;
-    padding-left: 20px;
-    vertical-align: middle;
-    background: #fff;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 50px;
-    color: #343a40;
-    border-radius: 4px;
-    box-shadow: none;
-    transition: all 0.3s;
-    border: 1px solid #ccc;
-    width: 100%;
+.number {
+  height: 38px;
+  margin: 0;
+  padding-left: 12px;
+  vertical-align: middle;
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #343a40;
+  // border-radius: 4px;
+  box-shadow: none;
+  transition: all 0.3s;
+  border: 1px solid #ccc;
+  width: 12%;
 }
 
-
-
-.number:focus{
-    outline: 0;
-    background: white;
-    border: 2px solid #ccc;
-    box-shadow: none;
-}
-.amount{
-    padding-left:15px;
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-      margin: 0; 
+.showNumberOfCars {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.amount button{
-        padding:8px 10px;
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: #121212;
-        letter-spacing: 1px!important;
-        border: none;
-        margin-bottom: 10px;
-        // padding-top: 12px;
-        // padding-bottom: 3px;
-        background: #fbe122;
-        border-radius: 0px;
-        border-bottom: 2px #ecd213 solid;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        border-radius: 4px;
-        float: right;
-        margin-right: 15px;
-}
-.amount button:hover{
-    -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
-    -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
-    transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
-    box-shadow: inset 0 -45px 0 0 #23292e;
-    border-bottom: 2px solid #121518;
-    color: #fff;
-    outline: none;
+.totalNumberOfCars .para {
+  background: transparent;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  margin-right: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  color: #7d7d7d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  border: solid 1px #d7d7d7;
 }
 
-.amount button:focus{
-    outline: none;
+.showNumberOfCars .leftpara {
+  background: transparent;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  margin-right: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  color: #7d7d7d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  border: solid 1px #d7d7d7;
 }
 
-.noCarAvailable{
-    background: white;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 15px;
-}
-.noCarAvailable h3{
-    font-weight: 600;
-}
-.noCarAvailable img{
-    width: 200px;
+.showNumberOfCars .rightpara {
+  background: transparent;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  margin-left: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  color: #7d7d7d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  border: solid 1px #d7d7d7;
 }
 
-@media screen and (max-width: 600px) {
-    .amount{
-        margin-right: 0;
-        margin-left: 0;
+.showNumberOfCars .rightpara:hover,
+.showNumberOfCars .leftpara:hover {
+  cursor: default;
+}
+
+.number:focus {
+  outline: 0;
+  background: white;
+  border: 2px solid #ccc;
+  box-shadow: none;
+}
+
+.amount {
+  padding-left: 15px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+.amountDisplay button {
+  padding: 8px 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #121212;
+  letter-spacing: 1px !important;
+  border: none;
+  margin-bottom: 10px;
+  // padding-top: 12px;
+  // padding-bottom: 3px;
+  background: #fbe122;
+  border-radius: 0px;
+  border-bottom: 2px #ecd213 solid;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.amountDisplay button:hover {
+  -webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  -o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -45px 0 0 #23292e;
+  border-bottom: 2px solid #121518;
+  color: #fff;
+  outline: none;
+}
+
+.amountDisplay button:focus {
+  outline: none;
+}
+
+.totalNumberOfCars {
+  width: 50%;
+}
+
+.noCarAvailable {
+  background: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.noCarAvailable h3 {
+  font-weight: 600;
+}
+
+.noCarAvailable img {
+  width: 200px;
+}
+
+.bottom-container {
+  margin-right: 0;
+  margin-left: 0;
+}
+@media screen and (max-width: 1200px) {
+  .container .row .orderBy .orderByBrand, .orderByPrice, .orderByYear{
+    font-size: 13px!important;
+  }
+}
+@media screen and (max-width: 1173px) {
+    .totalNumberOfCars {
+      width: 100%;
     }
+}
+  
+@media screen and (max-width: 600px) {
+  .amount {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .showNumberOfCars {
+    justify-content: center;
+  }
+
+  .container .row .orderBy{
+    margin-top:10px!important;
+  }
+
+  .container .row .orderBy .orderByBrand, .orderByPrice, .orderByYear{
+    font-size: 14px!important;
+    padding-top: 9px!important;
+    padding-bottom: 7px!important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .showNumberOfCars .rightpara,
+  .showNumberOfCars .leftpara {
+    font-size: 10px;
+  }
+}
+
+
+.custom-search-form input:focus{
+  outline: 0;
+  background: white;
+  border: 2px solid #ccc;
+  box-shadow: none;
+  
+}
+
+.form-control{
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #343a40;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: all 0.3s;
+}
+
+
+.btn-search{
+  z-index: 2;
+  margin-left: -1px;
+  color: #121212;
+  letter-spacing: 1px !important;
+  border: none;
+  background: #fbe122;
+  border-radius: 0px;
+  border-bottom: 2px #ecd213 solid;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 10px 19px 10px 19px;
+  font-size: 20px;  
+}
+
+.btn-search:hover{
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -50px 0 0 #23292e;
+  border-bottom: 2px solid #121518;
+  color: #fff;
+  outline: none;
+}
+
+.btn-search:foxus{
+  outline: none;
+}
+
+.container .row .orderBy .orderByBrand, .orderByPrice, .orderByYear{
+  padding: 10px 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #121212;
+  letter-spacing: 1px !important;
+  border: none;
+  margin-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #fbe122;
+  border-radius: 0px;
+  border-bottom: 2px #ecd213 solid;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 4px;
+}
+.container .row .orderBy .orderByBrand:hover, .orderByPrice:hover, .orderByYear:hover{
+  transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
+  box-shadow: inset 0 -50px 0 0 #23292e;
+  border-bottom: 2px solid #121518;
+  color: #fff!important;
+  outline: none;
+}
+.container .row .orderBy .orderByBrand:focus, .orderByPrice:focus, .orderByYear:focus{
+  outline: none;
+}
+
+
+.orderBy{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.container .row .orderBy {
+  cursor: pointer;
+  margin-top:2px;
+
+  span {
+    visibility: hidden;
+  }
+
+  .orderByBrand.active {
+    color: #000;
+
+    span {
+      visibility: visible;
+    }
+  }
+  .orderByPrice.active {
+    color: #000;
+
+    span {
+      visibility: visible;
+    }
+  }
+  .orderByYear.active {
+    color: #000;
+
+    span {
+      visibility: visible;
+    }
+  }
 }

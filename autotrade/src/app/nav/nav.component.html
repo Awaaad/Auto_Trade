@@ -34,7 +34,7 @@
                 <li *ngIf="currentUser"><i class="nav-item nav-link fas fa-user" (click)="logout()"></i>
                   <div *ngIf="currentUser"><a class="nav-item nav-link target-logout" (click)="logout()">LOGOUT</a></div>
                 </li>
-                <li *ngIf="currentSocialUser"><i class="nav-item nav-link fas fa-user" (click)="logout()"></i>
+                <li *ngIf="currentSocialUser"><i class="nav-item nav-link fas fa-user" (click)="signOut()"></i>
                   <div *ngIf="currentSocialUser"><a class="nav-item nav-link target-logout" (click)="signOut()">LOGOUT</a></div>
                 </li>
               </div>
@@ -59,10 +59,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a class="nav-link " routerLink="/">Home </a></li>
-        <li><a class="nav-link " routerLink="/inventory">Cars</a></li>
-        <li><a class="nav-link " routerLink="/contact">Contact us</a></li>
-        <li><a class="nav-link " routerLink="/about-us">About us</a></li>
+        <li><a class="nav-link " routerLink="/" (click)="toggleMenu()">Home </a></li>
+        <li><a class="nav-link " routerLink="/inventory" (click)="toggleMenu()">Cars</a></li>
+        <li><a class="nav-link " routerLink="/contact" (click)="toggleMenu()">Contact us</a></li>
+        <li><a class="nav-link " routerLink="/about-us" (click)="toggleMenu()">About us</a></li>
       </ul>
     </div>
   </div>

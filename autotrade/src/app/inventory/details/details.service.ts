@@ -9,6 +9,7 @@ export interface CarDetails {
   fuel: string;
   year: string;
   price: number;
+  type: string;
   transmission: string;
   carImage: string;
   carImage1: string;
@@ -46,6 +47,7 @@ export class DetailsService {
       fuel: 'Diesel',
       year: '2019',
       price: 450000,
+      type: 'Hatchback',
       transmission: 'Automatic',
       carImage: '../../../assets/Suzuki-Swift/Main.jpg',
       carImage1: '../../../assets/Suzuki-Swift/1.jpg',
@@ -64,6 +66,7 @@ export class DetailsService {
       fuel: 'Petrol',
       year: '2019',
       price: 1800000,
+      type: 'Coupe',
       transmission: 'Automatic',
       carImage: '../../../assets/Mercedes Benz/Main.jpg',
       carImage1: '../../../assets/Mercedes Benz/1.jpg',
@@ -82,6 +85,7 @@ export class DetailsService {
       fuel: 'Petrol',
       year: '2019',
       price: 2000000,
+      type: 'Sedan',
       transmission: 'Automatic',
       carImage: '../../../assets/BMW/Main.jpg',
       carImage1: '../../../assets/BMW/1.jpg',
@@ -100,6 +104,7 @@ export class DetailsService {
       fuel: 'Petrol',
       year: '2018',
       price: 1000000,
+      type: 'Hatchback',
       transmission: 'Automatic',
       carImage: '../../../assets/Hyndai i20/Main.jpg',
       carImage1: '../../../assets/Hyndai i20/1.jpg',
@@ -118,6 +123,7 @@ export class DetailsService {
       fuel: 'Petrol',
       year: '2016',
       price: 550000,
+      type: 'Sedan',
       transmission: 'Manual',
       carImage: '../../../assets/Nissan Sunny/Main.jfif',
       carImage1: '../../../assets/Nissan Sunny/1.jpg',
@@ -136,6 +142,7 @@ export class DetailsService {
       fuel: 'Diesel',
       year: '2018',
       price: 10000000,
+      type: 'Sport',
       transmission: 'Automatic',
       carImage: '../../../assets/Ford Mustang/Main.jpg',
       carImage1: '../../../assets/Ford Mustang/1.jpg',
@@ -154,6 +161,7 @@ export class DetailsService {
       fuel: 'Diesel',
       year: '2018',
       price: 2200000,
+      type: 'SUV',
       transmission: 'Manual',
       carImage: '../../../assets/Kia Seltos/Main.jpg',
       carImage1: '../../../assets/Kia Seltos/1.jpg',
@@ -172,6 +180,7 @@ export class DetailsService {
       fuel: 'Diesel',
       year: '2019',
       price: 400000,
+      type: 'Sedan',
       transmission: 'Automatic',
       carImage: '../../../assets/Honda Amaze/Main.jpg',
       carImage1: '../../../assets/Honda Amaze/1.jpg',
@@ -190,6 +199,7 @@ export class DetailsService {
       fuel: 'Petrol',
       year: '2017',
       price: 1550000,
+      type: 'SUV',
       transmission: 'Manual',
       carImage: '../../../assets/Mitsubishi Pajero/Main.jfif',
       carImage1: '../../../assets/Mitsubishi Pajero/1.jpg',
@@ -208,6 +218,7 @@ export class DetailsService {
       fuel: 'Diesel',
       year: '2018',
       price: 1000000,
+      type: 'SUV',
       transmission: 'Automatic',
       carImage: '../../../assets/Mitsubishi Outlander/Mitsubishi Outlander.jpg',
       carImage1: '../../../assets/Mitsubishi Outlander/1.jpg',
@@ -226,6 +237,7 @@ export class DetailsService {
       fuel: 'Petrol',
       year: '2016',
       price: 1500000,
+      type: 'Convertible',
       transmission: 'Automatic',
       carImage: '../../../assets/MercedesBenz-C/Main.jpg',
       carImage1: '../../../assets/MercedesBenz-C/1.jpg',

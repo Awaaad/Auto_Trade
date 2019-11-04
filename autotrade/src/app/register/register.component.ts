@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { MustMatch } from '../../_helpers/must-match.validator';
 import { UserService, AuthenticationService } from '../_services';
 import * as AOS from 'aos';
+import { ValidatorsService} from '../services/validators.service';
 
 @Component({
   selector: 'app-register',
@@ -16,14 +17,13 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   error: string;
-  patternValidate = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$';
-  namePattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private userService: UserService)  {
+    private userService: UserService,
+    private validatorsService: ValidatorsService)  {
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) {
           this.router.navigate(['/']);
@@ -32,11 +32,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-          name: ['', [Validators.required, Validators.pattern(this.namePattern)]],
-          username: ['', [Validators.required, Validators.pattern(this.namePattern)]],
+          name: ['', [Validators.required, Validators.pattern(this.validatorsService.namePattern)]],
+          username: ['', [Validators.required, Validators.pattern(this.validatorsService.usernamePattern)]],
           email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.patternValidate)]],
-          // Validators.pattern('^[0-9]*$')
+          password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(this.validatorsService.passwordPattern)]],
           confirmPassword: ['', Validators.required]
       },
       {

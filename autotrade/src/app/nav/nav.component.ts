@@ -18,6 +18,7 @@ export class NavComponent implements OnInit {
   currentSocialUser: any;
   private user: SocialUser;
   private loggedIn: boolean;
+  resetQuantity: any = 0;
 
   constructor(
     private router: Router,
@@ -45,17 +46,26 @@ export class NavComponent implements OnInit {
   
   signOut(): void {
     this.authenticationService.logoutSocial(); 
+    localStorage.removeItem('cart');
+    localStorage.setItem('quantity', JSON.stringify(this.resetQuantity));
+    window.location.reload();
   }
 
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
     localStorage.removeItem('cart');
-    localStorage.removeItem('quantity');
+    localStorage.setItem('quantity', JSON.stringify(this.resetQuantity));
     window.location.reload();
   }
 
   navigate() {
     this.router.navigate(['/cart']);
+  }
+
+  toggleMenu(){
+      let menuBox = document.getElementById('bs-example-navbar-collapse-1');
+      
+      menuBox.classList.remove('in');
   }
 }

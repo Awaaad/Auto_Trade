@@ -41,6 +41,10 @@ import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ValidatorsService } from '../app/services/validators.service';
+import { CartService } from '../app/services/cart.service';
+import { SearchFilterPipe } from './inventory/details/search-filter.pipe';
+import { OrderModule } from 'ngx-order-pipe';
 
 let config = new AuthServiceConfig([
   {
@@ -79,6 +83,7 @@ export function provideConfig() {
     AboutUsComponent,
     PageNotFoundComponent,
     CheckoutComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,8 @@ export function provideConfig() {
     OwlModule,
     NgxPaginationModule,
     SocialLoginModule,
-    NgxPayPalModule
+    NgxPayPalModule,
+    OrderModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -100,6 +106,8 @@ export function provideConfig() {
     fakeBackendProvider,
     DetailsService,
     ProductService,
+    ValidatorsService,
+    CartService,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
