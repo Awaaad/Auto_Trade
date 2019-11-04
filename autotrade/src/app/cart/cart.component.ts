@@ -5,7 +5,7 @@ import { CarDetails, DetailsService  } from '../inventory/details/details.servic
 import { ProductService } from '../services/product.services';
 import * as AOS from 'aos';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
+import { CartService } from '../services/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -24,32 +24,18 @@ export class CartComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private detailsService: DetailsService
+    private detailsService: DetailsService,
+    private cartService: CartService
   ) { }
 
     ngOnInit() {
         let id = this.detailsService.getUrl();
-        this.loadCart();
+        this.cartService.loadCart();
+        this.items =  this.cartService.items;
+        this.total = this.cartService.total;
+        this.totalQuantity = this.cartService.totalQuantity;
         AOS.init();
         this.initConfig();
-    }
-
-    loadCart(): void {
-        this.total = 0;
-        this.totalQuantity = 0;
-        this.items = [];
-        const cart = JSON.parse(localStorage.getItem('cart'));
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < cart.length; i++) {
-            const item = JSON.parse(cart[i]);
-            this.items.push({
-                product: item.product,
-                quantity: item.quantity
-            });
-            this.total += item.product.price * item.quantity;
-            this.totalQuantity += 0 + item.quantity;
-        }
-        localStorage.setItem('quantity', JSON.stringify(this.totalQuantity));
     }
 
     remove(id: number): void {
@@ -63,7 +49,7 @@ export class CartComponent implements OnInit {
             }
         }
         localStorage.setItem('cart', JSON.stringify(cart));
-        this.loadCart();
+        this.cartService.loadCart();
         window.location.reload();
     }
 

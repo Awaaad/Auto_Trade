@@ -46,7 +46,6 @@ export class ContactUsComponent implements OnInit {
             this.submitted = false;
             document.forms["form"].reset();
     }, 2000); 
-    // console.log(this.submitted);
   }
 
   close(){

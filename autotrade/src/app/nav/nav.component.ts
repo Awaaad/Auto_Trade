@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../_services';
 import { AuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
-// import { CartComponent } from '../cart/cart.component';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -19,12 +19,13 @@ export class NavComponent implements OnInit {
   private user: SocialUser;
   private loggedIn: boolean;
   resetQuantity: any = 0;
+  private totalQuantity: number;
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private authService: AuthService
-    // private cart: CartComponent
+    private authService: AuthService,
+    private cartService: CartService
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.authenticationService.currentSocialUser.subscribe(x => this.currentSocialUser = x); 
@@ -41,8 +42,9 @@ export class NavComponent implements OnInit {
         current[0].className = current[0].className.replace("active", "");
         this.className += "active";
       }); }
+    this.totalQuantity=this.cartService.totalQuantity;
+    console.log('HAHA', this.totalQuantity);
   }
-  
   
   signOut(): void {
     this.authenticationService.logoutSocial(); 

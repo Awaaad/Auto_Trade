@@ -18,9 +18,6 @@ import { CartService } from '../services/cart.service';
 export class CarDetailsComponent implements OnInit {
   // details: Details;
   carDetails: Array<CarDetails>;
-  private items: CarItem[] = [];
-  private total: number = 0;
-  private totalQuantity: number = 0;
  
   contactForm: FormGroup;
   submitted = false;
@@ -32,7 +29,8 @@ export class CarDetailsComponent implements OnInit {
     private _detailsService: DetailsService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private validatorsService: ValidatorsService) {   }
+    private validatorsService: ValidatorsService,
+    private cartService: CartService) {   }
 
   get f() { return this.contactForm.controls; } 
 
@@ -63,7 +61,6 @@ export class CarDetailsComponent implements OnInit {
     // stop here if form is invalid
     if (this.contactForm.invalid) {
         return;  
-        console.log(this.submitted);
     }
     else{
       this.showMsg = true;
@@ -73,12 +70,10 @@ export class CarDetailsComponent implements OnInit {
             this.submitted = false;
             document.forms["form"].reset();
     }, 2000); 
-    // console.log(this.submitted);
   }
 
   close(){
     this.submitted = false;
-    console.log(this.submitted);
   }
 
   incrementCart() {
@@ -119,31 +114,12 @@ export class CarDetailsComponent implements OnInit {
         }
       }
     }
-    this.loadCart();
+    this.cartService.loadCart();
+
 
     window.location.reload();
   // setTimeout( () =>  window.location.reload(), 2000 );
   }
-
-
-  loadCart(): void {
-    this.total = 0;
-    this.totalQuantity = 0;
-    this.items = [];
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    // tslint:disable-next-line: prefer-for-of
-    for (var i = 0; i < cart.length; i++) {
-      const item = JSON.parse(cart[i]);
-      this.items.push({
-        product: item.product,
-        quantity: item.quantity
-      });
-      this.total += item.product.price * item.quantity;
-      this.totalQuantity += 0 + item.quantity;
-    }
-    localStorage.setItem('quantity', JSON.stringify(this.totalQuantity));
-  }
-
 
   //Car Financing
   calculatePayments(){

@@ -29,7 +29,6 @@ export class DetailsService {
   private url: number;
 
   public setUrl(url: number): void {
-    console.log(url);
     this.url = url;
   }
 

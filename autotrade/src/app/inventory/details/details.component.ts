@@ -77,13 +77,11 @@ export class DetailsComponent implements OnInit, OnChanges {
   
   onAdd() {
     this.numberOfItems = (<HTMLInputElement>document.getElementById('numberOfItems')).value;
-    console.log(this.numberOfItems);
     this.scrollTop();
   }
 
   onSearch(){
     this.search = this.searchTerm;
-    console.log(this.search);
   }
 
   onClick(id: number) {
