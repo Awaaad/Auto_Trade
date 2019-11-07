@@ -1,4 +1,3 @@
-<h1>{{x}}</h1>
 <div class="container">
   <div class="card">
     <div class="container-fluid">
@@ -54,10 +53,12 @@
             <!-- <button [routerLink]="['/cart', { id:carDetails[0].id }]" class="add-to-cart btn btn-default"
               type="button"><i class="fas fa-cart-arrow-down"></i> Add to
               cart</button> -->
-            <button (click)='incrementCart()' class="add-to-cart btn btn-default" type="button"><i
+            <button (click)='incrementCart(); showDialog = !showDialog' class="add-to-cart btn btn-default" type="button"><i
                 class="fas fa-cart-arrow-down"></i> Add to
               cart</button>
           </div>
+
+  
 
           <div class="specifications row">
             <div class="mileage-wrap col-md-4 col-sm-4 col-xs-12">
@@ -221,17 +222,19 @@
           <!-- Name input-->
           <div class="form-group">
             <input type="text" formControlName="name" class="from-name form-control" id="contactName" name="name"
-            [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name..."/><i class="fas fa-user"></i>
-              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                <div *ngIf="f.name.errors.required">*Name is required</div>
-                <div *ngIf="f.name.errors.pattern">*Name is not valid</div>
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name..." /><i
+              class="fas fa-user"></i>
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">*Name is required</div>
+              <div *ngIf="f.name.errors.pattern">*Name is not valid</div>
             </div>
           </div>
 
           <!-- Email input-->
           <div class="form-group">
-            <input type="text" formControlName="email" class="form-control" id="email" name="email"  placeholder="Email..."
-            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/><i class="fas fa-envelope"></i>
+            <input type="text" formControlName="email" class="form-control" id="email" name="email"
+              placeholder="Email..." [ngClass]="{ 'is-invalid': submitted && f.email.errors }" /><i
+              class="fas fa-envelope"></i>
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">*Email is required</div>
               <div *ngIf="f.email.errors.email">*Email must be a valid email address</div>
@@ -239,11 +242,12 @@
           </div>
           <!-- Message body -->
           <div class="form-group">
-            <textarea class="form-control" formControlName="message" id="message" rows="6" name="message" [ngClass]="{ 'is-invalid': submitted && f.message.errors }" placeholder="Message..."></textarea><i
+            <textarea class="form-control" formControlName="message" id="message" rows="6" name="message"
+              [ngClass]="{ 'is-invalid': submitted && f.message.errors }" placeholder="Message..."></textarea><i
               class="fas fa-pen-alt"></i>
-              <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
-                <div *ngIf="f.message.errors.required">*Message is required</div>
-              </div>
+            <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+              <div *ngIf="f.message.errors.required">*Message is required</div>
+            </div>
           </div>
           <!-- Form actions -->
           <div class="form-group">
@@ -268,3 +272,17 @@
     </div>
   </app-dialog>
 </div>
+
+<div *ngIf="addToCart">
+   <app-dialog [(visible)]="showDialog">
+    <div id="container">
+      <button (click)="showDialog = !showDialog; close()" class="btn-close">×</button>
+      <div class="thank-you-pop">
+        <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+          <h1>{{carDetails[0].year}} {{carDetails[0].brand}} {{carDetails[0].model}}</h1>
+          <p>Has been added to your cart</p>
+      </div>
+    </div>
+  </app-dialog>
+</div>
+

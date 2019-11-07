@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarItem } from '../../entities/car-item.entity';
 import { CarDetails, DetailsService  } from '../inventory/details/details.service';
@@ -11,11 +11,11 @@ import { CartService } from '../services/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
-
+export class CartComponent implements OnInit{
   private items: CarItem[] = [];
   private total: number = 0;
-  private totalQuantity: number = 0;
+  private totalQuantity: number;
+  private x: number = 10;
 
   public payPalConfig?: IPayPalConfig;
   showSuccess: boolean = false;
@@ -25,42 +25,43 @@ export class CartComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
     private detailsService: DetailsService,
-    private cartService: CartService
+    private cartService: CartService,
   ) { }
 
     ngOnInit() {
         let id = this.detailsService.getUrl();
-        this.cartService.loadCart();
+        this.initConfig();
         this.items =  this.cartService.items;
         this.total = this.cartService.total;
         this.totalQuantity = this.cartService.totalQuantity;
         AOS.init();
-        this.initConfig();
+
     }
 
-    remove(id: number): void {
-        const cart: any = JSON.parse(localStorage.getItem('cart'));
-        let index: number = -1;
-        for (let i = 0; i < cart.length; i++) {
-            const item: CarItem = JSON.parse(cart[i]);
-            if (item.product.id === id) {
-                cart.splice(i, 1);
-                break;
-            }
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-        this.cartService.loadCart();
-        window.location.reload();
+    remove(id){
+
+      this.cartService.remove(id);
+      this.cartService.getQuantity(this.cartService.totalQuantity);
+
+      this.total = this.cartService.total;
+
+      this.items = this.items.filter(element => {
+        return element.product.id !== id;
+      })
     }
 
     performCheckout(){
         this.checkout = !this.checkout;
     }
+ 
+
 
     private initConfig(): void {
+        
         this.payPalConfig = {
         currency: 'MUR',
         clientId: 'sb',
+
         createOrderOnClient: (data) => <ICreateOrderRequest>{
           intent: 'CAPTURE',
           purchase_units: [

@@ -8,7 +8,7 @@
           </div>
           <div class="col-md-8">
             <span class="dropdown">
-              <button (click)="navigate()" class="btn btn-default dropdown-toggle cart" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="fa-stack fa-2x has-badge" data-count="">
+              <button (click)="navigate()" class="btn btn-default dropdown-toggle cart" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="fa-stack fa-2x has-badge" [attr.data-count]="quantity">
                   <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                   <i class="fas fa-shopping-cart fa-stack-2x red-cart"></i>
                 </span>

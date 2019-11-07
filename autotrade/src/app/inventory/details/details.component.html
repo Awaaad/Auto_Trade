@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-6">
+      <div class="col-md-8 col-sm-7">
         <div class="input-group custom-search-form">
           <input type="text" id="searchCars" class="form-control" placeholder="Search by Brand..." [(ngModel)]="searchTerm">
           <span class="input-group-btn">
@@ -10,7 +10,7 @@
           </span>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 orderBy">
+      <div class="col-md-4 col-sm-5 orderBy">
           <button [class.active]="order === 'brand'" class="orderByBrand" (click)="setOrder('brand')">brand<span [hidden]="reverse">▼</span> <span [hidden]="!reverse">▲</span></button>
           <button [class.active]="order === 'year'" class="orderByYear" (click)="setOrder('year')">year <span [hidden]="reverse">▼</span> <span [hidden]="!reverse">▲</span></button>
           <button [class.active]="order === 'price'" class="orderByPrice" (click)="setOrder('price')">price <span [hidden]="reverse">▼</span> <span [hidden]="!reverse">▲</span></button>

@@ -3,16 +3,21 @@ import { CarItem } from '../../entities/car-item.entity';
 import { CarDetails, DetailsService  } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  unsubscribe() {
+    throw new Error("Method not implemented.");
+  }
   public items: CarItem[] = [];
   public total: number = 0;
   public totalQuantity: number = 0;
+  public Quantity = new BehaviorSubject<number>(this.totalQuantity);
+  castQuantity = this.Quantity.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -31,11 +36,26 @@ export class CartService {
         this.totalQuantity += 0 + item.quantity;
     }
     localStorage.setItem('quantity', JSON.stringify(this.totalQuantity));
-    console.log('totalQuantity',this.totalQuantity)
   }
 
-  getQuantity(){
-    return this.totalQuantity;
+
+  remove(id: number): void{
+    const cart: any = JSON.parse(localStorage.getItem('cart'));
+    let index: number = -1;
+    for (let i = 0; i < cart.length; i++) {
+        const item: CarItem = JSON.parse(cart[i]);
+        if (item.product.id === id) {
+            cart.splice(i, 1);
+            break;
+        }
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    this.loadCart();
+    // window.location.reload();
   }
-  
+
+  public getQuantity(totalQuantity){
+    this.Quantity.next(totalQuantity);
+  }
+
 }

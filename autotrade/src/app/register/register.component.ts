@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   error: string;
+  returnUrl: string;
 
   constructor(
     private router: Router,
@@ -42,8 +43,11 @@ export class RegisterComponent implements OnInit {
         validator: MustMatch('password', 'confirmPassword')
     });
     AOS.init();
+
+
   }
 
+  
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
 
@@ -57,15 +61,20 @@ export class RegisterComponent implements OnInit {
 
       this.loading = true;
       this.userService.register(this.registerForm.value)
-          .pipe(first())
-          .subscribe(
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.authenticationService.login(this.f.username.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
               data => {
-                  this.router.navigate(['/login'], { queryParams: { registered: true }});
+                this.router.navigate(['/']);
               },
               error => {
-                  this.error = error;
-                  this.loading = false;
+                this.error = error;
+                this.loading = false;
               });
+          });
   }
 
 }

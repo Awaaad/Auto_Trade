@@ -14,10 +14,12 @@ export class NavComponent implements OnInit {
 
   public cartLength = (localStorage.getItem('quantity'));
 
+
   currentUser: any;
   currentSocialUser: any;
   private user: SocialUser;
   private loggedIn: boolean;
+  private quantity: any;
   resetQuantity: any = 0;
   private totalQuantity: number;
 
@@ -32,8 +34,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.getElementsByClassName('has-badge')[0].setAttribute('data-count', this.cartLength);
-    
+    // document.getElementsByClassName('has-badge')[0].setAttribute('data-count', this.quantity);
     var myNav = document.getElementById("bs-example-navbar-collapse-1");
     var menu = myNav.getElementsByClassName("nav-link");
     for (var i = 0; i < menu.length; i++) {
@@ -43,22 +44,23 @@ export class NavComponent implements OnInit {
         this.className += "active";
       }); }
     this.totalQuantity=this.cartService.totalQuantity;
-    console.log('HAHA', this.totalQuantity);
+    
+    this.cartService.Quantity.subscribe(quantity => this.quantity = quantity);
   }
   
   signOut(): void {
     this.authenticationService.logoutSocial(); 
     localStorage.removeItem('cart');
     localStorage.setItem('quantity', JSON.stringify(this.resetQuantity));
-    window.location.reload();
+    this.cartService.getQuantity(this.cartService.totalQuantity = 0);
   }
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
     localStorage.removeItem('cart');
     localStorage.setItem('quantity', JSON.stringify(this.resetQuantity));
-    window.location.reload();
+    this.cartService.getQuantity(this.cartService.totalQuantity = 0);
   }
 
   navigate() {
