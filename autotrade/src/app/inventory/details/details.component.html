@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="cardetails.length > 0">
       <div class="col-md-8 col-sm-7">
         <div class="input-group custom-search-form">
           <input type="text" id="searchCars" class="form-control" placeholder="Search by Brand..." [(ngModel)]="searchTerm">
@@ -91,16 +91,16 @@
   <h3>SORRY</h3>
   <!-- <img src="../../../assets/CarUnavailable.jpg"> -->
   <!-- <img src="../../../assets/caryingNoCar.jpg"> -->
-  <img src="../../../assets/cryingCar.jpg">
+  <img src="../../../assets/notfound1.png">
   <h3>NO CARS AVAILABLE AT THE MOMENT</h3>
 </div>
 
-<div class="page" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5">
+<div class="page" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5" *ngIf="cardetails.length > 0">
   <pagination-controls (click)="scrollTop()" (pageChange)="actualPage = $event"></pagination-controls>
 </div>
 
 
-<div class="row bottom-container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5">
+<div class="row bottom-container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="5" *ngIf="cardetails.length > 0">
   <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="totalNumberOfCars">
       <p class="para">TOTAL NUMBER OF CARS: {{cardetails.length}}</p>

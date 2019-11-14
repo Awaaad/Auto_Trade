@@ -31,18 +31,19 @@
         <div class="details col-md-6">
           <h3 class="product-title"><span>{{carDetails[0].brand}} </span><span>{{carDetails[0].model}}</span></h3>
           <span class="rating">
-            <span class="stars">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </span>
-            <span class="review-no"> 41 reviews</span>
+            <fieldset class="rating">
+              <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+              <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Good - 4.5 stars"></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Quite Good - 4 stars"></label>
+              <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Satisfied - 3.5 stars"></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Ok - 3 stars"></label>
+              <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Not satisfied - 2.5 stars"></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Not Good - 2 stars"></label>
+              <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Bad - 1.5 stars"></label>
+              <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Quite Bad - 1 star"></label>
+              <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Really bad - 0.5 stars"></label>
+          </fieldset>
           </span>
-          <!--  -->
-
-
 
           <h5 class="price"><span>Rs {{carDetails[0].price}}</span></h5>
           <p class="vote"><strong>91%</strong> of buyers enjoyed this product!</p>
@@ -119,7 +120,7 @@
           <ul class="bottom nav nav-tabs">
             <li class="active"><a href="#tab1default" data-toggle="tab">PRODUCT DESCRIPTION</a></li>
             <li><a href="#tab2default" data-toggle="tab">PAYMENT OPTION</a></li>
-            <li><a href="#tab3default" data-toggle="tab">DEFAULT 3</a></li>
+            <!-- <li><a href="#tab3default" data-toggle="tab">DEFAULT 3</a></li> -->
           </ul>
         </div>
         <div class="panel-body">
@@ -206,9 +207,9 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="tab3default">Default 3</div>
+            <!-- <div class="tab-pane fade" id="tab3default">Default 3</div>
             <div class="tab-pane fade" id="tab4default">Default 4</div>
-            <div class="tab-pane fade" id="tab5default">Default 5</div>
+            <div class="tab-pane fade" id="tab5default">Default 5</div> -->
           </div>
         </div>
       </div>
@@ -218,6 +219,12 @@
       <form class="form-horizontal" [formGroup]="contactForm" name="form" (ngSubmit)="onSubmit()">
         <fieldset>
           <legend class="text-center">ASK FOR MORE DETAILS</legend>
+
+          <!-- Name input-->
+          <div class="form-group">
+            <input type="text" formControlName="name" class="from-name form-control" id="contactName" name="name"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="{{carDetails[0].brand}} {{carDetails[0].model}}" disabled /><i class="fas fa-car"></i>
+          </div>
 
           <!-- Name input-->
           <div class="form-group">
@@ -279,8 +286,9 @@
       <button (click)="showDialog = !showDialog; close()" class="btn-close">×</button>
       <div class="thank-you-pop">
         <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
-          <h1>{{carDetails[0].year}} {{carDetails[0].brand}} {{carDetails[0].model}}</h1>
-          <p>Has been added to your cart</p>
+        <!-- <img src="../../assets/addedToCart.png" alt=""> -->
+          <h1>{{carDetails[0].brand}} {{carDetails[0].model}} {{carDetails[0].year}} </h1>
+          <p>has been added to your cart</p>
       </div>
     </div>
   </app-dialog>

@@ -4,6 +4,7 @@ import { AuthenticationService } from '../_services';
 import { AuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { CartService } from '../services/cart.service';
+import { CarItem } from 'src/entities/car-item.entity';
 
 @Component({
   selector: 'app-nav',
@@ -22,6 +23,8 @@ export class NavComponent implements OnInit {
   private quantity: any;
   resetQuantity: any = 0;
   private totalQuantity: number;
+  private items: CarItem[] = [];
+  private total: number = 0;
 
   constructor(
     private router: Router,
@@ -34,6 +37,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.items =  this.cartService.items;
     // document.getElementsByClassName('has-badge')[0].setAttribute('data-count', this.quantity);
     var myNav = document.getElementById("bs-example-navbar-collapse-1");
     var menu = myNav.getElementsByClassName("nav-link");
@@ -44,7 +48,7 @@ export class NavComponent implements OnInit {
         this.className += "active";
       }); }
     this.totalQuantity=this.cartService.totalQuantity;
-    
+
     this.cartService.Quantity.subscribe(quantity => this.quantity = quantity);
   }
   
@@ -53,6 +57,10 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('cart');
     localStorage.setItem('quantity', JSON.stringify(this.resetQuantity));
     this.cartService.getQuantity(this.cartService.totalQuantity = 0);
+
+    this.cartService.clearCart();
+    this.items =  this.cartService.items;
+    this.cartService.total = 0;
   }
 
   logout() {
@@ -61,6 +69,10 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('cart');
     localStorage.setItem('quantity', JSON.stringify(this.resetQuantity));
     this.cartService.getQuantity(this.cartService.totalQuantity = 0);
+
+    this.cartService.clearCart();
+    this.items =  this.cartService.items;
+    this.cartService.total = 0;
   }
 
   navigate() {

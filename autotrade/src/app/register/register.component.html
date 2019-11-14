@@ -18,65 +18,10 @@ data-aos-offset="5">
                         <p>Fill in the form below to get instant access:</p>
                     </div>
                     <div class="form-top-right">
-                        <i class="fa fa-pencil"></i>
+                        <i class="fas fa-user-plus"></i>
                     </div>
                 </div>
-                <div class="form-bottom">
-                    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                        <div class="form-group">
-                            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name..." required /><i class="fas fa-user"></i>
-                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                                <div *ngIf="f.name.errors.required">*Name is required</div>
-                                <div *ngIf="f.name.errors.pattern">*Name is not valid</div>
-                            </div>
-                        </div>
-                        <!-- <div class="form-group">
-                            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Last Name..." required /><i class="fas fa-user"></i>
-                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                                <div *ngIf="f.lastName.errors.required">*Last Name is required</div>
-                            </div>
-                        </div> -->
-                        <div class="form-group">
-                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username..." required /><i class="fas fa-user"></i>
-                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                                <div *ngIf="f.username.errors.required">*Username is required</div>
-                                <div *ngIf="f.username.errors.pattern">*Username is not valid</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email..." required /><i class="fas fa-envelope"></i>
-                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                    <div *ngIf="f.email.errors.required">*Email is required</div>
-                                    <div *ngIf="f.email.errors.email">*Email must be a valid email address</div>
-                                </div>
-                            </div>
-                        <div class="form-group">
-                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password..." minlength="6" /><i class="fas fa-key"></i>
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                <div *ngIf="f.password.errors.required">*Password is required</div>
-                                <div *ngIf="f.password.errors.pattern">*Password should contain an upper Case, lower case and a character</div>
-                                <div *ngIf="f.password.errors.minlength">*Password must be at least 6 characters</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" placeholder="confirmPassword..."/><i class="fas fa-key"></i>
-                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                                <div *ngIf="f.confirmPassword.errors.required">*Password is required</div>
-                                <div *ngIf="f.confirmPassword.errors.mustMatch">*Passwords must match</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button [disabled]="loading" class="btn btn-primary">
-                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                                Register
-                            </button>
-                        </div>
-                    </form>
-                </div>
             </div>
-      
-      
         </div>
     </div>
 </div>

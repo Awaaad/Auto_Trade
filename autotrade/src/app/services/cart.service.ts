@@ -54,6 +54,11 @@ export class CartService {
     // window.location.reload();
   }
 
+  clearCart(){
+    this.items = [];
+    localStorage.removeItem('cart');
+  }
+
   public getQuantity(totalQuantity){
     this.Quantity.next(totalQuantity);
   }

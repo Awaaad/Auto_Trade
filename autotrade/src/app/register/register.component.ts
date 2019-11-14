@@ -43,8 +43,6 @@ export class RegisterComponent implements OnInit {
         validator: MustMatch('password', 'confirmPassword')
     });
     AOS.init();
-
-
   }
 
   
@@ -76,7 +74,6 @@ export class RegisterComponent implements OnInit {
               });
           });
   }
-
 }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { CarItem } from '../../entities/car-item.entity';
 import { CarDetails, DetailsService  } from '../inventory/details/details.service';
 import { ProductService } from '../services/product.services';
@@ -26,6 +26,7 @@ export class CartComponent implements OnInit{
     private productService: ProductService,
     private detailsService: DetailsService,
     private cartService: CartService,
+    private router: Router,
   ) { }
 
     ngOnInit() {
@@ -48,10 +49,15 @@ export class CartComponent implements OnInit{
       this.items = this.items.filter(element => {
         return element.product.id !== id;
       })
+
     }
 
     performCheckout(){
         this.checkout = !this.checkout;
+    }
+
+    onClick(id: number) {
+      this.router.navigate(['/car-details', id]);
     }
  
 

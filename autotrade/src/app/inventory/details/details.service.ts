@@ -140,7 +140,7 @@ export class DetailsService {
       mileage: '13.00 km/liter',
       fuel: 'Diesel',
       year: '2018',
-      price: 10000000,
+      price: 9000000,
       type: 'Sport',
       transmission: 'Automatic',
       carImage: '../../../assets/Ford Mustang/Main.jpg',

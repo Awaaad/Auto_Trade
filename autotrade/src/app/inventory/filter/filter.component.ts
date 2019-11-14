@@ -35,7 +35,11 @@ export class FilterComponent implements OnInit, OnDestroy {
     { name: 'BMW', value: 'BMW', checked: false },
     { name: 'Honda', value: 'Honda', checked: false },
     { name: 'Ford', value: 'Ford', checked: false },
-    { name: 'Hyundai', value: 'Hyundai', checked: false }
+    { name: 'Hyundai', value: 'Hyundai', checked: false },
+    { name: 'Jeep', value: 'Jeep', checked: false },
+    { name: 'Volkswagen', value: 'Volkswagen', checked: false },
+    { name: 'Chevrolet', value: 'Chevrolet', checked: false },
+    { name: 'Audi', value: 'Audi', checked: false }
   ];
 
   public yearOptions = [

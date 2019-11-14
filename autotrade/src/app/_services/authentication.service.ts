@@ -53,13 +53,12 @@ export class AuthenticationService {
             else {
                 this.router.navigateByUrl('/login');
             }
-
             // console.log(this.user);
         });
     }
 
     logoutSocial() {
-        this.authService.signOut();
+        // this.authService.signOut();
         localStorage.removeItem('currentSocialUser');
         this.currentUserSocialSubject.next(null);
     }

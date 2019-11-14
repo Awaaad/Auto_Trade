@@ -276,6 +276,11 @@ img {
   color: #343a40;
 }
 
+.continue-shopping:focus,
+.like:focus{
+  outline: none;
+}
+
 //#343a40;
 
 .not-available {
@@ -521,7 +526,7 @@ ul.shipping-pro {
   position: absolute;
   left: 0;
   top: 10px;
-  padding-left: 30px;
+  padding-left: 22px;
   color: #343a40;
   transition: 0.3s;
   font-size: 20px;
@@ -552,7 +557,7 @@ ul.shipping-pro {
 }
 
 .form-control {
-  width: 90%;
+  width: 94%;
   margin: 0 auto;
   padding: 18px 12px;
 }
@@ -816,6 +821,65 @@ form.calculate-loan {
 
 .btn.calcBtn:focus {
   outline: none;
+}
+
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+  margin-bottom: 0;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+label{
+  font-weight: 900;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+@media only screen and (max-width: 990px) {
+  .form-control{
+    width: 97%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .form-control{
+    width: 90%;
+  }
 }
 
 @media only screen and (min-width: 500px) {

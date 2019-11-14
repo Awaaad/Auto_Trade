@@ -14,7 +14,7 @@
     <tbody>
       <tr *ngFor="let item of items">
         <td scope="row" data-label="Product">{{item.product.brand}} {{item.product.model}}</td>
-        <td class="hidden-xs" data-label="Image"><img [src]="item.product.carImage" class="img-responsive" /></td>
+        <td class="hidden-xs" data-label="Image"><img (click)="onClick(item.product.id)" [src]="item.product.carImage" class="img-responsive" /></td>
         <td data-label="Price">Rs {{item.product.price}}</td>
         <td data-label="Quantity">{{item.quantity}}</td>
         <td data-label="Subtotal">Rs {{item.product.price * item.quantity}}</td>
@@ -43,7 +43,7 @@
 <div class="container-emptyCart mtop" *ngIf="total == 0" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="1" data-aos-offset="1">
   <div class="wrapper-emptyCart">
     <h2>SHOPPING CART IS EMPTY</h2>
-    <img src='../../assets/EmptyCart3.jpg'>
+    <img src='../../assets/cart.png'>
     <h2>PLEASE CLICK <a routerLink="/inventory">HERE</a> TO CONTINUE SHOPPING</h2>
   </div>
 </div>
@@ -53,4 +53,3 @@
     <ngx-paypal [config]="payPalConfig"></ngx-paypal>
   </div>
 </div>
-
